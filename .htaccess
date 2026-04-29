@@ -1,0 +1,11 @@
+#Permet de tout rediriger vers index.php
+RewriteEngine On
+
+# On ignore les fichiers existants
+RewriteCond %{REQUEST_FILENAME} !-f 
+
+# On ignore les dossiers existants
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Tout passe par index.php
+RewriteRule ^ index.php [L]
