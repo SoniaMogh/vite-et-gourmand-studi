@@ -16,11 +16,89 @@ $page = get_page();
   </head>
   <body>
     <header>
+      <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a href="<?= BASE_URL ?>/">
+            <img src="<?= BASE_URL ?>/assets/pictures/logo-light.png" class="logo-size" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link " href="<?= BASE_URL ?>/">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="<?= BASE_URL ?>/cartes">Carte des menus</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="<?= BASE_URL ?>/contact">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?= BASE_URL ?>/mon-compte">Mon compte</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">S'inscrire</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Se connecter</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
-  <main>
-    <?php require $page; ?>
-  </main>
-  <footer></footer>
+    <main id="main-page">
+      <?php require $page; ?>
+    </main>
+    <footer class="bg-dark text-white text-center footer">
+      <div class="row">
+        <div class="col-6 col-md-4">
+          <h2>Acces/Contact</h2>
+          <p>
+            12 rue de l’avenue </br>
+            33000 Bordeaux</br></br>
+            Si vous avez une question</br>
+            <a href="<?= BASE_URL ?>/contact"> contactez nous </a>
+          </p>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2>Horaire</h2>
+          <p>
+            Du lundi au samedi <br />
+            12h00 – 16h00<br />
+            19h00 – 00h00<br />
+          </p>
+          <p>
+            Dimanche <br />
+            12h00 – 16h00<br />
+          </p>
+        </div>
+        <div class="col-12 col-md-4">
+          <h2>A Propos</h2>
+          <p>
+            <a href="<?= BASE_URL ?>/contact"> notre equipe </a><br />
+            <a href="<?= BASE_URL ?>/contact"> galerie </a><br />
+            <a href="<?= BASE_URL ?>/contact"> mentions légales </a><br />
+            <a href="<?= BASE_URL ?>/contact"> conditions de vente </a>
+          </p>
+        </div>
+        <hr>
+        <div class="col-12">
+          <p class="copyright">© 2026 - Vite & Gourmand | Tous droits réservés</p>
+        </div>
+      </div>
+    </footer>
     <script type="module" src="./Router/router.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
