@@ -1,0 +1,15 @@
+//Color variable overrides
+$primary: #4f772d;
+$secondary: #90a955;
+$dark: #193819;
+$black: #0d1c0d;
+$light: #ecf39e;
+
+// Custom variables
+$font-headline: "Poppins", sans-serif;
+$font-subheadline: Verdana, sans-serif;
+
+// Override Bootstrap
+$font-family-base: Arial, sans-serif;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
