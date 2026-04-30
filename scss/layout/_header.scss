@@ -1,0 +1,20 @@
+.logo-size {
+    width: 60px !important;
+    height: 60px !important;
+    margin: 0 8px;
+}
+
+.navbar a {
+    color: white;
+    font-size: 16px;
+    font-variant: small-caps;
+}
+
+a.nav-link:hover {
+  color: $light;
+  text-decoration: underline;
+}
+
+nav.navbar {
+    padding: 0 10px;
+}

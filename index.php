@@ -95,7 +95,7 @@ $page = get_page();
         </div>
         <hr>
         <div class="col-12">
-          <p class="copyright">© 2026 - Vite & Gourmand | Tous droits réservés</p>
+          <p class="copyright">&copy; 2026 - Vite & Gourmand | Tous droits réservés</p>
         </div>
       </div>
     </footer>
