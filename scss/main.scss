@@ -1,6 +1,10 @@
 @import url("/node_modules/bootstrap-icons/font/bootstrap-icons.css");
 @import "custom";
 
+#main-page {
+  margin-bottom: 290px;
+}
+
 h1 {
   font-family: $font-headline;
   font-size: 36px;

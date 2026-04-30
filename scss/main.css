@@ -11980,6 +11980,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+#main-page {
+  margin-bottom: 290px;
+}
+
 h1, .h1 {
   font-family: "Poppins", sans-serif;
   font-size: 36px;
