@@ -1,2 +1,12 @@
 @import url("/node_modules/bootstrap-icons/font/bootstrap-icons.css");
 @import "custom";
+
+h1 {
+  font-family: $font-headline;
+  font-size: 36;
+}
+
+h2 {
+  font-family: $font-subheadline;
+  font-size: 26;
+}
