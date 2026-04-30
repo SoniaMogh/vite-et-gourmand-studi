@@ -10,6 +10,7 @@ $page = get_page();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="scss/main.css" />
     <title>Vite Et Gourmand</title>
   </head>
   <body>
@@ -19,6 +20,8 @@ $page = get_page();
     <?php require $page; ?>
   </main>
   <footer></footer>
+    <script type="module" src="./Router/router.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
 
