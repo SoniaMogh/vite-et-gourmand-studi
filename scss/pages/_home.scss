@@ -1,0 +1,71 @@
+html, body {
+  min-height: 100%;
+}
+
+// --------------------------------BIGTITLE-----------------------------------
+.bigtitle-title{
+    color: white;
+}
+
+.logo-size {
+    width: 360px;
+    height: 250px;
+}
+
+.bigtitle {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/pictures/homepage-bigtitle.jpg);
+    background-size: cover;
+    filter: brightness(0.5);
+    background-position: 50% 20%;
+  }
+
+  * {
+    //Positionner les éléments devant le ::before
+    position: relative;
+  }
+
+  .bigtitle-content {
+    height: 626px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+// -------------------------------FIRST ARTICLE----------------------
+
+// Style du bouton
+.button {
+  font-family: $font-family-base;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 50px;
+  padding: 10px;
+}
+
+
+@media (max-width: 768px) {
+  article p {
+    text-align: justify;
+    margin-top: 2rem;
+  }
+  .layout-sm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

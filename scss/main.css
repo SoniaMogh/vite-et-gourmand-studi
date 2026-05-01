@@ -11980,7 +11980,7 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.logo-size {
+.logo-size-header {
   width: 60px !important;
   height: 60px !important;
   margin: 0 8px;
@@ -12003,8 +12003,7 @@ nav.navbar {
 
 footer.footer {
   padding: 25px 15px;
-  position: absolute;
-  bottom: 0;
+  position: static;
   width: 100%;
 }
 
@@ -12040,16 +12039,89 @@ footer hr {
   margin-bottom: 0;
 }
 
+#page-404 {
+  text-align: center;
+  align-content: center;
+  height: 55vh;
+}
+
+#page-404 p {
+  color: #4f772d;
+}
+
 html, body {
   min-height: 100%;
 }
 
-html {
+.bigtitle-title {
+  color: white;
+}
+
+.logo-size {
+  width: 360px;
+  height: 250px;
+}
+
+.bigtitle {
   position: relative;
+}
+.bigtitle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/pictures/homepage-bigtitle.jpg);
+  background-size: cover;
+  filter: brightness(0.5);
+  background-position: 50% 20%;
+}
+.bigtitle * {
+  position: relative;
+}
+.bigtitle .bigtitle-content {
+  height: 626px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 50px;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  article p {
+    text-align: justify;
+    margin-top: 2rem;
+  }
+  .layout-sm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+html, body {
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 #main-page {
-  padding-bottom: 290px;
+  flex: 1;
 }
 
 h1, .h1 {
@@ -12061,14 +12133,4 @@ h1, .h1 {
 h2, .h2 {
   font-family: Verdana, sans-serif;
   font-size: 24px;
-}
-
-#page-404 {
-  text-align: center;
-  align-content: center;
-  height: 55vh;
-}
-
-#page-404 p {
-  color: #4f772d;
 }/*# sourceMappingURL=main.css.map */

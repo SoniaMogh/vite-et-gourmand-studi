@@ -5,17 +5,22 @@
 @import "layout/header";
 @import "layout/footer";
 
-
+//-------------------------- PAGE STYLE ----------------------------
+@import "pages/404";
+@import "pages/home";
 
 html, body {
   min-height: 100%;
 }
 
-html {
-  position: relative;
+body {
+  display: flex;
+  flex-direction: column;
 }
+
+// Prend toute la place disponible dans le conteneur
 #main-page {
-  padding-bottom: 290px;
+  flex: 1;
 }
 
 h1 {
@@ -28,6 +33,3 @@ h2 {
   font-family: $font-subheadline;
   font-size: 24px;
 }
-
-//-------------------------- PAGE STYLE ----------------------------
-@import "pages/404";

@@ -19,7 +19,7 @@ $page = get_page();
       <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
           <a href="<?= BASE_URL ?>/">
-            <img src="<?= BASE_URL ?>/assets/pictures/logo-light.png" class="logo-size" />
+            <img src="<?= BASE_URL ?>/assets/pictures/logo-light.png" class="logo-size-header" />
           </a>
           <button
             class="navbar-toggler"
