@@ -12106,13 +12106,106 @@ html, body {
     text-align: justify;
     margin-top: 2rem;
   }
-  .layout-sm {
+  .button-layout-sm {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
   }
 }
+.key-point-part-bg {
+  position: relative;
+}
+.key-point-part-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url(../assets/pictures/table.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 30% 64%;
+  filter: brightness(0.8);
+}
+.key-point-part-bg > * {
+  position: relative;
+}
+.key-point-part-bg .key-point-title-color {
+  color: #ecf39e;
+}
+.key-point-part-bg h2 span, .key-point-part-bg .h2 span {
+  position: absolute;
+}
+.key-point-part-bg .img-card {
+  position: relative;
+  overflow: hidden;
+}
+.key-point-part-bg .img-card img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4/5;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: brightness(0.3);
+}
+.key-point-part-bg .img-card-content {
+  /* Explication de la position absolute:
+  2 voitures sur une route ne peuvent pas être l'une sur l'autre parce qu'elles sont relatives
+  mais un avion peut être au dessus d'une voiture, il est absolue, rien ne peux le toucher
+  */
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+.key-point-part-bg .img-card-title {
+  margin: 0;
+  transform: translateY(3rem);
+  transition: 0.4s;
+}
+.key-point-part-bg .img-card-text-hover {
+  opacity: 0;
+  margin: 0;
+  margin-top: 1rem;
+  transform: translateY(2.5rem);
+  transition: 0.4s;
+}
+.key-point-part-bg .img-card:hover .img-card-title {
+  transform: translateY(0);
+}
+.key-point-part-bg .img-card:hover .img-card-text-hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 1200px) {
+  .key-point-part-bg::before {
+    background-position: 30% 66%;
+  }
+}
+@media (max-width: 992px) {
+  .key-point-part-bg::before {
+    background-position: 30% 69%;
+  }
+}
+@media (max-width: 768px) {
+  .key-point-part-bg::before {
+    background-image: none;
+    background-color: #ecf39e;
+    opacity: 0.3;
+    filter: none;
+  }
+  .key-point-part-bg .key-point-title-color {
+    color: #4f772d !important;
+  }
+}
+
+.mt-6 {
+  margin-top: 8rem !important;
+}
+
 .article-type-event {
   line-height: 1.3;
 }
@@ -12164,4 +12257,9 @@ h1, .h1 {
 h2, .h2 {
   font-family: Verdana, sans-serif;
   font-size: 24px;
+}
+
+h3, .h3 {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
 }/*# sourceMappingURL=main.css.map */
