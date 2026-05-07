@@ -1,3 +1,44 @@
+<?php
+  $reviewInfos = [
+    [
+      "name" => "Jade Jatsky", 
+      "date" => "Il y a 2 mois", 
+      "img" => "https://randomuser.me/api/portraits/men/3.jpg", 
+      "review" => "J'ai fais confiance à Vite & Gourmand pour mon mariage. J'ai demandé s'il était possibl..."
+    ],
+    [
+      "name" => "James Jungle", 
+      "date" => "Il y a 4 mois", 
+      "img" => "https://randomuser.me/api/portraits/men/3.jpg", 
+      "review" => "J'ai plusieurs fois eu recours à ce traiteur pour des soirées d'entreprise, je n'ai jamais enc..."
+    ],
+    [
+      "name" => "Jun Joussop", 
+      "date" => "Il y a 1 an", 
+      "img" => "https://randomuser.me/api/portraits/men/3.jpg", 
+      "review" => "Très bon."
+    ],
+          [
+      "name" => "Jun Joussop", 
+      "date" => "Il y a 1 an", 
+      "img" => "https://randomuser.me/api/portraits/men/3.jpg", 
+      "review" => "Très bon."
+    ],
+    [
+      "name" => "James Jungle", 
+      "date" => "Il y a 4 mois", 
+      "img" => "https://randomuser.me/api/portraits/men/3.jpg", 
+      "review" => "J'ai plusieurs fois eu recours à ce traiteur pour des soirées d'entreprise, je n'ai jamais enc..."
+    ],
+    [
+      "name" => "James Jungle", 
+      "date" => "Il y a 4 mois", 
+      "img" => "https://randomuser.me/api/portraits/men/3.jpg", 
+      "review" => "J'ai plusieurs fois eu recours à ce traiteur pour des soirées d'entreprise, je n'ai jamais enc..."
+    ]
+  ];
+?>
+
 <div>
   <div class="bigtitle text-center text-white">
     <div class="bigtitle-content">
@@ -8,6 +49,7 @@
       </h1>
     </div>
   </div>
+
   <article id="welcome-info-part">
     <div class="container py-5">
       <div class="row align-items-center">
@@ -34,8 +76,6 @@
       </div>
     </div>
   </article>
-
-
 
   <article class="key-point-part-bg" id="key-point-part">
     <div class="container py-5">
@@ -121,6 +161,65 @@
 
         <div class="col-12 button-type-event-layout">          
           <a href="<?= BASE_URL ?>/contact" class="btn btn-primary button">Contact</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="review-part-bg" id="review-part">
+    <div class="container py-5">
+      <div class="row align-items-center justify-content-evenly">
+        <div class="col-12 text-center article-type-event m-0">
+          <h1 class="text-light m-0">Nos avis clients</h1>
+          <h5 class="text-light mb-5">Ils nous ont testé, pourquoi pas vous ?</h5>
+        </div>
+
+        <div id="review-carousel" class="carousel align-items-center">
+          <div class="carousel-inner">
+            <?php foreach ($reviewInfos as $index => $review): ?>
+              <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
+                  <div class="card rounded">
+                      <div class="card-body">
+
+                        <div class="row align-items-center">
+                          <img src="<?= $review['img'] ?>"
+                              class="rounded-circle mb-3 w-25 h-25 col-6"
+                              alt="Client Avatar">
+                          <div class="col-6">
+                            <h5 class="card-title m-0"><?= $review['name'] ?></h5>
+                            <p class="card-text text-muted m-0"><?= $review['date'] ?></p>
+                          </div>
+                        </div>
+
+                        <div class="text-warning mb-2">
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                        </div>
+
+                        <p class="card-text clamp-text" id="review-<?= $index ?>">
+                          <?= htmlspecialchars($review['review']) ?>
+                        </p>
+
+                        <button class="card-text text-muted btn p-0 m-0 toggle-review-card-btn" onclick="toggleText(<?= $index ?>)">
+                          Voir plus
+                        </button>
+
+                      </div>
+                  </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#review-carousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#review-carousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
     </div>
