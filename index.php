@@ -16,10 +16,10 @@ $page = get_page();
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+      <nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
           <a href="<?= BASE_URL ?>/">
-            <img src="<?= BASE_URL ?>/assets/pictures/logo-light.png" class="logo-size" />
+            <img src="<?= BASE_URL ?>/assets/pictures/logo-light.png" class="logo-size-header" />
           </a>
           <button
             class="navbar-toggler"
@@ -33,7 +33,7 @@ $page = get_page();
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-md-0">
               <li class="nav-item">
                 <a class="nav-link " href="<?= BASE_URL ?>/">Accueil</a>
               </li>
@@ -99,8 +99,10 @@ $page = get_page();
         </div>
       </div>
     </footer>
-    <script type="module" src="./Router/router.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./pages/home.js"></script>
+    <script type="module" src="./Router/router.js"></script>
+
   </body>
 </html>
 
