@@ -176,12 +176,19 @@ html, body {
     .key-point-title-color {
       color: $primary !important;
     }
+
+    .img-card img {
+      margin-bottom: 1rem;
+    }
   }
 }
 
-.mt-6 {
-  margin-top: 8rem !important;
+@media (min-width: 768px) {
+  .mt-6 {
+    margin-top: 8rem !important;
+  }
 }
+
 
 
 //---------------------------------- THIRD ARTICLE------------------------------

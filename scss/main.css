@@ -12200,12 +12200,16 @@ html, body {
   .key-point-part-bg .key-point-title-color {
     color: #4f772d !important;
   }
+  .key-point-part-bg .img-card img {
+    margin-bottom: 1rem;
+  }
 }
 
-.mt-6 {
-  margin-top: 8rem !important;
+@media (min-width: 768px) {
+  .mt-6 {
+    margin-top: 8rem !important;
+  }
 }
-
 .article-type-event {
   line-height: 1.3;
 }

@@ -130,7 +130,7 @@
           </div>
         </div>
 
-        <div class="col-12 button-type-event-layout mt-6">          
+        <div class="col-12 button-type-event-layout mt-6 mt-md-2">          
           <a href="<?= BASE_URL ?>/" class="btn btn-primary button">Réserver</a>
         </div>
 
