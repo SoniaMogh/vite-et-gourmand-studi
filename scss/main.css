@@ -12052,7 +12052,8 @@ footer hr {
   color: #4f772d;
 }
 
-html, body {
+html,
+body {
   min-height: 100%;
 }
 
@@ -12060,7 +12061,7 @@ html, body {
   color: white;
 }
 
-.logo-size {
+.bigtitle-logo-size {
   width: 360px;
   height: 250px;
 }
@@ -12089,6 +12090,10 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#welcome-info-part {
+  background-color: white;
 }
 
 .button {
@@ -12312,7 +12317,64 @@ html, body {
   overflow: hidden;
 }
 
-html, body {
+.bigtitle-contact-content {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#contact-part label {
+  display: block;
+}
+
+#contact-part {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+#contact-part::before {
+  content: "";
+  inset: 0;
+}
+#contact-part > * {
+  position: relative;
+}
+
+.card {
+  border: none;
+}
+
+@media (min-width: 992px) {
+  .mx-md-6 {
+    margin-left: 10rem !important;
+    margin-right: 10rem !important;
+  }
+}
+@media (max-width: 576px) {
+  .mx-md-6 {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+}
+#messageSent-page {
+  min-height: 100%;
+  display: flex !important;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#messageSent-page p {
+  color: #4f772d;
+}
+
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -12323,7 +12385,17 @@ body {
 }
 
 #main-page {
+  position: relative;
   flex: 1;
+}
+#main-page::before {
+  content: "";
+  inset: 0;
+  background-color: #dee5cc;
+  position: absolute;
+}
+#main-page > * {
+  position: relative;
 }
 
 h1, .h1 {
@@ -12340,4 +12412,38 @@ h2, .h2 {
 h3, .h3 {
   font-family: Arial, sans-serif;
   font-size: 20px;
+}
+
+.form-logo-size {
+  width: 100px;
+  height: 100px;
+}
+
+.form-display {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.form-display label {
+  color: #4f772d;
+}
+
+.form-display input,
+.form-display textarea {
+  border-radius: 5px;
+  border: 1px solid #90a955;
+  margin-bottom: 20px;
+}
+.form-display input::-moz-placeholder, .form-display textarea::-moz-placeholder {
+  color: #4f772d;
+  opacity: 0.8;
+  font-size: 16px;
+}
+.form-display input::placeholder,
+.form-display textarea::placeholder {
+  color: #4f772d;
+  opacity: 0.8;
+  font-size: 16px;
 }/*# sourceMappingURL=main.css.map */

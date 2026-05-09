@@ -42,7 +42,7 @@
 <div>
   <div class="bigtitle text-center text-white">
     <div class="bigtitle-content">
-      <img src="<?= BASE_URL ?>/assets/pictures/logo-white.png" alt="logo-v-et-g" class="logo-size">
+      <img src="<?= BASE_URL ?>/assets/pictures/logo-white.png" alt="logo-v-et-g" class="bigtitle-logo-size">
       <h1 class="bigtitle-title">
           Des plats qui rassemblent,</br>
           des moments qui comptent
@@ -71,7 +71,7 @@
             grâce à des menus variés et en constante évolution.
           </p>
           
-          <a href="<?= BASE_URL ?>/" class="btn btn-primary button">Réserver</a>
+          <a href="<?= BASE_URL ?>/contact" class="btn btn-primary button">Nous contacter</a>
         </div>
       </div>
     </div>

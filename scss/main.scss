@@ -1,15 +1,16 @@
-@import url("../node_modules/bootstrap-icons/font/bootstrap-icons.css");
-@import "custom";
+@import url('../node_modules/bootstrap-icons/font/bootstrap-icons.css');
+@import 'custom';
 
-
-@import "layout/header";
-@import "layout/footer";
+@import 'layout/header';
+@import 'layout/footer';
 
 //-------------------------- PAGE STYLE ----------------------------
-@import "pages/404";
-@import "pages/home";
+@import 'pages/404';
+@import 'pages/home';
+@import 'pages/contact';
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -21,7 +22,18 @@ body {
 
 // Prend toute la place disponible dans le conteneur
 #main-page {
+  position: relative;
   flex: 1;
+  &::before {
+    content: '';
+    inset: 0;
+    background-color: #dee5cc;
+    position: absolute;
+  }
+
+  > * {
+    position: relative;
+  }
 }
 
 h1 {
@@ -38,4 +50,33 @@ h2 {
 h3 {
   font-family: $font-family-base;
   font-size: 20px;
+}
+
+.form-logo-size {
+  width: 100px;
+  height: 100px;
+}
+
+.form-display {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.form-display label {
+  color: $primary;
+}
+
+.form-display input,
+.form-display textarea {
+  border-radius: 5px;
+  border: 1px solid $secondary;
+  margin-bottom: 20px;
+
+  &::placeholder {
+    color: $primary;
+    opacity: 0.8;
+    font-size: 16px;
+  }
 }
