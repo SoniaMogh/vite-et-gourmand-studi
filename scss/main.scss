@@ -22,7 +22,18 @@ body {
 
 // Prend toute la place disponible dans le conteneur
 #main-page {
+  position: relative;
   flex: 1;
+  &::before {
+    content: '';
+    inset: 0;
+    background-color: #dee5cc;
+    position: absolute;
+  }
+
+  > * {
+    position: relative;
+  }
 }
 
 h1 {

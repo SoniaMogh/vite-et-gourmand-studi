@@ -12052,7 +12052,8 @@ footer hr {
   color: #4f772d;
 }
 
-html, body {
+html,
+body {
   min-height: 100%;
 }
 
@@ -12089,6 +12090,10 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#welcome-info-part {
+  background-color: white;
 }
 
 .button {
@@ -12333,16 +12338,13 @@ html, body {
 #contact-part::before {
   content: "";
   inset: 0;
-  position: absolute;
-  opacity: 0.25;
-  background-color: #ecf39e;
 }
 #contact-part > * {
   position: relative;
 }
-#contact-part {
-  display: flex;
-  justify-content: center;
+
+.card {
+  border: none;
 }
 
 @media (min-width: 992px) {
@@ -12383,7 +12385,17 @@ body {
 }
 
 #main-page {
+  position: relative;
   flex: 1;
+}
+#main-page::before {
+  content: "";
+  inset: 0;
+  background-color: #dee5cc;
+  position: absolute;
+}
+#main-page > * {
+  position: relative;
 }
 
 h1, .h1 {

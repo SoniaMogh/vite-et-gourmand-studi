@@ -1,21 +1,22 @@
-html, body {
+html,
+body {
   min-height: 100%;
 }
 
 // --------------------------------BIGTITLE-----------------------------------
-.bigtitle-title{
-    color: white;
+.bigtitle-title {
+  color: white;
 }
 
 .bigtitle-logo-size {
-    width: 360px;
-    height: 250px;
+  width: 360px;
+  height: 250px;
 }
 
 .bigtitle {
   position: relative;
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -41,8 +42,11 @@ html, body {
   }
 }
 
-
 // -------------------------------FIRST ARTICLE---------------------------
+
+#welcome-info-part {
+  background-color: white;
+}
 
 // Style du bouton
 .button {
@@ -54,7 +58,6 @@ html, body {
   width: 180px;
   height: 40px;
 }
-
 
 @media (max-width: 768px) {
   #welcome-info-part p {
@@ -68,14 +71,13 @@ html, body {
   }
 }
 
-
 //------------------------------------------ SECOND ARTICLE ----------------------------------------
 
 .key-point-part-bg {
   position: relative;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
 
@@ -144,9 +146,8 @@ html, body {
       transform: translateY(2.5rem);
       transition: 0.4s;
     }
-
   }
-  
+
   //Mouvement
   .img-card:hover .img-card-title {
     transform: translateY(0);
@@ -158,11 +159,15 @@ html, body {
   }
 
   @media (max-width: 1200px) {
-    &::before { background-position: 30% 66%; }
+    &::before {
+      background-position: 30% 66%;
+    }
   }
 
   @media (max-width: 992px) {
-    &::before { background-position: 30% 69%; }
+    &::before {
+      background-position: 30% 69%;
+    }
   }
 
   @media (max-width: 768px) {
@@ -189,11 +194,9 @@ html, body {
   }
 }
 
-
-
 //---------------------------------- THIRD ARTICLE------------------------------
 
-.article-type-event{
+.article-type-event {
   line-height: 1.3;
 }
 
@@ -206,7 +209,7 @@ html, body {
 
 .img-same {
   width: 100%;
-  aspect-ratio: 5 / 3;   // même ratio pour les 2
+  aspect-ratio: 5 / 3; // même ratio pour les 2
   object-fit: cover;
 }
 
@@ -221,14 +224,13 @@ html, body {
   }
 }
 
-
 //------------------------------------------ FOURTH ARTICLE ----------------------------------------
 
 .review-part-bg {
   position: relative;
   // Création d'une couche indépendants par dessus toute la section
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
 
@@ -283,14 +285,14 @@ html, body {
   }
 
   .card .img-wrapper {
-      max-width: 100%;
-      height: 13em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    max-width: 100%;
+    height: 13em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .card img {
-      max-height: 100%;
+    max-height: 100%;
   }
   @media (max-width: 767px) {
     .card .img-wrapper {
@@ -305,4 +307,3 @@ html, body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
