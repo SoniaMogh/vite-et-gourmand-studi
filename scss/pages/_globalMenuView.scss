@@ -7,14 +7,18 @@
 
 // ----------------------------------GLOBAL VIEW-----------------------------------
 
-.card-corner {
-  border-radius: 20px;
+@media (min-width: 992px) {
+  .menu-card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
 }
 
-@media (min-width: 992px) {
-  .global-view-card {
-    width: 500px;
-    height: 440px;
+@media (max-width: 992px) {
+  .menu-card-wrapper {
+    display: grid;
+    gap: 30px;
   }
 }
 
@@ -33,14 +37,36 @@
   border-radius: 20px 20px 0 0;
 }
 
-.text-left {
+.menu-info-text {
+  flex: 1;
+}
+
+.menu-info-price {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
+@media (max-width: 576px) {
+  .display-info-menu {
+    flex-direction: column;
+  }
+
+  .forced-in-div {
+    aspect-ratio: 14/9;
+  }
+
+  .menu-info-price {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+  }
+}
+
 //-----------------------------BUTTONS-----------------------------------
+
 #menus a {
   font-family: $font-family-base;
   font-size: 16px;

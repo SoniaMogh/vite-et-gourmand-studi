@@ -12346,14 +12346,17 @@ body {
   background-image: url(../assets/pictures/event-meal.jpg);
 }
 
-.card-corner {
-  border-radius: 20px;
-}
-
 @media (min-width: 992px) {
-  .global-view-card {
-    width: 500px;
-    height: 440px;
+  .menu-card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+@media (max-width: 992px) {
+  .menu-card-wrapper {
+    display: grid;
+    gap: 30px;
   }
 }
 .display-info-menu {
@@ -12370,13 +12373,31 @@ body {
   border-radius: 20px 20px 0 0;
 }
 
-.text-left {
+.menu-info-text {
+  flex: 1;
+}
+
+.menu-info-price {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
+@media (max-width: 576px) {
+  .display-info-menu {
+    flex-direction: column;
+  }
+  .forced-in-div {
+    aspect-ratio: 14/9;
+  }
+  .menu-info-price {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+  }
+}
 #menus a {
   font-family: Arial, sans-serif;
   font-size: 16px;
@@ -12426,6 +12447,15 @@ h2, .h2 {
 h3, .h3 {
   font-family: Arial, sans-serif;
   font-size: 20px;
+}
+
+.py-6 {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+
+.card-corner {
+  border-radius: 20px;
 }
 
 .bigtitle-title {
