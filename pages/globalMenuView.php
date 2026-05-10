@@ -7,8 +7,8 @@
 
   <div id="global-view-filter">
     <div class="container py-5 px-5">
-      <div class="bg-white card-corner p-4">
-        <div class="col-2 form-display">
+      <div class="row bg-white card-corner p-4">
+        <div class="form-display col">
           <label for="theme">Theme</label>
           <select
             name="theme"
@@ -23,6 +23,50 @@
             <option value="Gastronomique">Gastronomique</option>
             <option value="Saison">Saison</option>
           </select>
+        </div>
+        <div class="form-display col">
+          <label for="regime">Régime</label>
+          <select
+            name="regime"
+            id="regime"
+            placeholder="tout"
+            class="w-100 form-control"
+          >
+            <option value="Classique">Classique</option>
+            <option value="Vegetarien">Végétarien</option>
+            <option value="Vegan">Végan</option>
+            <option value="Sans-fruit-de-mer">Sans fruit de mer</option>
+          </select>
+        </div>
+        <div class="form-display col">
+          <label for="min-price">Prix minimum</label>
+          <input
+            name="min-price"
+            id="min-price"
+            placeholder="Ex: 25"
+            class="w-100 form-control"
+          >
+          </input>
+        </div>
+        <div class="form-display col">
+          <label for="max-price">Prix maximum</label>
+          <input
+            name="max-price"
+            id="max-price"
+            placeholder="Ex: 100"
+            class="w-100 form-control"
+          >
+          </input>
+        </div>
+        <div class="form-display col">
+          <label for="nbr-pers">Nombre de personne</label>
+          <input
+            name="nbr-pers"
+            id="nbr-pers"
+            placeholder="Ex: 2"
+            class="w-100 form-control"
+          >
+          </input>
         </div>
       </div>
     </div>
