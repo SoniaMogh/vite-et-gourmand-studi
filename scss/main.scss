@@ -28,7 +28,7 @@ body {
   &::before {
     content: '';
     inset: 0;
-    background-color: #dee5cc;
+    background-color: $light-bg-subtle;
     position: absolute;
   }
 
@@ -51,6 +51,11 @@ h2 {
 h3 {
   font-family: $font-family-base;
   font-size: 20px;
+}
+
+h4 {
+  font-family: $font-family-base;
+  font-size: 18px;
 }
 
 .py-6 {
@@ -130,4 +135,11 @@ h3 {
     opacity: 0.8;
     font-size: 16px;
   }
+}
+
+//-------------------------------------MODAL-----------------------------------
+
+#menuModal {
+  --bs-modal-border-radius: 20px;
+  --bs-modal-bg: #dee5cc;
 }

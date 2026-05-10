@@ -60,7 +60,7 @@
   --bs-info-bg-subtle: rgb(206.6, 244.4, 252);
   --bs-warning-bg-subtle: rgb(255, 242.6, 205.4);
   --bs-danger-bg-subtle: rgb(248, 214.6, 217.8);
-  --bs-light-bg-subtle: rgb(251.5, 252, 252.5);
+  --bs-light-bg-subtle: #dee5cc;
   --bs-dark-bg-subtle: #ced4da;
   --bs-primary-border-subtle: rgb(184.6, 200.6, 171);
   --bs-secondary-border-subtle: rgb(210.6, 220.6, 187);
@@ -12398,7 +12398,7 @@ body {
     margin-top: 10px;
   }
 }
-#menus a {
+#menus button {
   font-family: Arial, sans-serif;
   font-size: 16px;
   display: flex;
@@ -12408,6 +12408,53 @@ body {
   height: 50px;
 }
 
+#menuModal button {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 40px;
+}
+
+#menuModal h1, #menuModal .h1 {
+  color: #193819;
+  font-size: 30px;
+}
+
+.forced-in-div-modal {
+  aspect-ratio: 14/9;
+}
+
+@media (min-width: 992px) {
+  .detailed-menu-card-wrapper {
+    display: grid;
+    grid-template-columns: 0.45fr 0.55fr;
+    gap: 30px;
+  }
+}
+@media (min-width: 768px) {
+  .modal-xl {
+    --bs-modal-width: 700px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-xl {
+    --bs-modal-width: 860px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-xl {
+    --bs-modal-width: 1100px;
+  }
+}
+@media (max-width: 992px) {
+  .detailed-menu-card-wrapper {
+    display: grid;
+    gap: 30px;
+  }
+}
 html,
 body {
   height: 100%;
@@ -12447,6 +12494,11 @@ h2, .h2 {
 h3, .h3 {
   font-family: Arial, sans-serif;
   font-size: 20px;
+}
+
+h4, .h4 {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
 }
 
 .py-6 {
@@ -12524,4 +12576,9 @@ h3, .h3 {
   color: #4f772d;
   opacity: 0.8;
   font-size: 16px;
+}
+
+#menuModal {
+  --bs-modal-border-radius: 20px;
+  --bs-modal-bg: #dee5cc;
 }/*# sourceMappingURL=main.css.map */
