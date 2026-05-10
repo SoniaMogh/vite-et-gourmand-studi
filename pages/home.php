@@ -40,7 +40,7 @@
 ?>
 
 <div>
-  <div class="bigtitle text-center text-white">
+  <div class="bigtitle bigtitle-home text-center text-white">
     <div class="bigtitle-content">
       <img src="<?= BASE_URL ?>/assets/pictures/logo-white.png" alt="logo-v-et-g" class="bigtitle-logo-size">
       <h1 class="bigtitle-title">
@@ -71,7 +71,7 @@
             grâce à des menus variés et en constante évolution.
           </p>
           
-          <a href="<?= BASE_URL ?>/contact" class="btn btn-primary button">Nous contacter</a>
+          <a href="<?= BASE_URL ?>/contact" class="btn btn-primary home-button">Nous contacter</a>
         </div>
       </div>
     </div>
@@ -131,7 +131,7 @@
         </div>
 
         <div class="col-12 button-type-event-layout mt-6 mt-md-2">          
-          <a href="<?= BASE_URL ?>/" class="btn btn-primary button">Réserver</a>
+          <a href="<?= BASE_URL ?>/" class="btn btn-primary home-button">Réserver</a>
         </div>
 
       </div>
@@ -160,7 +160,7 @@
         </div>
 
         <div class="col-12 button-type-event-layout">          
-          <a href="<?= BASE_URL ?>/contact" class="btn btn-primary button">Contact</a>
+          <a href="<?= BASE_URL ?>/contact" class="btn btn-primary home-button">Contact</a>
         </div>
       </div>
     </div>

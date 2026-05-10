@@ -6,10 +6,11 @@ $black: #0d1c0d;
 $light: #ecf39e;
 
 // Custom variables
-$font-headline: "Poppins", sans-serif;
+$font-headline: 'Poppins', sans-serif;
 $font-subheadline: Verdana, sans-serif;
+$box-shadow: 0 0.5rem 1rem rgba($black, 0.4);
 
 // Override Bootstrap
 $font-family-base: Arial, sans-serif;
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import '../node_modules/bootstrap/scss/bootstrap';

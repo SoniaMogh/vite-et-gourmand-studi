@@ -1,0 +1,52 @@
+// ----------------------------------BIGTITLE-----------------------------------
+.bigtitle-global-view {
+  &::before {
+    background-image: url(../assets/pictures/event-meal.jpg);
+  }
+}
+
+// ----------------------------------GLOBAL VIEW-----------------------------------
+
+.card-corner {
+  border-radius: 20px;
+}
+
+@media (min-width: 992px) {
+  .global-view-card {
+    width: 500px;
+    height: 440px;
+  }
+}
+
+// ----------------------------------CARD MENU-----------------------------------
+
+.display-info-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.forced-in-div {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  border-radius: 20px 20px 0 0;
+}
+
+.text-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//-----------------------------BUTTONS-----------------------------------
+#menus a {
+  font-family: $font-family-base;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 50px;
+}
