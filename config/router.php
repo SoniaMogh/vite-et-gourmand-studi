@@ -23,6 +23,10 @@
       return "pages/messageSent.php";
     }
 
+    if ($uri === "/carteDesMenus") {
+      return "pages/globalMenuView.php";
+    }
+
     if (preg_match("#^formations/([^/]+)$#", $uri, $matches)) {
       $GLOBALS['slug'] = $matches[1];
       return "pages/formation.php";

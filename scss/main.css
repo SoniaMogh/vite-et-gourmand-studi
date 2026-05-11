@@ -60,7 +60,7 @@
   --bs-info-bg-subtle: rgb(206.6, 244.4, 252);
   --bs-warning-bg-subtle: rgb(244, 230.4, 204);
   --bs-danger-bg-subtle: rgb(248, 214.6, 217.8);
-  --bs-light-bg-subtle: rgb(251.5, 252, 252.5);
+  --bs-light-bg-subtle: #dee5cc;
   --bs-dark-bg-subtle: #ced4da;
   --bs-primary-border-subtle: rgb(184.6, 200.6, 171);
   --bs-secondary-border-subtle: rgb(210.6, 220.6, 187);
@@ -113,7 +113,7 @@
   --bs-border-radius-xxl: 2rem;
   --bs-border-radius-2xl: var(--bs-border-radius-xxl);
   --bs-border-radius-pill: 50rem;
-  --bs-box-shadow: 0 0.5rem 1rem rgba(13, 28, 13, 0.15);
+  --bs-box-shadow: 0 0.5rem 1rem rgba(13, 28, 13, 0.4);
   --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(13, 28, 13, 0.075);
   --bs-box-shadow-lg: 0 1rem 3rem rgba(13, 28, 13, 0.175);
   --bs-box-shadow-inset: inset 0 1px 2px rgba(13, 28, 13, 0.075);
@@ -12057,46 +12057,15 @@ body {
   min-height: 100%;
 }
 
-.bigtitle-title {
-  color: white;
-}
-
-.bigtitle-logo-size {
-  width: 360px;
-  height: 250px;
-}
-
-.bigtitle {
-  position: relative;
-}
-.bigtitle::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.bigtitle-home::before {
   background-image: url(../assets/pictures/homepage-bigtitle.jpg);
-  background-size: cover;
-  filter: brightness(0.5);
-  background-position: 50% 20%;
-}
-.bigtitle * {
-  position: relative;
-}
-.bigtitle .bigtitle-content {
-  height: 626px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 #welcome-info-part {
   background-color: white;
 }
 
-.button {
+.home-button {
   font-family: Arial, sans-serif;
   font-size: 16px;
   display: flex;
@@ -12373,6 +12342,119 @@ body {
   color: #4f772d;
 }
 
+.bigtitle-global-view::before {
+  background-image: url(../assets/pictures/event-meal.jpg);
+}
+
+@media (min-width: 992px) {
+  .menu-card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+@media (max-width: 992px) {
+  .menu-card-wrapper {
+    display: grid;
+    gap: 30px;
+  }
+}
+.display-info-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.forced-in-div {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 16/9;
+  border-radius: 20px 20px 0 0;
+}
+
+.menu-info-text {
+  flex: 1;
+}
+
+.menu-info-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 576px) {
+  .display-info-menu {
+    flex-direction: column;
+  }
+  .forced-in-div {
+    aspect-ratio: 14/9;
+  }
+  .menu-info-price {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+  }
+}
+#menus button {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 50px;
+}
+
+#menuModal button {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 40px;
+}
+
+#menuModal h1, #menuModal .h1 {
+  color: #193819;
+  font-size: 30px;
+}
+
+.forced-in-div-modal {
+  aspect-ratio: 14/9;
+}
+
+@media (min-width: 992px) {
+  .detailed-menu-card-wrapper {
+    display: grid;
+    grid-template-columns: 0.45fr 0.55fr;
+    gap: 30px;
+  }
+}
+@media (min-width: 768px) {
+  .modal-xl {
+    --bs-modal-width: 700px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-xl {
+    --bs-modal-width: 860px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-xl {
+    --bs-modal-width: 1100px;
+  }
+}
+@media (max-width: 992px) {
+  .detailed-menu-card-wrapper {
+    display: grid;
+    gap: 30px;
+  }
+}
 html,
 body {
   height: 100%;
@@ -12414,6 +12496,54 @@ h3, .h3 {
   font-size: 20px;
 }
 
+h4, .h4 {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+.py-6 {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+
+.card-corner {
+  border-radius: 20px;
+}
+
+.bigtitle-title {
+  color: white;
+}
+
+.bigtitle-logo-size {
+  width: 360px;
+  height: 250px;
+}
+
+.bigtitle {
+  position: relative;
+}
+.bigtitle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  filter: brightness(0.5);
+  background-position: 50% 20%;
+}
+.bigtitle * {
+  position: relative;
+}
+.bigtitle .bigtitle-content {
+  height: 626px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .form-logo-size {
   width: 100px;
   height: 100px;
@@ -12446,4 +12576,9 @@ h3, .h3 {
   color: #4f772d;
   opacity: 0.8;
   font-size: 16px;
+}
+
+#menuModal {
+  --bs-modal-border-radius: 20px;
+  --bs-modal-bg: #dee5cc;
 }/*# sourceMappingURL=main.css.map */

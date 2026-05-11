@@ -8,6 +8,7 @@
 @import 'pages/404';
 @import 'pages/home';
 @import 'pages/contact';
+@import 'pages/globalMenuView';
 
 html,
 body {
@@ -27,7 +28,7 @@ body {
   &::before {
     content: '';
     inset: 0;
-    background-color: #dee5cc;
+    background-color: $light-bg-subtle;
     position: absolute;
   }
 
@@ -51,6 +52,61 @@ h3 {
   font-family: $font-family-base;
   font-size: 20px;
 }
+
+h4 {
+  font-family: $font-family-base;
+  font-size: 18px;
+}
+
+.py-6 {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+
+// --------------------------------CARD-----------------------------------
+.card-corner {
+  border-radius: 20px;
+}
+
+// --------------------------------BIGTITLE-----------------------------------
+.bigtitle-title {
+  color: white;
+}
+
+.bigtitle-logo-size {
+  width: 360px;
+  height: 250px;
+}
+
+.bigtitle {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    filter: brightness(0.5);
+    background-position: 50% 20%;
+  }
+
+  * {
+    //Positionner les éléments devant le ::before
+    position: relative;
+  }
+
+  .bigtitle-content {
+    height: 626px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+//------------------------------------------FORM-----------------------------
 
 .form-logo-size {
   width: 100px;
@@ -79,4 +135,11 @@ h3 {
     opacity: 0.8;
     font-size: 16px;
   }
+}
+
+//-------------------------------------MODAL-----------------------------------
+
+#menuModal {
+  --bs-modal-border-radius: 20px;
+  --bs-modal-bg: #dee5cc;
 }

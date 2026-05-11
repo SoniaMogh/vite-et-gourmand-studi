@@ -38,7 +38,7 @@ $page = get_page();
                 <a class="nav-link " href="<?= BASE_URL ?>/">Accueil</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="<?= BASE_URL ?>/cartes">Carte des menus</a>
+                <a class="nav-link " href="<?= BASE_URL ?>/carteDesMenus">Carte des menus</a>
               </li>
 
               <li class="nav-item">
@@ -100,7 +100,7 @@ $page = get_page();
       </div>
     </footer>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./pages/home.js"></script>
+    <script src="./assets/js/home.js"></script>
     <script type="module" src="./Router/router.js"></script>
 
   </body>
