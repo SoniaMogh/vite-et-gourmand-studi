@@ -51,7 +51,7 @@ $page = get_page();
                 <a class="nav-link" href="#">S'inscrire</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Se connecter</a>
+                <a class="nav-link" href="<?= BASE_URL ?>/connexion">Se connecter</a>
               </li>
             </ul>
           </div>

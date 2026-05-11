@@ -1,6 +1,6 @@
 <div id="contact-part">
   <div class="container py-5">
-    <div class="row card mx-5 mx-md-6">
+    <div class="row card py-5 mx-5 mx-md-6 card-corner">
       <div class="col-12 text-center">
         <img
           src="<?= BASE_URL ?>/assets/pictures/logo-primary.png"
