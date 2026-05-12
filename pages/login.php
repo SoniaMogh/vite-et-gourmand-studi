@@ -35,7 +35,7 @@
               required
             />
           </div>
-          <a class="pb-4" href="<?= BASE_URL ?>/">Mot de passe oublié ?</a>
+          <a class="pb-4" href="<?= BASE_URL ?>/MotDePasseOublie">Mot de passe oublié ?</a>
           <input
             type="submit"
             value="Se connecter"

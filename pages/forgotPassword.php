@@ -8,20 +8,27 @@
             alt="logo-v-et-g"
             class="form-logo-size"
           />
-          <h1 class="text-primary pb-4">Créez votre compte</h1>
+          <h1 class="text-primary mb-0">Mot de passe oublié ?</h1>
+          <p class="pb-4">Un lien par mail vous sera envoyé afin de le réinitialier</p>
         </div>
         <form
           action="<?= BASE_URL ?>/MotDePasseOublieMailEnvoye"
           method="post"
           class="form-display"
         >
+        <!-- message d'erreur si le mail n'existe pas dans la base de donnée -->
+          <?php if (isset($_GET['error'])) { 
+            if ($_GET['error'] === 'emailNotFound') {
+                echo "<p class='text-warning m-0'>Votre mail ne correspond à aucun compte</p>";
+            }
+          } ?>
           <div class="mb-2 col-10">
             <input
               class="form-control m-0"
-              type="text"
-              id="signupName"
-              name="signupName"
-              placeholder="Nom"
+              type="email"
+              id="forgotPasswordEmail"
+              name="forgotPasswordEmail"
+              placeholder="Email"
               required
             />
           </div>

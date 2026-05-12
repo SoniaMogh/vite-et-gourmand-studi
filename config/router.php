@@ -47,7 +47,7 @@
       return "pages/forgotPassword.php";
     }
 
-    if ($uri === "/MotDePasseOubliéMailEnvoye") {
+    if ($uri === "/MotDePasseOublieMailEnvoye") {
       return "pages/forgotPasswordPost.php";
     }
 
