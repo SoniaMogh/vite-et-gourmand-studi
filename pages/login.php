@@ -1,7 +1,7 @@
 <div id="connection-part">
   <div class="container py-5 ">
-    <div class="row card p-5 mx-5 mx-md-6 side-by-side card-corner">
-      <div class="col-6">
+    <div class="row card p-0 p-xl-5 mx-5 mx-md-6 side-by-side card-corner">
+      <div class="col-12 col-xl-6">
         <div class="col-12 text-center">
           <img
             src="<?= BASE_URL ?>/assets/pictures/logo-primary.png"
@@ -43,7 +43,7 @@
           />
         </form>
       </div>
-      <div class="col-6">
+      <div class="col-6 dont-show-the-pic">
           <img class="connection-forced-in-div"
             src="<?= BASE_URL ?>/assets/pictures/sign-pic.jpg"
           />
