@@ -19,12 +19,36 @@
       return "pages/contact.php";
     }
 
-    if ($uri === "/messageSent") {
-      return "pages/messageSent.php";
+    if ($uri === "/messageEnvoye") {
+      return "pages/contactPost.php";
     }
 
     if ($uri === "/carteDesMenus") {
       return "pages/globalMenuView.php";
+    }
+
+    if ($uri === "/connexion") {
+      return "pages/login.php";
+    }
+
+    if ($uri === "/loginPost") {
+      return "pages/loginPost.php";
+    }
+
+    if ($uri === "/inscription") {
+      return "pages/signup.php";
+    }
+
+    if ($uri === "/signupPost") {
+      return "pages/signupPost.php";
+    }
+
+    if ($uri === "/MotDePasseOublie") {
+      return "pages/forgotPassword.php";
+    }
+
+    if ($uri === "/MotDePasseOublieMailEnvoye") {
+      return "pages/forgotPasswordPost.php";
     }
 
     if (preg_match("#^formations/([^/]+)$#", $uri, $matches)) {

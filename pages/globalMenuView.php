@@ -82,7 +82,7 @@
             src="<?= BASE_URL ?>/assets/pictures/fresh-product-key-point.jpg"
           />
 
-          <div class="p-4 display-info-menu">
+          <div class="p-4 side-by-side">
             <div class="menu-info-text">
               <h2 class="m-0">Esprit de fête</h2>
               <p class="text-primary">2 personnes minimum</p>
@@ -112,7 +112,7 @@
             src="<?= BASE_URL ?>/assets/pictures/fresh-product-key-point.jpg"
           />
 
-          <div class="p-4 display-info-menu">
+          <div class="p-4 side-by-side">
             <div class="menu-info-text">
               <h2 class="m-0">Esprit de fête</h2>
               <p class="text-primary">2 personnes minimum</p>

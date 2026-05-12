@@ -12359,11 +12359,6 @@ body {
     gap: 30px;
   }
 }
-.display-info-menu {
-  display: flex;
-  flex-direction: row;
-}
-
 .forced-in-div {
   width: 100%;
   height: 100%;
@@ -12455,6 +12450,46 @@ body {
     gap: 30px;
   }
 }
+#connection-part {
+  min-height: 100%;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#connection-part a {
+  color: #4f772d;
+  font-variant: small-caps;
+  text-decoration: none;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.connection-forced-in-div {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px;
+}
+
+.signup-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 1200px) {
+  .dont-show-the-pic {
+    visibility: hidden;
+    display: none;
+  }
+  .signup-wrapper {
+    grid-template-columns: 1;
+  }
+}
 html,
 body {
   height: 100%;
@@ -12504,6 +12539,21 @@ h4, .h4 {
 .py-6 {
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
+}
+
+.side-by-side {
+  display: flex;
+  flex-direction: row;
+}
+
+.large-button {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 40px;
 }
 
 .card-corner {

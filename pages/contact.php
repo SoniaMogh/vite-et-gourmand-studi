@@ -1,6 +1,6 @@
 <div id="contact-part">
   <div class="container py-5">
-    <div class="row card mx-5 mx-md-6">
+    <div class="row card py-5 mx-5 mx-md-6 card-corner">
       <div class="col-12 text-center">
         <img
           src="<?= BASE_URL ?>/assets/pictures/logo-primary.png"
@@ -9,7 +9,7 @@
         />
         <h1 class="text-primary">Contactez-nous</h1>
       </div>
-      <form action="<?= BASE_URL ?>/messageSent" method="post" class="form-display">
+      <form action="<?= BASE_URL ?>/messageEnvoye" method="post" class="form-display">
         <div class="col-10">
           <label for="reason-contact">Raison de la prise de contact</label>
           <input
@@ -43,7 +43,7 @@
             required
           />
         </div>
-        <input type="submit" value="Envoyer" class="btn btn-primary button">
+        <input type="submit" value="Envoyer" class="btn btn-primary">
       </form>
     </div>
   </div>
