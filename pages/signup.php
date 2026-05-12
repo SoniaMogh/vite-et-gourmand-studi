@@ -108,11 +108,13 @@
           <div class="col-10">
             <input
               class="form-control
+
               <?php if (isset($_GET['error'])) { 
                 if ($_GET['error'] === 'mdpNotConfirmed') {
                     echo "m-0";
                 }
               } ?>
+              
               "
               type="password"
               id="signupCheckPassword"

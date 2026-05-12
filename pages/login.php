@@ -16,6 +16,12 @@
           class="form-display"
         >
           <div class="col-10 ">
+             <?php if (isset($_GET['error'])) { 
+              if ($_GET['error'] === 'mailIncorrect') {
+                echo "<p class='m-0 text-warning'>Utilisateur introuvable.</p>";
+              }
+            } ?>
+            
             <input
               class="mb-2 form-control"
               type="email"
@@ -26,6 +32,11 @@
             />
           </div>
           <div class="col-10">
+            <?php if (isset($_GET['error'])) { 
+              if ($_GET['error'] === 'mdpIncorrect') {
+                echo "<p class='m-0 text-warning'>Mot de passe incorrect</p>";
+              }
+            } ?>
             <input
               class="form-control m-0"
               type="password"

@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . "/../config/database.php";
-$location = $location = BASE_URL . "/contact";
+$location = BASE_URL . "/contact";
+$connexion = BASE_URL . "/connexion";
 
 try{
   //Récupérer les données du formulaire de connexion
@@ -20,11 +21,13 @@ try{
         header("Location: $location");
         exit;
       }else{
-          echo "Mot de passe incorrect";
+        header("Location: $connexion?error=mdpIncorrect");
+        exit;
       }
   }
   else{
-      echo "Utilisateur introuvable, êtes-vous sûr de votre mail ?";
+        header("Location: $connexion?error=mailIncorrect");
+        exit;
   }
 }
 catch (PDOException $e){
