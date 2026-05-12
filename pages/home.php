@@ -71,7 +71,7 @@
             grâce à des menus variés et en constante évolution.
           </p>
           
-          <a href="<?= BASE_URL ?>/contact" class="btn btn-primary home-button">Nous contacter</a>
+          <a href="<?= BASE_URL ?>/contact" class="btn btn-primary large-button">Nous contacter</a>
         </div>
       </div>
     </div>
@@ -131,7 +131,7 @@
         </div>
 
         <div class="col-12 button-type-event-layout mt-6 mt-md-2">          
-          <a href="<?= BASE_URL ?>/" class="btn btn-primary home-button">Réserver</a>
+          <a href="<?= BASE_URL ?>/" class="btn btn-primary large-button">Réserver</a>
         </div>
 
       </div>
@@ -160,7 +160,7 @@
         </div>
 
         <div class="col-12 button-type-event-layout">          
-          <a href="<?= BASE_URL ?>/contact" class="btn btn-primary home-button">Contact</a>
+          <a href="<?= BASE_URL ?>/contact" class="btn btn-primary large-button">Contact</a>
         </div>
       </div>
     </div>

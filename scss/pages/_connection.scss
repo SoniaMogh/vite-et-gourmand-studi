@@ -21,3 +21,9 @@
   object-fit: cover;
   border-radius: 20px;
 }
+
+.signup-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}

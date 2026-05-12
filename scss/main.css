@@ -12475,6 +12475,12 @@ body {
   border-radius: 20px;
 }
 
+.signup-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
 html,
 body {
   height: 100%;
@@ -12529,6 +12535,16 @@ h4, .h4 {
 .side-by-side {
   display: flex;
   flex-direction: row;
+}
+
+.large-button {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 40px;
 }
 
 .card-corner {

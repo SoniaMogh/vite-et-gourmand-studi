@@ -43,7 +43,7 @@
             required
           />
         </div>
-        <input type="submit" value="Envoyer" class="btn btn-primary button">
+        <input type="submit" value="Envoyer" class="btn btn-primary">
       </form>
     </div>
   </div>

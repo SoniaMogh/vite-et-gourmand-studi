@@ -39,7 +39,7 @@
           <input
             type="submit"
             value="Se connecter"
-            class="btn btn-primary button"
+            class="btn btn-primary large-button"
           />
         </form>
       </div>

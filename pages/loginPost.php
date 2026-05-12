@@ -16,9 +16,9 @@ try{
   //Est-ce que l’utilisateur (mail) existe ?
   if($stmt->rowCount() == 1){
       $user = $stmt->fetch(PDO::FETCH_ASSOC);
-      if($connectionPassword == $user['password']){
-          header("Location: $location");
-exit;
+      if(password_verify($connectionPassword, $user['password'])){
+        header("Location: $location");
+        exit;
       }else{
           echo "Mot de passe incorrect";
       }
