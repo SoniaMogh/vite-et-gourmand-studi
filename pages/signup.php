@@ -91,6 +91,7 @@
               id="signupPassword"
               name="signupPassword"
               placeholder="Mot de passe"
+              autocomplete="new-password"
               minlength="10"
               pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{10,}"
               required
@@ -106,14 +107,26 @@
           </div>
           <div class="col-10">
             <input
-              class="form-control"
+              class="form-control
+              <?php if (isset($_GET['error'])) { 
+                if ($_GET['error'] === 'mdpNotConfirmed') {
+                    echo "m-0";
+                }
+              } ?>
+              "
               type="password"
-              id="signupPassword"
-              name="signupPassword"
+              id="signupCheckPassword"
+              name="signupCheckPassword"
               placeholder="Confirmer le mot de Passe"
               required
             />
           </div>
+          <!-- message d'erreur si le mdp ne correspond pas à la confirmation -->
+          <?php if (isset($_GET['error'])) { 
+            if ($_GET['error'] === 'mdpNotConfirmed') {
+                echo "<p class='text-warning m-0'>Votre mot de passe ne correspond pas.</p>";
+            }
+          } ?>
 
           <input
             type="submit"

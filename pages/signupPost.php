@@ -1,6 +1,9 @@
 <?php
 require __DIR__ . "/../config/database.php";
 $location = BASE_URL . "/contact";
+$inscription = BASE_URL . "/inscription";
+
+// MDP TEST : 1TestDeTest!
 
 try{
   //Récupérer les données du formulaire de connexion
@@ -12,6 +15,13 @@ try{
   $signupZIP = $_POST['signupZIP'];
   $signupCity = $_POST['signupCity'];
   $signupPassword = $_POST['signupPassword'];
+  $signupCheckPassword = $_POST['signupCheckPassword'];
+
+  //Vérifier que les mdp passe et la confirmation de mdp correspondent
+  if ($signupPassword !== $signupCheckPassword) {
+    header("Location: $inscription?error=mdpNotConfirmed");
+    exit;
+  };
 
 
   //Récupérer les utilisateurs 
