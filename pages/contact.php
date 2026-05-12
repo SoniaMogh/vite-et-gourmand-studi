@@ -9,7 +9,7 @@
         />
         <h1 class="text-primary">Contactez-nous</h1>
       </div>
-      <form action="<?= BASE_URL ?>/messageSent" method="post" class="form-display">
+      <form action="<?= BASE_URL ?>/messageEnvoye" method="post" class="form-display">
         <div class="col-10">
           <label for="reason-contact">Raison de la prise de contact</label>
           <input
