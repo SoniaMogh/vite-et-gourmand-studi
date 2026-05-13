@@ -12697,6 +12697,16 @@ h4, .h4 {
   height: 40px;
 }
 
+.medium-button {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 40px;
+}
+
 .card-corner {
   border-radius: 20px;
 }
