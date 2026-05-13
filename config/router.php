@@ -51,6 +51,10 @@
       return "pages/forgotPasswordPost.php";
     }
 
+    if ($uri === "/monCompte") {
+      return "pages/userAccountProfile.php";
+    }
+
     if (preg_match("#^formations/([^/]+)$#", $uri, $matches)) {
       $GLOBALS['slug'] = $matches[1];
       return "pages/formation.php";
