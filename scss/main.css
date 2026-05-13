@@ -12490,17 +12490,6 @@ body {
     grid-template-columns: 1;
   }
 }
-.sidebar {
-  width: var(--sidebar-width);
-  height: 100vh;
-  background: #193819;
-  transition: all 0.3s ease;
-}
-
-.sidebar.collapsed {
-  width: var(--sidebar-width-collapsed);
-}
-
 .sidebar-link {
   color: #a0a3bd;
   transition: all 0.2s ease;
@@ -12585,7 +12574,7 @@ body {
   transition: opacity 0.2s ease;
 }
 
-#userAccount hr {
+.userAccountSidebar hr {
   height: 1px;
   width: 95% !important;
   background-color: #ecf39e;
@@ -12608,6 +12597,38 @@ body {
 
 .side-by-side-card-detail input {
   width: 100%;
+}
+
+.side-by-side-sidebar {
+  display: flex;
+  align-items: stretch;
+}
+
+.profile-account-wrapper {
+  display: grid;
+  grid-template-columns: 0.6fr 0.4fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.userAccountSidebar {
+  background: #193819;
+  transition: all 0.3s ease;
+  min-width: 210px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.link-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 16px;
 }
 
 html,
@@ -12652,7 +12673,7 @@ h3, .h3 {
 }
 
 h4, .h4 {
-  font-family: Arial, sans-serif;
+  font-family: Verdana, sans-serif;
   font-size: 18px;
 }
 

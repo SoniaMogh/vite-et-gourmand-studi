@@ -7,16 +7,9 @@
 //   overflow-x: hidden;
 // }
 
-.sidebar {
-  width: var(--sidebar-width);
-  height: 100vh;
-  background: $dark;
-  transition: all 0.3s ease;
-}
-
-.sidebar.collapsed {
-  width: var(--sidebar-width-collapsed);
-}
+// .sidebar.collapsed {
+//   width: var(--sidebar-width-collapsed);
+// }
 
 .sidebar-link {
   color: #a0a3bd;
@@ -114,7 +107,7 @@
   transition: opacity 0.2s ease;
 }
 
-#userAccount hr {
+.userAccountSidebar hr {
   height: 1px;
   width: 95% !important;
   background-color: $light;
@@ -137,4 +130,38 @@
 
 .side-by-side-card-detail input {
   width: 100%;
+}
+
+.side-by-side-sidebar {
+  display: flex;
+  align-items: stretch;
+}
+
+.profile-account-wrapper {
+  display: grid;
+  grid-template-columns: 0.6fr 0.4fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.userAccountSidebar {
+  background: $dark;
+  transition: all 0.3s ease;
+
+  min-width: 210px;
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.link-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 16px;
 }
