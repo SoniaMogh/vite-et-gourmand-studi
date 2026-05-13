@@ -55,6 +55,10 @@
       return "pages/userAccountProfile.php";
     }
 
+    if ($uri === "/monCompte/mesCommandes") {
+      return "pages/userAccountMesCommandes.php";
+    }
+
     if (preg_match("#^formations/([^/]+)$#", $uri, $matches)) {
       $GLOBALS['slug'] = $matches[1];
       return "pages/formation.php";

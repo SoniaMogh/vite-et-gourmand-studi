@@ -10,7 +10,7 @@ $page = get_page();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="scss/main.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/scss/main.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Vite Et Gourmand</title>
   </head>
@@ -45,7 +45,7 @@ $page = get_page();
                 <a class="nav-link" href="<?= BASE_URL ?>/contact">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= BASE_URL ?>/mon-compte">Mon compte</a>
+                <a class="nav-link" href="<?= BASE_URL ?>/monCompte">Mon compte</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="<?= BASE_URL ?>/inscription">S'inscrire</a>
@@ -99,9 +99,9 @@ $page = get_page();
         </div>
       </div>
     </footer>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/js/home.js"></script>
-    <script type="module" src="./Router/router.js"></script>
+    <script src="<?= BASE_URL ?>/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= BASE_URL ?>/assets/js/home.js"></script>
+    <script type="module" src="<?= BASE_URL ?>/Router/router.js"></script>
 
   </body>
 </html>
