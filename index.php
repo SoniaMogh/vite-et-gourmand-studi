@@ -45,7 +45,7 @@ $page = get_page();
                 <a class="nav-link" href="<?= BASE_URL ?>/contact">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= BASE_URL ?>/monCompte">Mon compte</a>
+                <a class="nav-link" href="<?= BASE_URL ?>/monCompteEmploye/InfosRestaurant">Mon compte</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="<?= BASE_URL ?>/inscription">S'inscrire</a>
