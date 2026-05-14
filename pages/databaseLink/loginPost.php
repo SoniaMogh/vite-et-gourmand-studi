@@ -1,6 +1,7 @@
 <?php
+session_start();
 require __DIR__ . "/../../config/database.php";
-$location = BASE_URL . "/contact";
+$location = BASE_URL . "/monCompte";
 $connexion = BASE_URL . "/connexion";
 
 try{
@@ -18,6 +19,13 @@ try{
   if($stmt->rowCount() == 1){
       $user = $stmt->fetch(PDO::FETCH_ASSOC);
       if(password_verify($connectionPassword, $user['password'])){
+
+        //Creation de session
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_name'] = $user['prenom'];
+        $_SESSION['user_surname'] = $user['nom'];
+        $_SESSION['user_email'] = $user['email'];
+
         header("Location: $location");
         exit;
       }else{

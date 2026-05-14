@@ -1,6 +1,7 @@
 <?php
+session_start();
 require __DIR__ . "/../../config/database.php";
-$location = BASE_URL . "/contact";
+$location = BASE_URL . "/monCompte";
 $inscription = BASE_URL . "/inscription";
 
 // MDP TEST : 1TestDeTest!
@@ -23,15 +24,16 @@ try{
     exit;
   };
 
-
   //Récupérer les utilisateurs 
   $checkUser = "SELECT * FROM users WHERE email = :signupEmail";
   $stmt = $pdo->prepare($checkUser);
   $stmt->bindParam(':signupEmail', $signupEmail);
   $stmt->execute();
+
   //Est-ce que l’utilisateur (mail) existe ?
   if($stmt->rowCount() > 0){
-      die("Cette adresse email est déjà utilisée");
+    header("Location: $inscription?error=emailAlreadyExist");
+    exit;
   }
 
   $hashedPassword = password_hash($signupPassword, PASSWORD_DEFAULT);
@@ -50,8 +52,17 @@ try{
   $stmt2->bindParam(':city', $signupCity);
   $stmt2->bindParam(':password', $hashedPassword);
   $stmt2->execute();
+  $lastId = $pdo->lastInsertId(); // Permet de récupérer le dernier id inséré
+
+  //Creation de session
+  $_SESSION['user_id'] = $lastId;
+  $_SESSION['user_name'] = $signupName;
+  $_SESSION['user_surname'] = $signupSurname;
+  $_SESSION['user_email'] = $signupEmail;
   header("Location: $location");
   exit;
+
+
 
 }
 catch (PDOException $e){
