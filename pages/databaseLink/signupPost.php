@@ -31,6 +31,8 @@ try{
   $stmt->execute();
   //Est-ce que l’utilisateur (mail) existe ?
   if($stmt->rowCount() > 0){
+    header("Location: $inscription?error=emailAlreadyExist");
+    exit;
       die("Cette adresse email est déjà utilisée");
   }
 

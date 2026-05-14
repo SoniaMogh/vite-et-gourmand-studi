@@ -45,6 +45,11 @@
             />
           </div>
           <div class="mb-2 col-10">
+            <?php if (isset($_GET['error'])) { 
+            if ($_GET['error'] === 'emailAlreadyExist') {
+                echo "<p class='text-warning m-0'>Cette adresse email existe déjà.</p>";
+            }
+          } ?>
             <input
               class="form-control m-0"
               type="email"

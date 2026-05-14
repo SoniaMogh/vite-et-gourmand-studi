@@ -1,3 +1,13 @@
+<?php
+  session_start();
+  $login = BASE_URL . "/connexion";
+
+  if (!isset($_SESSION['user_id'])) {
+    header("Location: $login");
+    exit;
+  };
+?>
+
 <div id="userAccountProfile" class="userAccount">
   <div class="container py-5">
     <div class="side-by-side-sidebar">
