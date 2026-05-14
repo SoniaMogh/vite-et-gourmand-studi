@@ -25,7 +25,6 @@ try{
         $_SESSION['user_name'] = $user['prenom'];
         $_SESSION['user_surname'] = $user['nom'];
         $_SESSION['user_email'] = $user['email'];
-        console_log($_SESSION);
 
         header("Location: $location");
         exit;
