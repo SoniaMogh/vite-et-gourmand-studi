@@ -20,7 +20,7 @@
     }
 
     if ($uri === "/messageEnvoye") {
-      return "pages/contactPost.php";
+      return "pages/databaseLink/contactPost.php";
     }
 
     if ($uri === "/carteDesMenus") {
@@ -32,7 +32,7 @@
     }
 
     if ($uri === "/loginPost") {
-      return "pages/loginPost.php";
+      return "pages/databaseLink/loginPost.php";
     }
 
     if ($uri === "/inscription") {
@@ -40,7 +40,7 @@
     }
 
     if ($uri === "/signupPost") {
-      return "pages/signupPost.php";
+      return "pages/databaseLink/signupPost.php";
     }
 
     if ($uri === "/MotDePasseOublie") {
@@ -48,7 +48,15 @@
     }
 
     if ($uri === "/MotDePasseOublieMailEnvoye") {
-      return "pages/forgotPasswordPost.php";
+      return "pages/databaseLink/forgotPasswordPost.php";
+    }
+
+    if ($uri === "/monCompte") {
+      return "pages/userAccountProfile.php";
+    }
+
+    if ($uri === "/monCompte/mesCommandes") {
+      return "pages/userAccountMesCommandes.php";
     }
 
     if (preg_match("#^formations/([^/]+)$#", $uri, $matches)) {

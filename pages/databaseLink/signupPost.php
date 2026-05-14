@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/../config/database.php";
+require __DIR__ . "/../../config/database.php";
 $location = BASE_URL . "/contact";
 $inscription = BASE_URL . "/inscription";
 

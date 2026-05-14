@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/../config/database.php";
+require __DIR__ . "/../../config/database.php";
 
 try {
   $reasonContact= $_POST['reason-contact'];
