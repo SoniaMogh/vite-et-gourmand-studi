@@ -16,12 +16,12 @@
       <i class="bi bi-house text-light me-1"></i>
       <span class="hide-on-collapse text-light">Le restaurant</span>
     </a>
-    <a href="<?= BASE_URL ?>/carteDesMenus" class="sidebar-link my-0 py-2 text-decoration-none p-3">
+    <a href="<?= BASE_URL ?>/monCompteEmploye/menus" class="sidebar-link my-0 py-2 text-decoration-none <?= $currentPage === BASE_URL.'/monCompteEmploye/menus' ? 'active' : ''; ?> p-3">
       <i class="bi bi-postcard text-light me-1"></i>
       <span class="hide-on-collapse text-light">Les menus</span>
     </a>
 
-    <a href="<?= BASE_URL ?>/monCompte/Profile" class="sidebar-link py-2 my-0 text-decoration-none <?= $currentPage === BASE_URL.'/monCompte' ? 'active' : ''; ?> p-3">
+    <a href="<?= BASE_URL ?>/monCompte/Profile" class="sidebar-link py-2 my-0 text-decoration-none <?= $currentPage === BASE_URL.'/monCompteEmploye/staffAccountMenus' ? 'active' : ''; ?> p-3">
       <i class="bi bi-person text-light me-1"></i>
       <span class="hide-on-collapse text-light">Les commandes</span>
     </a>

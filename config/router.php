@@ -67,6 +67,14 @@
       return "pages/databaseLink/staffAccountRestaurantInfosPost.php";
     }
 
+    if ($uri === "/monCompteEmploye/menus") {
+      return "pages/staffAccountMenus.php";
+    }
+
+    if ($uri === "/monCompteEmploye/menusPost") {
+      return "pages/databaseLink/staffAccountMenusPost.php";
+    }
+
     if ($uri === "/monCompte/logout") {
       return "pages/logout.php";
     }
