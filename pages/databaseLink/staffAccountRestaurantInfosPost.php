@@ -10,11 +10,7 @@ try{
 
   $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-  $horaires = [];
-
-  foreach ($datas as $data) {
-    $horaires[$data['jour']] = $data;
-  };
+  $horaires = array_column($datas, null, 'id');
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $weekdayMorningTimeOpening = $_POST['weekdayMorningTimeOpening'];

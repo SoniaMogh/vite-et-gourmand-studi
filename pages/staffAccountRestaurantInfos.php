@@ -30,7 +30,7 @@
                   type="time"
                   id="weekdayMorningTimeOpening"
                   name="weekdayMorningTimeOpening"
-                  value="<?= substr($horaires['Lundi au Samedi']['morning_opening'], 0, 5) ?>"
+                  value="<?= $horaires['1']['morning_opening'] ?>"
                 />
               </div>
               <div>
@@ -40,7 +40,7 @@
                   type="time"
                   id="weekdayMorningTimeClosing"
                   name="weekdayMorningTimeClosing"
-                  value="<?= substr($horaires['Lundi au Samedi']['morning_closing'], 0, 5) ?>"
+                  value="<?= $horaires['1']['morning_closing']?>"
                 />
               </div>
               <div>
@@ -50,7 +50,7 @@
                   type="time"
                   id="weekdayNightTimeOpening"
                   name="weekdayNightTimeOpening"
-                  value="<?= substr($horaires['Lundi au Samedi']['night_opening'], 0, 5) ?>"
+                  value="<?= $horaires['1']['night_opening']?>"
                 />
               </div>
               <div>
@@ -60,7 +60,7 @@
                   type="time"
                   id="weekdayNightTimeClosing"
                   name="weekdayNightTimeClosing"
-                  value="<?= substr($horaires['Lundi au Samedi']['night_closing'], 0, 5) ?>"
+                  value="<?= $horaires['1']['night_closing']?>"
                 />
               </div>
             </div>
@@ -74,7 +74,7 @@
                   type="time"
                   id="sundayMorningTimeOpening"
                   name="sundayMorningTimeOpening"
-                  value="<?= substr($horaires['Dimanche']['morning_opening'], 0, 5) ?>"
+                  value="<?= $horaires['2']['morning_opening']?>"
                 />
               </div>
               <div>
@@ -84,27 +84,7 @@
                   type="time"
                   id="sundayMorningTimeClosing"
                   name="sundayMorningTimeClosing"
-                  value="<?= substr($horaires['Dimanche']['morning_closing'], 0, 5) ?>"
-                />
-              </div>
-              <div>
-                <label for="sundayNightTimeOpening">Ouverture après-midi</label>
-                <input
-                  class="form-control m-0"
-                  type="time"
-                  id="sundayNightTimeOpening"
-                  name="sundayNightTimeOpening"
-                  value="<?= !empty($horaires['Dimanche']['night_opening']) ? substr($horaires['Dimanche']['night_opening'], 0, 5) : '' ?>"
-                />
-              </div>
-              <div>
-                <label for="sundayNightTimeClosing">Fermeture après-midi</label>
-                <input
-                  class="form-control m-0"
-                  type="time"
-                  id="sundayNightTimeClosing"
-                  name="sundayNightTimeClosing"
-                  value="<?= !empty($horaires['Dimanche']['night_closing']) ? substr($horaires['Dimanche']['night_closing'], 0, 5) : '' ?>"
+                  value="<?= $horaires['2']['morning_closing']?>"
                 />
               </div>
             </div>
