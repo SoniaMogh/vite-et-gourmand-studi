@@ -20,8 +20,6 @@ try{
 
     $sundayMorningTimeOpening = $_POST['sundayMorningTimeOpening'];
     $sundayMorningTimeClosing = $_POST['sundayMorningTimeClosing'];
-    $sundayNightTimeOpening = $_POST['sundayNightTimeOpening'];
-    $sundayNightTimeClosing = $_POST['sundayNightTimeClosing'];
 
     $queryUpdateMorning = "
       UPDATE 
@@ -49,9 +47,7 @@ try{
         horaires
       SET 
         morning_opening = :morning_opening,
-        morning_closing = :morning_closing,
-        night_opening = :night_opening,
-        night_closing = :night_closing
+        morning_closing = :morning_closing
       WHERE 
         id = 2
     ";
@@ -60,9 +56,7 @@ try{
     $stmt3 = $pdo->prepare($queryUpdateNight);
     $stmt3->execute([
       ':morning_opening' => $sundayMorningTimeOpening,
-      ':morning_closing' => $sundayMorningTimeClosing,
-      ':night_opening' => $sundayNightTimeOpening,
-      ':night_closing' => $sundayNightTimeClosing
+      ':morning_closing' => $sundayMorningTimeClosing
     ]);
     header("Location: $infoPage?success=saved");
     exit;
