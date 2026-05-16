@@ -1,0 +1,16 @@
+.text-bg-badge {
+  color: white;
+  background-color: rgb(139, 137, 137);
+}
+
+.pic-size-order {
+  width: 160px;
+  aspect-ratio: 1;
+}
+
+.infos-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+}

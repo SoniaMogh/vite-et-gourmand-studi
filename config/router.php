@@ -75,6 +75,14 @@
       return "pages/databaseLink/staffAccountMenusPost.php";
     }
 
+        if ($uri === "/monCompteEmploye/commandes") {
+      return "pages/staffAccountCommandes.php";
+    }
+
+    if ($uri === "/monCompteEmploye/commandesPost") {
+      return "pages/databaseLink/staffAccountCommandesPost.php";
+    }
+
     if ($uri === "/monCompte/logout") {
       return "pages/logout.php";
     }
