@@ -1,12 +1,16 @@
 <?php require __DIR__ . "/databaseLink/staffAccountRestaurantInfosPost.php"; ?>
 
 <div id="staffAccountRestaurantInfos" class="staffAccount">
+  <?php if (isset($_GET['success'])) { 
+    if ($_GET['success'] === 'saved') {
+        echo "<div class='alert alert-success text-center' role='alert'> Les horaires ont bien été modifiés.</div>";
+    };
+  } ?>
   <div class="container py-5">
     <div class="side-by-side-sidebar">
       <?php require "layout/staffAccountSidebar.php"; ?>
       
       <div class="w-100">
-        <!-------------- INFORMATIONS PERSONNELLES ----------------->
         <div class="card card-corner bg-white me-5 px-12px">
           <div class="text-center">
             <h4 class="text-primary fw-bold py-4">Horaires du restaurant</h4>
