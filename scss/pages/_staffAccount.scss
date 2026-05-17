@@ -1,6 +1,19 @@
-.text-bg-badge {
+.text-bg-badge-waiting {
   color: white;
   background-color: rgb(139, 137, 137);
+}
+
+.text-bg-badge-accepte {
+  color: white;
+  background-color: rgb(255, 193, 7);
+}
+
+.bg-purple {
+  background-color: var(--bs-purple);
+}
+
+.bg-teal {
+  background-color: var(--bs-teal);
 }
 
 .pic-size-order {

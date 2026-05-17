@@ -1,4 +1,7 @@
-<?php require "databaseLink/staffAccountCommandesPost.php";?>
+<?php 
+  require "databaseLink/staffAccountCommandesPost.php";
+?>
+<script src="<?= BASE_URL ?>/assets/js/staffAccountCommandes.js"></script>
 
 <div id="staffAccountCommandes" class="staffAccount">
   <div class="container py-5">
@@ -34,28 +37,35 @@
                 </div>
                 <div class="d-flex justify-content-between mt-2">
                   <button
-                type="button"
-                class="btn btn-primary large-button"
-              >
-                Modifier
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary large-button"
-              >
-                Supprimer
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary large-button"
-              >
-                Mettre à jour le status
-              </button>
+                    type="button"
+                    class="btn btn-primary large-button"
+                  >
+                    Modifier
+                  </button>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteOrder"
+                    class="btn btn-primary large-button"
+                    data-id="<?= $commande['id'] ?>"
+                  >
+                    Supprimer
+                  </button>
+                  
+                    <button
+                      type="button"
+                      class="btn btn-primary large-button"
+                      style="<?= $commande['status'] === 'annule' ? 'visibility:hidden;' : '' ?>"
+                    >
+                      Mettre à jour le status
+                    </button>
                 </div>
                 
               </div>
               
-              <span class="badge text-bg-badge rounded-pill"><?=$commande['status']?></span>
+              <span class="badge <?= getStatusColor($commande['status']) ?> rounded-pill">
+                <?= !empty($commande['status']) ? $commande['status'] : "en attente"?>
+              </span>
             </li>
             <?php endforeach; ?>
           </ol>
@@ -63,4 +73,69 @@
       </div>
     </div>
   </div>
+
+    <!-- Delete Order Modal -->
+  <div
+    class="modal fade"
+    id="deleteOrder"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="row modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body p-3 p-sm-5">
+          <button type="button" class="btn-close text-end m-0" data-bs-dismiss="modal" aria-label="Close" onclick=closeDeleteCommandeModal()></button>
+          <h1 class="text-center">Motif d'annulation</h1>
+
+          <div class="card card-corner p-0 bg-white">
+            <form
+              action="<?= BASE_URL ?>/monCompteEmploye/commandesPost"
+              method="post"
+              class="form-display"
+            >
+              <div class="col-12">
+                <label for="wayOfContactToDelete">Moyen de contact</label>
+                <select 
+                  name="wayOfContactToDelete" 
+                  id="wayOfContactToDelete" 
+                  class="mb-2 form-control text-primary"
+                  required
+                >
+                  <option value="appel">Appel téléphonique</option>
+                  <option value="mail">Mail</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="reasonToDelete">Raison de la suppresion</label>
+
+                <textarea
+                  class="form-control m-0 text-primary"
+                  id="reasonToDelete"
+                  name="reasonToDelete"
+                  placeholder="Veuillez entrer la raison de la suppression de la commande"
+                  required
+                ></textarea>
+              </div>
+              <?php if (isset($_GET['error'])) { 
+                if ($_GET['error'] === 'noReasonEnterded') {
+                    echo "<p class='text-warning m-0' id='errorDeleteOrder'>Une raison doit être entrée</p>";
+                }
+              } ?>
+              <button
+                type="submit"
+                name="deleteOrder"
+                class="btn btn-primary large-button m-4 text-white"
+              >Supprimer</button>
+              <input type="hidden" id="commandeIdToDelete" name="commandeIdToDelete">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 </div>

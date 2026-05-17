@@ -28,7 +28,7 @@
 
             <div class="p-4 side-by-side gap-2">
               <div class="menu-info-text">
-                <h3 class="m-0">Conviviale & Gourmand</h3>
+                <h3 class="m-0">Convivial & Gourmand</h3>
                 <p class="text-primary">Partez un repas en famille ou entre amis</p>
                 <p class="m-0 fw-bold">
                   13/04/2027
@@ -65,7 +65,7 @@
 
             <div class="p-4 side-by-side gap-2">
               <div class="menu-info-text">
-                <h3 class="m-0">Conviviale & Gourmand</h3>
+                <h3 class="m-0">Convivial & Gourmand</h3>
                 <p class="text-primary">Partez un repas en famille ou entre amis</p>
                 <p class="m-0 fw-bold">
                   13/04/2027
@@ -110,7 +110,7 @@
       <button type="button" class="btn-close text-end m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       <div class="modal-content">
         <div class="modal-body p-3 p-sm-5">
-          <h1 class="text-center">Conviviale & Gourmand</h1>
+          <h1 class="text-center">Convivial & Gourmand</h1>
 
           <div class="detailed-menu-card-wrapper">
             <div class="card card-corner p-0 bg-white">

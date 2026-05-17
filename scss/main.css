@@ -12631,9 +12631,22 @@ body {
   padding-top: 16px;
 }
 
-.text-bg-badge {
+.text-bg-badge-waiting {
   color: white;
   background-color: rgb(139, 137, 137);
+}
+
+.text-bg-badge-accepte {
+  color: white;
+  background-color: rgb(255, 193, 7);
+}
+
+.bg-purple {
+  background-color: var(--bs-purple);
+}
+
+.bg-teal {
+  background-color: var(--bs-teal);
 }
 
 .pic-size-order {
@@ -12779,18 +12792,20 @@ h4, .h4 {
 }
 
 .form-display input,
-.form-display textarea {
+.form-display textarea,
+.form-display select {
   border-radius: 5px;
   border: 1px solid #90a955;
   margin-bottom: 20px;
 }
-.form-display input::-moz-placeholder, .form-display textarea::-moz-placeholder {
+.form-display input::-moz-placeholder, .form-display textarea::-moz-placeholder, .form-display select::-moz-placeholder {
   color: #4f772d;
   opacity: 0.8;
   font-size: 16px;
 }
 .form-display input::placeholder,
-.form-display textarea::placeholder {
+.form-display textarea::placeholder,
+.form-display select::placeholder {
   color: #4f772d;
   opacity: 0.8;
   font-size: 16px;

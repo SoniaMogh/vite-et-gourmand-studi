@@ -18,7 +18,7 @@
 
             <div class="p-4 side-by-side gap-2">
               <div class="menu-info-text">
-                <h3 class="m-0">Conviviale & Gourmand</h3>
+                <h3 class="m-0">Convivial & Gourmand</h3>
                 <p class="text-primary">Partez un repas en famille ou entre amis</p>
                 <p class="m-0 fw-bold">
                   13/04/2027
@@ -55,7 +55,7 @@
 
             <div class="p-4 side-by-side gap-2">
               <div class="menu-info-text">
-                <h3 class="m-0">Conviviale & Gourmand</h3>
+                <h3 class="m-0">Convivial & Gourmand</h3>
                 <p class="text-primary">Partez un repas en famille ou entre amis</p>
                 <p class="m-0 fw-bold">
                   13/04/2027
