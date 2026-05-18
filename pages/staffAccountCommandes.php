@@ -36,35 +36,48 @@
                   </div>
                 </div>
                 <div class="d-flex justify-content-between mt-2">
-                  <button
-                    type="button"
-                    class="btn btn-primary large-button"
-                  >
-                    Modifier
-                  </button>
-                  <button
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#deleteOrder"
-                    class="btn btn-primary large-button"
-                    data-id="<?= $commande['id'] ?>"
-                  >
-                    Supprimer
-                  </button>
-                  
+
+                  <?php if ($commande['status'] !== 'annule'): ?>
                     <button
                       type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#deleteOrder"
                       class="btn btn-primary large-button"
-                      style="<?= $commande['status'] === 'annule' ? 'visibility:hidden;' : '' ?>"
+                      data-id="<?= $commande['id'] ?>"
                     >
-                      Mettre à jour le status
-                    </button>
+                      Supprimer
+                    </button>   
+                  <?php endif; ?>               
+                   <?php if ($commande['status'] !== 'annule' && !empty($commande['status']) && $commande['status'] !== 'terminee'): ?>
+                    <form action="<?= BASE_URL ?>/monCompteEmploye/commandesPost" method="post">
+                      <input type="hidden" id="orderTrackingToUpdate" name="orderTrackingToUpdate" value=<?= $commande['id'] ?>>
+                      <button
+                        type="submit" 
+                        name="changeStatusOrderbtn"
+                        class="btn btn-primary large-button"
+                      >
+                        Mettre à jour le status
+                      </button>
+                    <?php endif; ?>
+                    </form>
+                    <?php if (empty($commande['status'])): ?>
+                    <form action="<?= BASE_URL ?>/monCompteEmploye/accepteCommandesPost" method="post">
+                      <input type="hidden" name="orderTrackingAccepte"
+                        value=<?= $commande['id'] ?>>
+                      <button
+                        type="submit"
+                        class="btn btn-primary large-button"
+                      >
+                        Accepté
+                      </button>
+                    </form>
+                    <?php endif; ?>
                 </div>
                 
               </div>
               
               <span class="badge <?= getStatusColor($commande['status']) ?> rounded-pill">
-                <?= !empty($commande['status']) ? $commande['status'] : "en attente"?>
+                <?= !empty($commande['status']) ? getStatusName($commande['status']) : "En attente"?>
               </span>
             </li>
             <?php endforeach; ?>
@@ -74,19 +87,19 @@
     </div>
   </div>
 
-    <!-- Delete Order Modal -->
+  <!-- Delete Order Modal -->
   <div
     class="modal fade"
     id="deleteOrder"
     tabindex="-1"
-    aria-labelledby="exampleModalLabel"
+    aria-labelledby="motifAnnulationTitle"
     aria-hidden="true"
   >
     <div class="row modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body p-3 p-sm-5">
           <button type="button" class="btn-close text-end m-0" data-bs-dismiss="modal" aria-label="Close" onclick=closeDeleteCommandeModal()></button>
-          <h1 class="text-center">Motif d'annulation</h1>
+          <h1 class="text-center" id="motifAnnulationTitle">Motif d'annulation</h1>
 
           <div class="card card-corner p-0 bg-white">
             <form
@@ -118,13 +131,13 @@
                 ></textarea>
               </div>
               <?php if (isset($_GET['error'])) { 
-                if ($_GET['error'] === 'noReasonEnterded') {
+                if ($_GET['error'] === 'noReasonEntered') {
                     echo "<p class='text-warning m-0' id='errorDeleteOrder'>Une raison doit être entrée</p>";
                 }
               } ?>
               <button
                 type="submit"
-                name="deleteOrder"
+                name="deleteOrderbtn"
                 class="btn btn-primary large-button m-4 text-white"
               >Supprimer</button>
               <input type="hidden" id="commandeIdToDelete" name="commandeIdToDelete">
@@ -135,7 +148,6 @@
       </div>
     </div>
   </div>
-
 
 
 </div>

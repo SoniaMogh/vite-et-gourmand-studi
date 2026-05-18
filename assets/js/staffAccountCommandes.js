@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const urlParams = new URLSearchParams(window.location.search);
 
-  if (urlParams.get('error') === 'noReasonEnterded') {
+  if (urlParams.get('error') === 'noReasonEntered') {
     const modalEl = document.getElementById('deleteOrder');
     const modal = new bootstrap.Modal(modalEl);
     modal.show();
@@ -19,13 +19,18 @@ function closeDeleteCommandeModal() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const modal = document.getElementById('deleteOrder');
+function giveCommmandeId(modalId, hiddenInputId) {
+  document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById(modalId);
 
-  modal.addEventListener('show.bs.modal', function (event) {
-    const button = event.relatedTarget; // 👈 bouton cliqué
-    const id = button.getAttribute('data-id');
+    modal.addEventListener('show.bs.modal', function (event) {
+      const button = event.relatedTarget;
+      const id = button.getAttribute('data-id');
 
-    document.getElementById('commandeIdToDelete').value = id;
+      document.getElementById(hiddenInputId).value = id;
+    });
   });
-});
+}
+
+giveCommmandeId('deleteOrder', 'commandeIdToDelete');
+giveCommmandeId('changeStatusOrder', 'orderTrackingToUpdate');
