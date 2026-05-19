@@ -1,0 +1,82 @@
+
+<?php 
+  require "databaseLink/staffAccountAvisPost.php";
+?>
+
+<div id="staffAccountAvis" class="staffAccount">
+  <div class="container py-5">
+    <div class="side-by-side-sidebar">
+      <?php require "layout/staffAccountSidebar.php"; ?>
+
+      <div class="w-100">
+        <div class="text-left">
+          <h1 class="text-primary fw-bold py-4">Les avis clients</h1>
+        </div>
+
+        <div>
+          <ol class="list-group list-group">
+            <?php foreach ($tousAvis as $avis): ?>
+            <li
+              class="list-group-item p-3 d-flex mb-4"
+            >
+              <div class="m-1 ms-3 w-100">
+                <h2 class="fw-bold text-dark">
+                  <?= $avis['prenom'] ?> <?=$avis['nom']?>
+                </h2>
+                <h4 class="text-primary"><?=$avis['created_at']?></h4>
+                <p class="m-0 lh-1 text-primary">
+                  <?=$avis['commentaire']?>           
+                </p>
+                <p class="mt-2">
+                  <?php
+                    for ($i = 1; $i <= $avis['stars']; $i++){ 
+                  ?>
+                    <i class="bi bi-star-fill text-warning"></i>
+                  <?php
+                    }
+                  ?>
+                </p>
+                
+                <div class="d-flex justify-content-start mt-2">
+                  <form action="<?= BASE_URL ?>/monCompteEmploye/staffAccountAvisPost" method="post">
+                    <input type="hidden" id="reviewToUpdate" name="reviewToUpdate" value=<?= $avis['id'] ?>>
+                    <?php if ($avis['status'] === 0): ?>
+                      <button
+                        type="submit"
+                        name="accepteReview"
+                        class="btn btn-primary large-button"
+                        data-id="<?= $avis['id'] ?>"
+                      >
+                        Valider
+                      </button>     
+                    <?php endif; ?>       
+                    <?php if ($avis['status'] === 1): ?>
+                      <button
+                        type="submit"
+                        name="hideReview"
+                        class="btn btn-danger large-button"
+                        data-id="<?= $avis['id'] ?>"
+                      >
+                        Retirer
+                      </button>     
+                    <?php endif; ?>    
+                  </form>  
+                   
+                </div>
+                
+              </div>
+              <div>
+                <span class="badge <?= ($avis['status'] !== 0) ? "bg-primary" : "text-bg-badge-waiting"?> rounded-pill">
+                  <?= ($avis['status'] !== 0) ? "Validé" : "Non validé"?>
+                </span>
+              </div>
+            </li>
+            <?php endforeach; ?>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

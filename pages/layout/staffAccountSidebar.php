@@ -26,7 +26,7 @@
       <span class="hide-on-collapse text-light">Les commandes</span>
     </a>
 
-    <a href="<?= BASE_URL ?>/monCompte/mesCommandes" class="sidebar-link py-2 my-0 text-decoration-none <?= $currentPage === BASE_URL.'/monCompteEmploye/staffAccountCommandes' ? 'active' : ''; ?> p-3">
+    <a href="<?= BASE_URL ?>/monCompteEmploye/staffAccountAvis" class="sidebar-link py-2 my-0 text-decoration-none <?= $currentPage === BASE_URL.'/monCompteEmploye/staffAccountAvis' ? 'active' : ''; ?> p-3">
       <i class="bi bi-cart text-light me-1"></i>
       <span class="hide-on-collapse text-light">Les avis</span>
     </a>

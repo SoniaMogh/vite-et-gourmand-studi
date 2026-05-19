@@ -59,6 +59,10 @@
       return "pages/userAccountMesCommandes.php";
     }
 
+    if ($uri === "/monCompte/logout") {
+      return "pages/logout.php";
+    }
+
     if ($uri === "/monCompteEmploye/InfosRestaurant") {
       return "pages/staffAccountRestaurantInfos.php";
     }
@@ -95,9 +99,15 @@
       return "pages/databaseLink/staffAccountAddMenusPost.php";
     }
 
-    if ($uri === "/monCompte/logout") {
-      return "pages/logout.php";
+    if ($uri === "/monCompteEmploye/staffAccountAvis") {
+      return "pages/staffAccountAvis.php";
     }
+
+    if ($uri === "/monCompteEmploye/staffAccountAvisPost") {
+      return "pages/databaseLink/staffAccountAvisPost.php";
+    }
+
+
 
     return "pages/404.php";
 }
