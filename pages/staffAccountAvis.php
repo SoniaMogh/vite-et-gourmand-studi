@@ -23,7 +23,7 @@
   <div class="container py-5">
     <div class="side-by-side-sidebar">
       <button
-        class="btn btn-dark rounded-0 d-md-none mb-md-3 me-4"
+        class="btn btn-dark rounded-0 d-md-none mb-md-3 me-4 my-4"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#mobileSidebar"
@@ -58,14 +58,14 @@
           <ol class="list-group list-group">
             <?php foreach ($tousAvis as $avis): ?>
             <li
-              class="list-group-item p-3 d-flex mb-4"
+              class="list-group-item p-3 d-flex mb-4 list-mobile-display"
             >
-              <div class="m-1 ms-3 w-100">
+              <div class="m-1 w-100 list-item-mobile-display">
                 <h2 class="fw-bold text-dark">
                   <?= $avis['prenom'] ?> <?=$avis['nom']?>
                 </h2>
                 <h4 class="text-primary"><?=$avis['created_at']?></h4>
-                <p class="m-0 lh-1 text-primary">
+                <p class="m-0 lh-1 text-primary comment-mobile-display">
                   <?=$avis['commentaire']?>           
                 </p>
                 <p class="mt-2">
@@ -106,7 +106,7 @@
                 </div>
                 
               </div>
-              <div>
+              <div class="badge-mobile-display">
                 <span class="badge <?= ($avis['status'] !== 0) ? "bg-primary" : "text-bg-badge-waiting"?> rounded-pill">
                   <?= ($avis['status'] !== 0) ? "Validé" : "Non validé"?>
                 </span>

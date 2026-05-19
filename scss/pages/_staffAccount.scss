@@ -40,6 +40,10 @@
   flex-direction: row;
 }
 
+.list-mobile-display {
+  width: 100%;
+}
+
 // --------------------------------- MENUS ----------------------------------------
 
 .size_button_add_menu {
@@ -72,12 +76,32 @@
     align-items: center;
     margin-top: 10px;
   }
-}
 
-@media (max-width: 576px) {
   .side-by-side-info-card-staff {
     flex-direction: column;
     padding-bottom: 1rem !important;
+  }
+
+  .list-mobile-display {
+    flex-direction: column-reverse;
+  }
+
+  .badge-mobile-display {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  .list-item-mobile-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .comment-mobile-display {
+    display: flex;
+    text-align: center;
   }
 }
 
@@ -88,11 +112,5 @@
     gap: 0;
     grid-auto-flow: row;
     width: fit-content;
-  }
-}
-
-@media (max-width: 576px) {
-  .badge-mobile-display {
-    flex-direction: column-reverse;
   }
 }

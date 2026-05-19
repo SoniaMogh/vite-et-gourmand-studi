@@ -5,10 +5,23 @@
 
   try {
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accepteOrderbtn'])) {
       $commandeId = $_POST['orderTrackingAccepte'];
 
       if (!empty($commandeId)){
+
+
+        $stmt = $pdo->prepare("
+          INSERT INTO suivis_commandes (commande_id, accepte)
+          VALUES (:id, :todayDate)
+        ");
+
+        $todayDate = (new DateTime())->format('Y-m-d H:i:s');
+
+        $stmt->execute([
+          'id' => $commandeId,
+          'todayDate' => $todayDate
+        ]);
 
         $stmt2 = $pdo->prepare("
             UPDATE commandes
@@ -20,16 +33,7 @@
           'status' => "accepte",
           'id' => $commandeId
         ]);
-
-        $stmt = $pdo->prepare("
-          INSERT INTO suivis_commandes (commande_id, accepte)
-          VALUES (:id, NOW())
-        ");
-
-        $stmt->execute([
-          'id' => $commandeId
-        ]);
-        header("Location: $commandesPage?success=$commandeId");
+        header("Location: $commandesPage");
         exit;
       } else {
 
@@ -40,5 +44,5 @@
     }
 
   } catch (PDOException $e){
-    echo "Erreur de connexion à la base de données : ". $e->getMessage();
+    var_dump( "Erreur de connexion à la base de données : ". $e->getMessage());
 }
