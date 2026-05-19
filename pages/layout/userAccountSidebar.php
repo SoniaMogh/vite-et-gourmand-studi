@@ -39,7 +39,7 @@
       <i class="bi bi-headphones text-light me-1"></i>
       <span class="hide-on-collapse text-light">Nous contacter</span>
     </a>
-    <a href="<?= BASE_URL ?>/monCompte/logout" class="sidebar-link py-2 my-0 text-decoration-none p-3">
+    <a href="<?= BASE_URL ?>/logout" class="sidebar-link py-2 my-0 text-decoration-none p-3">
       <i class="bi bi-door-open text-light me-1"></i>
       <span class="hide-on-collapse text-light">Se déconnecter</span>
     </a>
