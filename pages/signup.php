@@ -40,7 +40,7 @@
               id="signupTel"
               name="signupTel"
               placeholder="Numéro de téléphone"
-              pattern="0[1-9]{9}"
+              pattern="0[0-9]{9}"
               required
             />
           </div>

@@ -4,7 +4,7 @@
 
 try {
 
-    //Récupérer les utilisateurs 
+    //Récupérer les menus 
     $query = "
       SELECT
         menus.*,
