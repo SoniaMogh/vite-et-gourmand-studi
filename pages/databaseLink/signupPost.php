@@ -6,8 +6,10 @@ $inscription = BASE_URL . "/inscription";
 
 // MDP TEST : 1TestDeTest!
 
+// 2TestDeTest!
+
 try{
-  //Récupérer les données du formulaire de connexion
+  //Récupérer les données du formulaire d'inscription
   $signupName = $_POST['signupName'];
   $signupSurname = $_POST['signupSurname'];
   $signupTel = $_POST['signupTel'];

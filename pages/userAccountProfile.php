@@ -13,10 +13,29 @@
       exit;
     
   };
+
+  //Récupérer l'utilisateur
+  $query = "
+    SELECT * 
+    FROM users
+    WHERE id = :id
+  ";
+  $stmt = $pdo->prepare($query);
+  $stmt->bindParam(':id', $_SESSION['user_id']);
+  $stmt->execute();
+
+  $datas = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <div id="userAccountProfile" class="userAccount">
   <div class="container py-5">
+    <?php if (isset($_GET['success'])) { 
+      if ($_GET['success'] === 'saved') {
+          echo "<div
+                   class='alert alert-success text-center' role='alert'>Vos modifications ont bien été prit en compte
+                </div>";
+      }
+    } ?>
     <div class="side-by-side-sidebar">
       <button
         class="btn btn-dark rounded-0 d-md-none mb-md-3 me-4"
@@ -45,13 +64,14 @@
       </div>
         
       <div class="profile-account-wrapper">
+
         <!-------------- INFORMATIONS PERSONNELLES ----------------->
         <div class="card card-corner bg-white me-5 px-12px">
           <div class="text-center">
             <h4 class="text-primary fw-bold py-4">Informations personnelles</h4>
           </div>
           <form
-            action="<?= BASE_URL ?>/signupPost"
+            action="<?= BASE_URL ?>/monComptePost"
             method="post"
             class="form-display"
           >
@@ -63,7 +83,7 @@
                   type="text"
                   id="updateName"
                   name="updateName"
-                  placeholder="John"
+                  value= <?= $datas['nom'] ?>
                   required
                 />
               </div>
@@ -74,7 +94,7 @@
                   type="text"
                   id="updateSurname"
                   name="updateSurname"
-                  placeholder="Joe"
+                  value= <?= $datas['prenom'] ?>
                   required
                 />
               </div>
@@ -86,8 +106,8 @@
                 type="tel"
                 id="updateTel"
                 name="updateTel"
-                placeholder="0612345678"
-                pattern="0[1-9]{9}"
+                value= <?= $datas['telephone'] ?>
+                pattern="0[0-9]{9}"
                 required
               />
             </div>
@@ -98,7 +118,7 @@
                 type="email"
                 id="updateEmail"
                 name="updateEmail"
-                placeholder="email@email.fr"
+                value= <?= $datas['email'] ?>
                 required
               />
             </div>
@@ -109,7 +129,7 @@
                 type="text"
                 id="updateAdress"
                 name="updateAdress"
-                placeholder="Adresse"
+                value= <?= $datas['adresse'] ?>
                 required
               />
             </div>
@@ -121,7 +141,7 @@
                   type="text"
                   id="updateZIP"
                   name="updateZIP"
-                  placeholder="33000"
+                  value= <?= $datas['code_postal'] ?>
                   inputmode="numeric"
                   pattern="[0-9]{5}"
                   required
@@ -134,7 +154,7 @@
                   type="text"
                   id="updateCity"
                   name="updateCity"
-                  placeholder="Bordeaux"
+                  value= <?= $datas['ville'] ?>
                   required
                 />
               </div>
@@ -146,6 +166,7 @@
                 type="date"
                 id="updateBirthday"
                 name="updateBirthday"
+                value= <?= $datas['birthday'] ?>
                 required
               />
             </div>
@@ -153,19 +174,20 @@
             <input
               type="submit"
               value="Sauvegarder"
+              name="updatePersonalInfos"
               class=" btn btn-primary large-button"
             />
           </form>
         </div>
         
         <div class="p-0">
-          <!-------------- DETAILS DE PAYEMENT ----------------->
+          <!-------------- DETAILS DE PAYEMENT (PAS DE LOGIQUE DERRIERE) ----------------->
           <div class="card card-corner bg-white mb-3 px-12px">
             <div class="text-center">
               <h4 class="text-primary fw-bold pt-4 pb-2">Détails de Payement</h4>
             </div>
             <form
-              action="<?= BASE_URL ?>/signupPost"
+              action="<?= BASE_URL ?>/monComptePost"
               method="post"
               class="form-display"
             >
@@ -179,9 +201,9 @@
                 <input 
                   type="text" 
                   class="border-0 m-0"
-                  id="detailPaymentCardNbr" 
                   name="detailPaymentCardNbr"
                   placeholder="1234 1234 1234 1234"
+                  required
                 >
               </div>
               
@@ -196,9 +218,9 @@
                   <input 
                     type="text" 
                     class="border-0 m-0"
-                    id="detailPaymentCardNbr" 
                     name="detailPaymentCardNbr"
                     placeholder="MM/YY"
+                    required
                   >
                 </div>
                 <div class="rounded-0 p-1 border-detail-payment d-flex flex-column m-0">
@@ -211,9 +233,9 @@
                   <input 
                     type="password" 
                     class="border-0 m-0"
-                    id="detailPaymentCardNbr" 
                     name="detailPaymentCardNbr"
                     placeholder="123"
+                    required
                   >
                 </div>
               </div>
@@ -228,14 +250,15 @@
                 <input 
                   type="text" 
                   class="border-0 m-0"
-                  id="detailPaymentCardNbr" 
                   name="detailPaymentCardNbr"
                   placeholder="France"
+                  required
                 >
               </div>
 
               <input
                 type="submit"
+                name="updateDetailPayment"
                 value="Sauvegarder"
                 class=" btn btn-primary large-button"
               />
@@ -249,31 +272,34 @@
             </div>
 
             <form
-              action="<?= BASE_URL ?>/signupPost"
+              action="<?= BASE_URL ?>/monComptePost"
               method="post"
               class="form-display"
             >
 
               <div class="mb-3 col-12">
-                <label for="updateTel">Ancien mot de passe</label>
+                <label for="oldPasswordToUpdate">Ancien mot de passe</label>
                 <input
                   class="form-control m-0"
-                  type="tel"
-                  id="updateTel"
-                  name="updateTel"
-                  placeholder="0612345678"
-                  pattern="0[1-9]{9}"
+                  type="password"
+                  id="oldPasswordToUpdate"
+                  name="oldPasswordToUpdate"
+                  minlength="10"
+                  pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{10,}"
+                  placeholder="******"
                   required
                 />
               </div>
               <div class="mb-3 col-12">
-                <label for="updateEmail">Nouveau mot de passe</label>
+                <label for="newPasswordToUpdate">Nouveau mot de passe</label>
                 <input
                   class="form-control m-0"
-                  type="email"
-                  id="updateEmail"
-                  name="updateEmail"
-                  placeholder="email@email.fr"
+                  type="password"
+                  id="newPasswordToUpdate"
+                  name="newPasswordToUpdate"
+                  minlength="10"
+                  pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{10,}"
+                  placeholder="******"
                   required
                 />
               </div>
@@ -281,6 +307,7 @@
               <input
                 type="submit"
                 value="Changer"
+                name="changePassword"
                 class=" btn btn-primary large-button"
               />
             </form>
