@@ -32,7 +32,7 @@
 
   try {
 
-    //Récupérer les utilisateurs 
+    //Récupérer les commandes et informations relié
     $query = "
       SELECT
         commandes.*, 

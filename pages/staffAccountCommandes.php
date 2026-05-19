@@ -60,9 +60,8 @@
           <ol class="list-group list-group">
             <?php foreach ($commandes as $commande): ?>
             <li
-              class="list-group-item p-3 d-flex mb-4 align-items-start"
+              class="list-group-item p-3 d-flex mb-4 align-items-start gap-3 badge-mobile-display"
             >
-              <!-- <img src="<?= BASE_URL ?>/assets/pictures/fresh-product-key-point.jpg" class="pic-size-order" /> -->
               <div class="m-1 ms-3 w-100">
                 <h2 class="fw-bold">
                   <?= $commande['prenom'] ?> <?=$commande['nom']?> - <?=$commande['date_prestation']?>
@@ -78,14 +77,14 @@
                     <p class="lh-1 m-0"><?=$commande['email']?></p>
                   </div>
                 </div>
-                <div class="d-flex justify-content-between mt-2">
+                <div class="d-flex flex-column flex-sm-row flex-wrap gap-2">
 
                   <?php if ($commande['status'] !== 'annule'): ?>
                     <button
                       type="button"
                       data-bs-toggle="modal"
                       data-bs-target="#deleteOrder"
-                      class="btn btn-primary large-button"
+                      class="btn btn-primary large-button mt-4 mt-lg-0 me-3 me-lg-5"
                       data-id="<?= $commande['id'] ?>"
                     >
                       Supprimer

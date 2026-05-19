@@ -12675,71 +12675,16 @@ body {
   width: 100%;
 }
 
-/* Vertical Steps Style */
-.steps-vertical {
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 0;
-}
-
-.step-vertical {
+.menu-info-price-staff {
   display: flex;
-  position: relative;
-  padding: 1rem 0;
-}
-
-.step-vertical:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  left: 25px;
-  top: 60px;
-  bottom: 0;
-  width: 2px;
-  background: #e9ecef;
-}
-
-.step-vertical-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: white;
-  border: 2px solid #dee2e6;
-  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  margin-right: 1rem;
-  font-size: 20px;
-  color: #6c757d;
-  position: relative;
-  z-index: 2;
-  flex-shrink: 0;
 }
 
-.step-vertical-content {
-  padding-top: 0.5rem;
-}
-
-.step-vertical.active .step-vertical-icon {
-  background: #4361ee;
-  border-color: #4361ee;
-  color: white;
-  box-shadow: 0 0 0 5px rgba(67, 97, 238, 0.2);
-}
-
-.step-vertical.complete .step-vertical-icon {
-  background: #2ecc71;
-  border-color: #2ecc71;
-  color: white;
-}
-
-/* Interactive buttons */
-.controls {
-  text-align: center;
-}
-
-.btnOrderTracking:disabled {
-  background: #dee2e6;
-  cursor: not-allowed;
+.side-by-side-info-card-staff {
+  display: flex;
+  flex-direction: row;
 }
 
 .size_button_add_menu {
@@ -12763,13 +12708,6 @@ body {
   gap: 10px;
 }
 
-.menu-info-price-staff {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
 @media (max-width: 576px) {
   .menu-info-price-staff {
     flex-direction: column;
@@ -12778,15 +12716,25 @@ body {
     margin-top: 10px;
   }
 }
-.side-by-side-info-card-staff {
-  display: flex;
-  flex-direction: row;
-}
-
 @media (max-width: 576px) {
   .side-by-side-info-card-staff {
     flex-direction: column;
     padding-bottom: 1rem !important;
+  }
+}
+@media (max-width: 992px) {
+  .infos-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    grid-auto-flow: row;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+@media (max-width: 576px) {
+  .badge-mobile-display {
+    flex-direction: column-reverse;
   }
 }
 html,
