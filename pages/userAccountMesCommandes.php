@@ -1,10 +1,17 @@
 <?php
   session_start();
   $login = BASE_URL . "/connexion";
+  $compteEmploye = BASE_URL . "/monCompteEmploye/InfosRestaurant";
 
+  // Si la session n'existe pas, on bloque l'accès à l'utilisateur
   if (!isset($_SESSION['user_id'])) {
     header("Location: $login");
     exit;
+  // Si la session existe, et  que l'utilisateur est un employe
+  } elseif (isset($_SESSION['user_role'])) {
+      header("Location: $compteEmploye");
+      exit;
+    
   };
 ?>
 

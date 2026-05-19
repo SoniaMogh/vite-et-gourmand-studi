@@ -1,3 +1,20 @@
+<?php
+  session_start();
+  $login = BASE_URL . "/connexion";
+  $compteClient = BASE_URL . "/monCompte";
+
+  // Si la session n'existe pas, on bloque l'accès à l'utilisateur
+  if (!isset($_SESSION['user_id'])) {
+    header("Location: $login");
+    exit;
+  // Si la session existe, mais que l'utilisateur n'est pas un employe
+  } elseif (!isset($_SESSION['user_role'])) {
+      header("Location: $compteClient");
+      exit;
+    
+  };
+?>
+
 <?php 
   require "databaseLink/staffAccountMenusPost.php";
 ?>

@@ -1,7 +1,9 @@
 <?php
 session_start();
 require __DIR__ . "/../../config/database.php";
-$location = BASE_URL . "/monCompte";
+$compteClient = BASE_URL . "/monCompte";
+$compteEmploye = BASE_URL . "/monCompteEmploye/InfosRestaurant";
+
 $connexion = BASE_URL . "/connexion";
 
 try{
@@ -25,8 +27,14 @@ try{
         $_SESSION['user_name'] = $user['prenom'];
         $_SESSION['user_surname'] = $user['nom'];
         $_SESSION['user_email'] = $user['email'];
+        $_SESSION['user_role'] = $user['role'];
 
-        header("Location: $location");
+        if ($user['role'] === "employe") {
+          header("Location: $compteEmploye");
+          exit;
+        }
+
+        header("Location: $compteClient");
         exit;
       }else{
         header("Location: $connexion?error=mdpIncorrect");
