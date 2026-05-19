@@ -12763,6 +12763,32 @@ body {
   gap: 10px;
 }
 
+.menu-info-price-staff {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 576px) {
+  .menu-info-price-staff {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+  }
+}
+.side-by-side-info-card-staff {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 576px) {
+  .side-by-side-info-card-staff {
+    flex-direction: column;
+    padding-bottom: 1rem !important;
+  }
+}
 html,
 body {
   height: 100%;

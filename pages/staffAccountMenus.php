@@ -63,7 +63,7 @@
                 src="<?= BASE_URL ?>/<?= $menu['img_path'] ?>"
               />
 
-              <div class="p-4 side-by-side gap-2">
+              <div class="p-4 side-by-side-info-card-staff gap-2">
                 <div class="menu-info-text">
                   <h3 class="m-0"><?= $menu['titre'] ?></h3>
                   <p class="text-primary">
@@ -72,7 +72,8 @@
                   <p class="m-0"><?= $menu['description'] ?></p>
                 </div>
 
-                <div class="menu-info-price">
+                <div class="menu-info-price-staff">
+
                   <p class="mb-0 mt-2">
                     <?= $menu['prix_par_pers'] ?>
                     €/pers
@@ -85,7 +86,9 @@
                   >
                     Détails
                   </button>
+
                 </div>
+
               </div>
               <div class="d-flex justify-content-center mb-4">
                 <button
