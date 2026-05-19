@@ -12039,6 +12039,36 @@ footer hr {
   margin-bottom: 0;
 }
 
+.accountSidebar {
+  background: #193819;
+  transition: all 0.3s ease;
+  min-width: 210px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+.accountSidebar hr {
+  height: 1px;
+  width: 95% !important;
+  background-color: #ecf39e;
+  margin: 0 auto;
+  opacity: 1;
+}
+
+.offcanvas {
+  width: 280px;
+  background: transparent;
+  border: none;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .accountSidebar {
+    border-radius: 0 !important;
+  }
+}
 #page-404 {
   min-height: 100%;
   display: flex !important;
@@ -12574,14 +12604,6 @@ body {
   transition: opacity 0.2s ease;
 }
 
-.userAccountSidebar hr {
-  height: 1px;
-  width: 95% !important;
-  background-color: #ecf39e;
-  margin: 0 auto;
-  opacity: 1;
-}
-
 .px-12px {
   padding: 0 12px;
 }
@@ -12609,15 +12631,6 @@ body {
   grid-template-columns: 0.6fr 0.4fr;
   gap: 20px;
   width: 100%;
-}
-
-.userAccountSidebar {
-  background: #193819;
-  transition: all 0.3s ease;
-  min-width: 210px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
 }
 
 .link-sidebar {

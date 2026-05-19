@@ -22,7 +22,32 @@
 <div id="staffAccountAvis" class="staffAccount">
   <div class="container py-5">
     <div class="side-by-side-sidebar">
-      <?php require "layout/staffAccountSidebar.php"; ?>
+      <button
+        class="btn btn-dark rounded-0 d-md-none mb-md-3 me-4"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#mobileSidebar"
+      >
+        ☰
+      </button>
+      <!-- ---------------- SIDEBAR DESKTOP -------------- -->
+      <div class="d-none d-md-block">
+        <?php require "layout/staffAccountSidebar.php"; ?>
+      </div>
+
+      <!-- ---------------- SIDEBAR MOBILE -------------- -->
+      <div
+        class="offcanvas offcanvas-start d-md-none"
+        tabindex="-1"
+        id="mobileSidebar"
+      >
+        <div class="offcanvas-body p-0">
+
+          <?php require "layout/staffAccountSidebar.php"; ?>
+
+        </div>
+      </div>
+        
 
       <div class="w-100">
         <div class="text-left">

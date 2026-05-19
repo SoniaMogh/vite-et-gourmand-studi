@@ -59,10 +59,6 @@
       return "pages/userAccountMesCommandes.php";
     }
 
-    if ($uri === "/monCompte/logout") {
-      return "pages/logout.php";
-    }
-
     if ($uri === "/monCompteEmploye/InfosRestaurant") {
       return "pages/staffAccountRestaurantInfos.php";
     }
@@ -107,7 +103,9 @@
       return "pages/databaseLink/staffAccountAvisPost.php";
     }
 
-
+    if ($uri === "/logout") {
+      return "pages/logout.php";
+    }
 
     return "pages/404.php";
 }

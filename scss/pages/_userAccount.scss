@@ -107,14 +107,6 @@
   transition: opacity 0.2s ease;
 }
 
-.userAccountSidebar hr {
-  height: 1px;
-  width: 95% !important;
-  background-color: $light;
-  margin: 0 auto;
-  opacity: 1;
-}
-
 .px-12px {
   padding: 0 12px;
 }
@@ -142,17 +134,6 @@
   grid-template-columns: 0.6fr 0.4fr;
   gap: 20px;
   width: 100%;
-}
-
-.userAccountSidebar {
-  background: $dark;
-  transition: all 0.3s ease;
-
-  min-width: 210px;
-  padding: 12px;
-
-  display: flex;
-  flex-direction: column;
 }
 
 .link-sidebar {

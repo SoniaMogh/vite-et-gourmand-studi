@@ -1,6 +1,6 @@
 <?php $currentPage = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); ?>
 
-<div class="userAccountSidebar card card-corner me-5">
+<div class="accountSidebar card h-100 me-5">
   <div class="text-center">
     <img
       src="<?= BASE_URL ?>/assets/pictures/logo-light.png"
