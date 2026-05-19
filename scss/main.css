@@ -12058,7 +12058,8 @@ footer hr {
 }
 
 .offcanvas {
-  width: 280px;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
   background: transparent;
   border: none;
   margin: 0;
