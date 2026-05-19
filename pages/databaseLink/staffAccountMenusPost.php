@@ -1,6 +1,6 @@
 <?php 
   require __DIR__ . "/../../config/database.php";
-  $commandesPage = BASE_URL . "/monCompteEmploye/menu";
+  $menusPage = BASE_URL . "/monCompteEmploye/menus";
 
 try {
 
@@ -30,7 +30,21 @@ try {
 
     $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteMenubtn'])) {
+      $menu_id_to_delete = $_POST['deleteMenuId'];
+
+      $stmt = $pdo->prepare("
+        DELETE FROM menus
+        WHERE id = :menu_id_to_delete
+      ");
+      $stmt->execute([
+        'menu_id_to_delete' => $menu_id_to_delete,
+      ]);
+      header("Location: $menusPage?success");
+      exit;
+    }
+
 
   } catch (PDOException $e){
-    echo "Erreur de connexion à la base de données : ". $e->getMessage();
+    var_dump("Erreur de connexion à la base de données : ". $e->getMessage());
 }

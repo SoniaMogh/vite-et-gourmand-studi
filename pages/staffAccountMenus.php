@@ -7,7 +7,7 @@
     <div class="side-by-side-sidebar">
       <?php require "layout/staffAccountSidebar.php"; ?>
 
-          <div class="">
+          <div>
             <div class="text-left">
               <h1 class="text-primary fw-bold py-4">Menus</h1>
             </div>
@@ -45,8 +45,20 @@
                       </button>
                     </div>
                   </div>
+                  <div class="d-flex justify-content-center mb-4">
+                    <button
+                        type="button"
+                        class="btn btn-danger medium-button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteMenusModal<?= $menu['id'] ?>"
+                      >
+                        Supprimer
+                      </button>
+                  </div>
                 </div>
-              
+
+                
+                <!-- MODAL DETAIL -->
                 <div
                   class="modal fade"
                   id="menusModal<?= $menu['id'] ?>"
@@ -193,6 +205,44 @@
                             </div>
                           </div>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- MODAL SUPPRESSION -->
+                <div
+                  class="modal fade"
+                  id="deleteMenusModal<?= $menu['id'] ?>"
+                  tabindex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="row modal-dialog modal-xl modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-body p-3 p-sm-5">
+                        <h2 class="text-center text-warning">Etes vous certain de vouloir supprimer le menu <?= $menu['titre'] ?> ?</h2>
+                        <div class="d-flex justify-content-center gap-4">
+                          <form action="<?= BASE_URL ?>/monCompteEmploye/menusPost" method="post">
+                            <input type="hidden" id="deleteMenuId" name="deleteMenuId" value="<?= $menu['id'] ?>">
+                            <button 
+                              class="btn btn-danger medium-button mt-4" 
+                              type="submit"
+                              name="deleteMenubtn"
+                            >
+                              Supprimer
+                            </button>
+                          </form>
+
+                          <button
+                            type="button"
+                            class="btn btn-primary medium-button mt-4"
+                            data-bs-dismiss="modal"
+                          > 
+                            Annuler
+                          </button>
+                        </div>
+
                       </div>
                     </div>
                   </div>
