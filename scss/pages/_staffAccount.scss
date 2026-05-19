@@ -1,0 +1,116 @@
+.text-bg-badge-waiting {
+  color: white;
+  background-color: rgb(139, 137, 137);
+}
+
+.text-bg-badge-accepte {
+  color: white;
+  background-color: rgb(255, 193, 7);
+}
+
+.bg-purple {
+  background-color: var(--bs-purple);
+}
+
+.bg-teal {
+  background-color: var(--bs-teal);
+}
+
+.pic-size-order {
+  width: 160px;
+  aspect-ratio: 1;
+}
+
+.infos-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.menu-info-price-staff {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.side-by-side-info-card-staff {
+  display: flex;
+  flex-direction: row;
+}
+
+.list-mobile-display {
+  width: 100%;
+}
+
+// --------------------------------- MENUS ----------------------------------------
+
+.size_button_add_menu {
+  font-size: 60px;
+  color: $primary;
+}
+
+.card-add {
+  min-height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.three-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+// --------------------------------- MOBILE ----------------------------------------
+
+@media (max-width: 576px) {
+  .menu-info-price-staff {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .side-by-side-info-card-staff {
+    flex-direction: column;
+    padding-bottom: 1rem !important;
+  }
+
+  .list-mobile-display {
+    flex-direction: column-reverse;
+  }
+
+  .badge-mobile-display {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  .list-item-mobile-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .comment-mobile-display {
+    display: flex;
+    text-align: center;
+  }
+}
+
+@media (max-width: 992px) {
+  .infos-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    grid-auto-flow: row;
+    width: fit-content;
+  }
+}

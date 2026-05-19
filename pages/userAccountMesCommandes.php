@@ -1,17 +1,48 @@
 <?php
   session_start();
   $login = BASE_URL . "/connexion";
+  $compteEmploye = BASE_URL . "/monCompteEmploye/InfosRestaurant";
 
+  // Si la session n'existe pas, on bloque l'accès à l'utilisateur
   if (!isset($_SESSION['user_id'])) {
     header("Location: $login");
     exit;
+  // Si la session existe, et  que l'utilisateur est un employe
+  } elseif (isset($_SESSION['user_role'])) {
+      header("Location: $compteEmploye");
+      exit;
+    
   };
 ?>
 
 <div id="userAccountProfile" class="userAccount">
   <div class="container py-5">
     <div class="side-by-side-sidebar">
-      <?php require "layout/userAccountSidebar.php"; ?>
+      <button
+        class="btn btn-dark rounded-0 d-md-none mb-md-3 me-4"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#mobileSidebar"
+      >
+        ☰
+      </button>
+      <!-- ---------------- SIDEBAR DESKTOP -------------- -->
+      <div class="d-none d-md-block">
+        <?php require "layout/userAccountSidebar.php"; ?>
+      </div>
+
+      <!-- ---------------- SIDEBAR MOBILE -------------- -->
+      <div
+        class="offcanvas offcanvas-start d-md-none"
+        tabindex="-1"
+        id="mobileSidebar"
+      >
+        <div class="offcanvas-body p-0">
+
+          <?php require "layout/userAccountSidebar.php"; ?>
+
+        </div>
+      </div>
       
       <div class="">
         <div class="text-left">
@@ -28,7 +59,7 @@
 
             <div class="p-4 side-by-side gap-2">
               <div class="menu-info-text">
-                <h3 class="m-0">Conviviale & Gourmand</h3>
+                <h3 class="m-0">Convivial & Gourmand</h3>
                 <p class="text-primary">Partez un repas en famille ou entre amis</p>
                 <p class="m-0 fw-bold">
                   13/04/2027
@@ -65,7 +96,7 @@
 
             <div class="p-4 side-by-side gap-2">
               <div class="menu-info-text">
-                <h3 class="m-0">Conviviale & Gourmand</h3>
+                <h3 class="m-0">Convivial & Gourmand</h3>
                 <p class="text-primary">Partez un repas en famille ou entre amis</p>
                 <p class="m-0 fw-bold">
                   13/04/2027
@@ -110,7 +141,7 @@
       <button type="button" class="btn-close text-end m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       <div class="modal-content">
         <div class="modal-body p-3 p-sm-5">
-          <h1 class="text-center">Conviviale & Gourmand</h1>
+          <h1 class="text-center">Convivial & Gourmand</h1>
 
           <div class="detailed-menu-card-wrapper">
             <div class="card card-corner p-0 bg-white">

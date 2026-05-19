@@ -150,7 +150,7 @@
       <button type="button" class="btn-close text-end m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       <div class="modal-content">
         <div class="modal-body p-3 p-sm-5">
-          <h1 class="text-center">Conviviale & Gourmand</h1>
+          <h1 class="text-center">Convivial & Gourmand</h1>
 
           <div class="detailed-menu-card-wrapper">
             <div class="card card-corner p-0 bg-white">

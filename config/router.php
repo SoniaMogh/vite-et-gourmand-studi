@@ -59,7 +59,51 @@
       return "pages/userAccountMesCommandes.php";
     }
 
-    if ($uri === "/monCompte/logout") {
+    if ($uri === "/monCompteEmploye/InfosRestaurant") {
+      return "pages/staffAccountRestaurantInfos.php";
+    }
+
+    if ($uri === "/monCompteEmploye/InfosRestaurantPost") {
+      return "pages/databaseLink/staffAccountRestaurantInfosPost.php";
+    }
+
+    if ($uri === "/monCompteEmploye/menus") {
+      return "pages/staffAccountMenus.php";
+    }
+
+    if ($uri === "/monCompteEmploye/menusPost") {
+      return "pages/databaseLink/staffAccountMenusPost.php";
+    }
+
+    if ($uri === "/monCompteEmploye/commandes") {
+      return "pages/staffAccountCommandes.php";
+    }
+
+    if ($uri === "/monCompteEmploye/commandesPost") {
+      return "pages/databaseLink/staffAccountCommandesPost.php";
+    }
+
+    if ($uri === "/monCompteEmploye/accepteCommandesPost") {
+      return "pages/databaseLink/staffAccountAccepteCommandesPost.php";
+    }
+
+    if ($uri === "/monCompteEmploye/staffAccountAddMenu") {
+      return "pages/staffAccountAddMenu.php";
+    }
+
+    if ($uri === "/monCompteEmploye/staffAccountAddMenuPost") {
+      return "pages/databaseLink/staffAccountAddMenusPost.php";
+    }
+
+    if ($uri === "/monCompteEmploye/staffAccountAvis") {
+      return "pages/staffAccountAvis.php";
+    }
+
+    if ($uri === "/monCompteEmploye/staffAccountAvisPost") {
+      return "pages/databaseLink/staffAccountAvisPost.php";
+    }
+
+    if ($uri === "/logout") {
       return "pages/logout.php";
     }
 

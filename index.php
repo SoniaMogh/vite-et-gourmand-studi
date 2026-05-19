@@ -1,6 +1,7 @@
 <?php 
 require "config/config.php";
 require "config/router.php"; 
+require "pages/databaseLink/footerPost.php";
 
 $page = get_page();
 ?>
@@ -45,9 +46,6 @@ $page = get_page();
                 <a class="nav-link" href="<?= BASE_URL ?>/contact">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= BASE_URL ?>/monCompte">Mon compte</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="<?= BASE_URL ?>/inscription">S'inscrire</a>
               </li>
               <li class="nav-item">
@@ -76,12 +74,12 @@ $page = get_page();
           <h2>Horaire</h2>
           <p>
             Du lundi au samedi <br />
-            12h00 – 16h00<br />
-            19h00 – 00h00<br />
+            <?= substr($horaires['1']['morning_opening'], 0, 5)?> – <?= substr($horaires['1']['morning_closing'], 0, 5)?><br />
+            <?= substr($horaires['1']['night_opening'], 0, 5)?> – <?= substr($horaires['1']['night_closing'], 0, 5)?><br />
           </p>
           <p>
             Dimanche <br />
-            12h00 – 16h00<br />
+            <?= substr($horaires['2']['morning_opening'], 0, 5)?> – <?= substr($horaires['2']['morning_closing'], 0, 5)?><br /><br />
           </p>
         </div>
         <div class="col-12 col-md-4">
