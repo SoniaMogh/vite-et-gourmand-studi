@@ -12728,6 +12728,27 @@ body {
   cursor: not-allowed;
 }
 
+.size_button_add_menu {
+  font-size: 60px;
+  color: #4f772d;
+}
+
+.card-add {
+  min-height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.three-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
 html,
 body {
   height: 100%;
