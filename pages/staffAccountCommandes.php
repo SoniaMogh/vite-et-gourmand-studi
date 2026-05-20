@@ -69,7 +69,7 @@
         </div>
 
         <div>
-          <ol class="list-group list-group">
+          <ol class="list-group">
             <?php foreach ($commandes as $commande): ?>
             <li
               class="list-group-item p-3 d-flex mb-4 align-items-start gap-3 list-mobile-display"

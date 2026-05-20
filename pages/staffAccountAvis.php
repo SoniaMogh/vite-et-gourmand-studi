@@ -67,7 +67,7 @@
         </div>
 
         <div>
-          <ol class="list-group list-group">
+          <ol class="list-group">
             <?php foreach ($tousAvis as $avis): ?>
             <li
               class="list-group-item p-3 d-flex mb-4 list-mobile-display"

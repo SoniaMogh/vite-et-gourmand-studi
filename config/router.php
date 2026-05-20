@@ -127,8 +127,16 @@
       return "pages/databaseLink/dashboardPost.php";
     }
 
+    if ($uri === "/monCompteAdmin/employes") {
+      return "pages/adminAccountEmployes.php";
+    }
+
+    if ($uri === "/monCompteAdmin/employesPost") {
+      return "pages/databaseLink/adminAccountEmployesPost.php";
+    }
+
     if ($uri === "/monCompteAdmin/creationCompteEmploye") {
-      return "pages/creationCompteEmploye.php";
+      return "pages/adminAccountCreationCompteEmploye.php";
     }
 
     if ($uri === "/logout") {
