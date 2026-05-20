@@ -33,12 +33,12 @@
 
     <hr class="text-light" />
     
-    <a href="<?= BASE_URL ?>/monCompteAdmin/dashboard" class="sidebar-link py-2 my-0 text-decoration-none <?= $currentPage === BASE_URL.'/monCompteEmploye/commandes' ? 'active' : ''; ?> p-3">
+    <a href="<?= BASE_URL ?>/monCompteAdmin/dashboard" class="sidebar-link py-2 my-0 text-decoration-none <?= $currentPage === BASE_URL.'/monCompteAdmin/dashboard' ? 'active' : ''; ?> p-3">
       <i class="bi bi-person text-light me-1"></i>
       <span class="hide-on-collapse text-light">Dashboard</span>
     </a>
 
-    <a href="<?= BASE_URL ?>/monCompteAdmin/creationCompteEmploye" class="sidebar-link py-2 my-0 text-decoration-none <?= $currentPage === BASE_URL.'/monCompteEmploye/staffAccountAvis' ? 'active' : ''; ?> p-3">
+    <a href="<?= BASE_URL ?>/monCompteAdmin/creationCompteEmploye" class="sidebar-link py-2 my-0 text-decoration-none <?= $currentPage === BASE_URL.'/monCompteAdmin/creationCompteEmploye' ? 'active' : ''; ?> p-3">
       <i class="bi bi-cart text-light me-1"></i>
       <span class="hide-on-collapse text-light">Employés</span>
     </a>
