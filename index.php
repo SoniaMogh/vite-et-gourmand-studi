@@ -3,6 +3,8 @@ require "config/config.php";
 require "config/router.php"; 
 require "pages/databaseLink/footerPost.php";
 
+$currentPage = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
 $page = get_page();
 ?>
 
@@ -56,7 +58,7 @@ $page = get_page();
         </div>
       </nav>
     </header>
-    <main id="main-page">
+    <main id=<?= $currentPage === BASE_URL.'/commander' ? "main-page-order" : "main-page"; ?>>
       <?php require $page; ?>
     </main>
     <footer class="bg-dark text-white text-center footer">

@@ -12756,6 +12756,16 @@ body {
     width: fit-content;
   }
 }
+#order-part label {
+  color: #ecf39e;
+}
+
+#order-part hr {
+  background-color: #ecf39e;
+  opacity: 1 !important;
+  margin: 3rem 0;
+}
+
 html,
 body {
   height: 100%;
@@ -12778,6 +12788,20 @@ body {
   position: absolute;
 }
 #main-page > * {
+  position: relative;
+}
+
+#main-page-order {
+  position: relative;
+  flex: 1;
+}
+#main-page-order::before {
+  content: "";
+  inset: 0;
+  background-color: #193819;
+  position: absolute;
+}
+#main-page-order > * {
   position: relative;
 }
 
@@ -12818,7 +12842,7 @@ h4, .h4 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 180px;
+  width: 180px !important;
   height: 40px;
 }
 
