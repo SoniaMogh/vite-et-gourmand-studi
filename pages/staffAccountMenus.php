@@ -108,7 +108,7 @@
               class="modal fade"
               id="menusModal<?= $menu['id'] ?>"
               tabindex="-1"
-              aria-labelledby="exampleModalLabel"
+              aria-labelledby="menuDetailOrderTitle"
               aria-hidden="true"
             >
               <div class="row modal-dialog modal-xl modal-dialog-centered">
@@ -120,7 +120,7 @@
                 ></button>
                 <div class="modal-content">
                   <div class="modal-body p-3 p-sm-5">
-                    <h1 class="text-center"><?= $menu['titre'] ?></h1>
+                    <h1 class="text-center" id="menuDetailOrderTitle"><?= $menu['titre'] ?></h1>
 
                     <div class="detailed-menu-card-wrapper">
                       <div class="card card-corner p-0 bg-white">

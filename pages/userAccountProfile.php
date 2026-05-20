@@ -31,9 +31,9 @@
   <div class="container py-5">
     <?php if (isset($_GET['success'])) { 
       if ($_GET['success'] === 'saved') {
-          echo "<div
-                   class='alert alert-success text-center' role='alert'>Vos modifications ont bien été prit en compte
-                </div>";
+        echo "<div
+          class='alert alert-success text-center' role='alert'>Vos modifications ont bien été prit en compte
+        </div>";
       }
     } ?>
     <div class="side-by-side-sidebar">

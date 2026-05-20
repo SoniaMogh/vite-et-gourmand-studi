@@ -60,22 +60,6 @@
       
       <div>
         <?php
-          //Récupérer les commandes
-          $query = "
-            SELECT
-              menu_id
-            FROM
-              commandes
-            WHERE 
-              user_id = :id
-
-          ";
-          $stmt = $pdo->prepare($query);
-          $stmt->bindParam(':id', $_SESSION['user_id']);
-          $stmt->execute();
-
-          $commandes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
           //Récupérer les menus 
           $query = "
             SELECT

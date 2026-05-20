@@ -13,6 +13,7 @@
 @import 'pages/access';
 @import 'pages/userAccount';
 @import 'pages/staffAccount.scss';
+@import 'pages/commander';
 
 html,
 body {
@@ -33,6 +34,21 @@ body {
     content: '';
     inset: 0;
     background-color: $light-bg-subtle;
+    position: absolute;
+  }
+
+  > * {
+    position: relative;
+  }
+}
+
+#main-page-order {
+  position: relative;
+  flex: 1;
+  &::before {
+    content: '';
+    inset: 0;
+    background-color: $dark;
     position: absolute;
   }
 
@@ -79,7 +95,7 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 180px;
+  width: 180px !important;
   height: 40px;
 }
 

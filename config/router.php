@@ -51,6 +51,14 @@
       return "pages/databaseLink/forgotPasswordPost.php";
     }
 
+    if ($uri === "/commander") {
+      return "pages/commander.php";
+    }
+
+    if ($uri === "/commanderPost") {
+      return "pages/databaseLink/commanderPost.php";
+    }
+
     if ($uri === "/monCompte") {
       return "pages/userAccountProfile.php";
     }
