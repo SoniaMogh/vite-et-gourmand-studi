@@ -32,7 +32,13 @@
       </button>
       <!-- ---------------- SIDEBAR DESKTOP -------------- -->
       <div class="d-none d-md-block">
-        <?php require "layout/staffAccountSidebar.php"; ?>
+        <?php 
+          if ($_SESSION['user_role'] === "admin") {
+            require "layout/adminAccountSidebar.php"; 
+          } else {
+            require "layout/staffAccountSidebar.php"; 
+          }
+        ?>
       </div>
 
       <!-- ---------------- SIDEBAR MOBILE -------------- -->
@@ -43,7 +49,13 @@
       >
         <div class="offcanvas-body p-0">
 
-          <?php require "layout/staffAccountSidebar.php"; ?>
+          <?php 
+            if ($_SESSION['user_role'] === "admin") {
+              require "layout/adminAccountSidebar.php"; 
+            } else {
+              require "layout/staffAccountSidebar.php"; 
+            }
+          ?>
 
         </div>
       </div>
