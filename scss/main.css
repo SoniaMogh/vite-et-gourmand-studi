@@ -12748,6 +12748,9 @@ body {
     display: flex;
     text-align: center;
   }
+  #staffAccountCommandes p {
+    text-align: center;
+  }
 }
 @media (max-width: 992px) {
   .infos-wrapper {

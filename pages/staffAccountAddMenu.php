@@ -252,8 +252,10 @@
           </div>
         </div>
 
-
-        <input type="submit" value="Créer" class="btn btn-primary medium-button" name="addMenubtn">
+        <div class="d-flex">
+          <input type="submit" value="Créer" class="btn btn-primary medium-button me-4" name="addMenubtn">
+          <a class="btn text-bg-badge-waiting medium-button" href="<?= BASE_URL ?>/monCompteEmploye/menus">Retour</a>
+        </div>
       </form>
     </div>
 
