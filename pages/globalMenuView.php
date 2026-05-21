@@ -219,12 +219,24 @@
                         </div>
                       </div>
                       <div class="row justify-content-center">
-                        <a 
-                          href="<?= BASE_URL ?>/commander?id=<?= $menu['id'] ?>" 
-                          class="btn btn-primary large-button"
-                        >
-                          Commander
-                        </a>
+                        <?php if (!isset($_SESSION['user_id'])): ?>
+                          <button
+                            type="button"
+                            class="btn btn-primary large-button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#notAutorizedModal"
+                          >
+                            Commander
+                          </button>
+                        <?php endif ?>
+                        <?php if (isset($_SESSION['user_id'])): ?>
+                          <a 
+                            href="<?= BASE_URL ?>/commander?id=<?= $menu['id'] ?>" 
+                            class="btn btn-primary large-button"
+                          >
+                            Commander
+                          </a>
+                        <?php endif ?>
 
                       </div>
                     </div>
@@ -239,5 +251,70 @@
       </div>
     </div>
   </div>
+  <!-- MODAL NOT CONNECTED -->
+  <div
+    class="modal fade"
+    id="notAutorizedModal"
+    tabindex="-1"
+    aria-labelledby="notAutorizedModalTitle"
+    aria-hidden="true"
+  >
+    <div class="row modal-dialog modal-dialog-centered">
+      <button
+        type="button"
+        class="btn-close text-end m-0"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+      <div class="modal-content">
+        <div class="modal-body p-3 p-sm-5">
+          <h2 class="text-center text-primary mb-3" id="notAutorizedModalTitle">Vous devez vous connecter avant de pouvoir commander</h2>
+          <form
+          action="<?= BASE_URL ?>/loginPost"
+          method="post"
+          class="form-display"
+        >
+          <div class="col-10 ">
+             <?php if (isset($_GET['error'])) { 
+              if ($_GET['error'] === 'mailIncorrect') {
+                echo "<p class='m-0 text-warning'>Utilisateur introuvable.</p>";
+              }
+            } ?>
+            
+            <input
+              class="mb-2 form-control"
+              type="email"
+              id="connectionEmail"
+              name="connectionEmail"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div class="col-10">
+            <?php if (isset($_GET['error'])) { 
+              if ($_GET['error'] === 'mdpIncorrect') {
+                echo "<p class='m-0 text-warning'>Mot de passe incorrect</p>";
+              }
+            } ?>
+            <input
+              class="form-control m-0"
+              type="password"
+              id="connectionPassword"
+              name="connectionPassword"
+              placeholder="Mot de passe"
+              required
+            />
+          </div>
+          <a class="pb-4" href="<?= BASE_URL ?>/MotDePasseOublie">Mot de passe oublié ?</a>
+          <input
+            type="submit"
+            value="Se connecter"
+            class="btn btn-primary large-button m-0"
+          />
+          <a class="pb-4" href="<?= BASE_URL ?>/inscription">Je n'ai pas de compte</a>
+        </form>
+        </div>
+      </div>
+    </div>
 
 </div>

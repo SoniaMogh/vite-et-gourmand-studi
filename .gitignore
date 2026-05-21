@@ -8,3 +8,6 @@
 # Les dépendances
 node_modules
 vendor
+
+# Tests
+filter.html
