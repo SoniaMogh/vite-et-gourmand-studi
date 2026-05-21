@@ -30,6 +30,24 @@
       <i class="bi bi-chat-left-text text-light me-1"></i>
       <span class="hide-on-collapse text-light">Les avis</span>
     </a>
+
+    <hr class="text-light my-2"/>
+    
+    <a href="<?= BASE_URL ?>/monCompteAdmin/dashboard" class="sidebar-link py-2 my-0 text-decoration-none <?= $currentPage === BASE_URL.'/monCompteAdmin/dashboard' ? 'active' : ''; ?> p-3">
+      <i class="bi bi-graph-up text-light me-1"></i>
+      <span class="hide-on-collapse text-light">Dashboard</span>
+    </a>
+
+    <a href="<?= BASE_URL ?>/monCompteAdmin/employes" class="sidebar-link py-2 my-0 text-decoration-none <?= $currentPage === BASE_URL.'/monCompteAdmin/employes' ? 'active' : ''; ?> p-3">
+      <i class="bi bi-person text-light me-1"></i>
+      <span class="hide-on-collapse text-light">Les employés</span>
+    </a>
+
+    <a href="<?= BASE_URL ?>/monCompteAdmin/creationCompteEmploye" class="sidebar-link py-2 my-0 text-decoration-none <?= $currentPage === BASE_URL.'/monCompteAdmin/creationCompteEmploye' ? 'active' : ''; ?> p-3">
+      <i class="bi bi-plus-circle text-light me-1"></i>
+      <span class="hide-on-collapse text-light">Création employé</span>
+    </a>
+
   </div>
 
   <div class="nav link-sidebar sidebar-bottom">

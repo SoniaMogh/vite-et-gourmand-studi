@@ -18,6 +18,7 @@ try{
   $signupZIP = $_POST['signupZIP'];
   $signupCity = $_POST['signupCity'];
   $signupPassword = $_POST['signupPassword'];
+  $role = $_POST['role'] ?? null;
   $signupCheckPassword = $_POST['signupCheckPassword'];
 
   //Vérifier que les mdp passe et la confirmation de mdp correspondent
@@ -42,8 +43,8 @@ try{
 
   //ajouter l'utilisateurs 
   $saveUser = "
-    INSERT INTO users (nom, prenom, telephone, email, adresse, code_postal, ville, password) 
-    VALUES (:name, :surname, :tel, :email, :adress, :zip, :city, :password)";
+    INSERT INTO users (nom, prenom, telephone, email, adresse, code_postal, ville, password, role) 
+    VALUES (:name, :surname, :tel, :email, :adress, :zip, :city, :password, :role)";
   $stmt2 = $pdo->prepare($saveUser);
   $stmt2->bindParam(':surname', $signupSurname);
   $stmt2->bindParam(':tel', $signupTel);
@@ -53,6 +54,7 @@ try{
   $stmt2->bindParam(':zip', $signupZIP);
   $stmt2->bindParam(':city', $signupCity);
   $stmt2->bindParam(':password', $hashedPassword);
+  $stmt2->bindParam(':role', $role);
   $stmt2->execute();
   $lastId = $pdo->lastInsertId(); // Permet de récupérer le dernier id inséré
 

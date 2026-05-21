@@ -117,6 +117,28 @@
       return "pages/databaseLink/staffAccountAvisPost.php";
     }
 
+    // ---------------------------- COMPTE ADMIN ----------------------------------------
+
+    if ($uri === "/monCompteAdmin/dashboard") {
+      return "pages/dashboard.php";
+    }
+
+    if ($uri === "/monCompteAdmin/dashboardPost") {
+      return "pages/databaseLink/dashboardPost.php";
+    }
+
+    if ($uri === "/monCompteAdmin/employes") {
+      return "pages/adminAccountEmployes.php";
+    }
+
+    if ($uri === "/monCompteAdmin/employesPost") {
+      return "pages/databaseLink/adminAccountEmployesPost.php";
+    }
+
+    if ($uri === "/monCompteAdmin/creationCompteEmploye") {
+      return "pages/adminAccountCreationCompteEmploye.php";
+    }
+
     if ($uri === "/logout") {
       return "pages/logout.php";
     }
