@@ -1,0 +1,13 @@
+# Style
+*.map
+.prettierrc
+
+# Environnement
+.env
+
+# Les dépendances
+node_modules
+vendor
+
+# Tests
+filter.html

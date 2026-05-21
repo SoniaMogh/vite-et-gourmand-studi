@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  php: #C'est un alias, on peut le nommer comme on veut
+    # grace à sur https://hub.docker.com/_/php/, on aurait aussi pu mettre à la place du build
+    # image: php:8.3.14-apache
+
+    # construit l'image à partir du dockerfile
+    build:
+      context: .
+    #Nom du container
+    container_name: php_app_prod
+    ports:
+      - 9000:80
+    #le code du pc est directement visible dans docker
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db_prod
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: viteetgourmand
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - '3307:3306' # 3306 déjà  prit
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:

@@ -1,0 +1,193 @@
+@import url('../node_modules/bootstrap-icons/font/bootstrap-icons.css');
+@import 'custom';
+
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/accountSidebar';
+
+//-------------------------- PAGE STYLE ----------------------------
+@import 'pages/404';
+@import 'pages/home';
+@import 'pages/contact';
+@import 'pages/globalMenuView';
+@import 'pages/access';
+@import 'pages/userAccount';
+@import 'pages/staffAccount.scss';
+@import 'pages/commander';
+@import 'layout/underConstruction';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+// Prend toute la place disponible dans le conteneur
+#main-page {
+  position: relative;
+  flex: 1;
+  &::before {
+    content: '';
+    inset: 0;
+    background-color: $light-bg-subtle;
+    position: absolute;
+  }
+
+  > * {
+    position: relative;
+  }
+}
+
+#main-page-order {
+  position: relative;
+  flex: 1;
+  &::before {
+    content: '';
+    inset: 0;
+    background-color: $dark;
+    position: absolute;
+  }
+
+  > * {
+    position: relative;
+  }
+}
+
+h1 {
+  font-family: $font-headline;
+  color: $primary;
+  font-size: 36px;
+}
+
+h2 {
+  font-family: $font-subheadline;
+  font-size: 24px;
+}
+
+h3 {
+  font-family: $font-family-base;
+  font-size: 20px;
+}
+
+h4 {
+  font-family: $font-subheadline;
+  font-size: 18px;
+}
+
+.py-6 {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+
+.side-by-side {
+  display: flex;
+  flex-direction: row;
+}
+
+// --------------------------------BUTTON-----------------------------------
+.large-button {
+  font-family: $font-family-base;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px !important;
+  height: 40px;
+}
+
+.medium-button {
+  font-family: $font-family-base;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 40px;
+}
+
+// --------------------------------CARD-----------------------------------
+.card-corner {
+  border-radius: 20px;
+}
+
+// --------------------------------BIGTITLE-----------------------------------
+.bigtitle-title {
+  color: white;
+}
+
+.bigtitle-logo-size {
+  width: 360px;
+  height: 250px;
+}
+
+.bigtitle {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    filter: brightness(0.5);
+    background-position: 50% 20%;
+  }
+
+  * {
+    //Positionner les éléments devant le ::before
+    position: relative;
+  }
+
+  .bigtitle-content {
+    height: 626px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+//------------------------------------------FORM-----------------------------
+
+.form-logo-size {
+  width: 100px;
+  height: 100px;
+}
+
+.form-display {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.form-display label {
+  color: $primary;
+}
+
+.form-display input,
+.form-display textarea,
+.form-display select {
+  border-radius: 5px;
+  border: 1px solid $secondary;
+  margin-bottom: 20px;
+
+  &::placeholder {
+    color: $primary;
+    opacity: 0.8;
+    font-size: 16px;
+  }
+}
+
+//-------------------------------------MODAL-----------------------------------
+
+#menuModal {
+  --bs-modal-border-radius: 20px;
+  --bs-modal-bg: #dee5cc;
+}

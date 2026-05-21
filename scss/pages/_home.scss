@@ -1,0 +1,277 @@
+html,
+body {
+  min-height: 100%;
+}
+
+// ----------------------------------BIGTITLE-----------------------------------
+.bigtitle-home {
+  &::before {
+    background-image: url(../assets/pictures/homepage-bigtitle.jpg);
+  }
+}
+
+// -------------------------------FIRST ARTICLE---------------------------------
+
+#welcome-info-part {
+  background-color: white;
+}
+
+// Style du bouton
+.home-button {
+  font-family: $font-family-base;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 40px;
+}
+
+@media (max-width: 768px) {
+  #welcome-info-part p {
+    text-align: justify;
+    margin-top: 2rem;
+  }
+  .button-layout-sm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+//------------------------------------------ SECOND ARTICLE ----------------------------------------
+
+.key-point-part-bg {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    background-image: url(../assets/pictures/table.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 30% 64%;
+
+    filter: brightness(0.8);
+  }
+
+  // tous les éléments au-dessus du background ne sont pas impacté par ce qu'il y a dans le before
+  > * {
+    position: relative;
+  }
+
+  .key-point-title-color {
+    color: $light;
+  }
+
+  h2 span {
+    position: absolute;
+  }
+
+  .img-card {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      filter: brightness(0.3);
+    }
+
+    &-content {
+      /* Explication de la position absolute:
+      2 voitures sur une route ne peuvent pas être l'une sur l'autre parce qu'elles sont relatives
+      mais un avion peut être au dessus d'une voiture, il est absolue, rien ne peux le toucher
+      */
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      color: white;
+    }
+
+    //Etat initial
+    &-title {
+      margin: 0;
+      transform: translateY(3rem);
+      transition: 0.4s;
+    }
+
+    &-text-hover {
+      opacity: 0;
+      margin: 0;
+      margin-top: 1rem;
+      transform: translateY(2.5rem);
+      transition: 0.4s;
+    }
+  }
+
+  //Mouvement
+  .img-card:hover .img-card-title {
+    transform: translateY(0);
+  }
+
+  .img-card:hover .img-card-text-hover {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 1200px) {
+    &::before {
+      background-position: 30% 66%;
+    }
+  }
+
+  @media (max-width: 992px) {
+    &::before {
+      background-position: 30% 69%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &::before {
+      background-image: none;
+      background-color: $light;
+      opacity: 0.3;
+      filter: none;
+    }
+
+    .key-point-title-color {
+      color: $primary !important;
+    }
+
+    .img-card img {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .mt-6 {
+    margin-top: 8rem !important;
+  }
+}
+
+//---------------------------------- THIRD ARTICLE------------------------------
+
+.article-type-event {
+  line-height: 1.3;
+}
+
+.button-type-event-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-same {
+  width: 100%;
+  aspect-ratio: 5 / 3; // même ratio pour les 2
+  object-fit: cover;
+}
+
+.mid-pic {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  #type-event-part p {
+    margin-top: 0.5rem;
+  }
+}
+
+//------------------------------------------ FOURTH ARTICLE ----------------------------------------
+
+.review-part-bg {
+  position: relative;
+  // Création d'une couche indépendants par dessus toute la section
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    background-image: url(../assets/pictures/review-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 30% 64%;
+
+    filter: brightness(0.2);
+  }
+
+  // tous les éléments au-dessus du background ne sont pas impacté par ce qu'il y a dans le before
+  > * {
+    position: relative;
+  }
+
+  @media screen and (min-width: 576px) {
+    .carousel-item {
+      margin-right: 0;
+      flex: 0 0 calc(100% / 2);
+      display: block;
+    }
+    .carousel-inner {
+      display: flex;
+    }
+  }
+  .carousel-inner {
+    padding: 1em 0;
+    width: 85%;
+    margin-inline: auto;
+  }
+  .card {
+    margin: 0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+    height: 100%;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    background-color: #e1e1e1;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @media (min-width: 992px) {
+    .carousel-item {
+      flex: 0 0 calc(100% / 3);
+    }
+  }
+
+  .card .img-wrapper {
+    max-width: 100%;
+    height: 13em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .card img {
+    max-height: 100%;
+  }
+  @media (max-width: 767px) {
+    .card .img-wrapper {
+      height: 17em;
+    }
+  }
+}
+
+.clamp-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* nombre de lignes */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

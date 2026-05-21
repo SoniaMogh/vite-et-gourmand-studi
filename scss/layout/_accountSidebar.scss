@@ -1,0 +1,33 @@
+.accountSidebar {
+  background: $dark;
+  transition: all 0.3s ease;
+
+  min-width: 210px;
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 20px;
+}
+
+.accountSidebar hr {
+  height: 1px;
+  width: 95% !important;
+  background-color: $light;
+  margin: 0 auto;
+  opacity: 1;
+}
+
+.offcanvas {
+  width: fit-content !important;
+  background: transparent;
+  border: none;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .accountSidebar {
+    border-radius: 0 !important;
+  }
+}

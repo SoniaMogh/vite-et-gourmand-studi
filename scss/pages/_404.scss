@@ -1,0 +1,12 @@
+#page-404{
+    min-height: 100%;
+    display: flex !important;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#page-404 p{
+    color: $primary;
+}

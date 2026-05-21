@@ -1,0 +1,58 @@
+.bigtitle-contact-content {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#contact-part label {
+  display: block;
+}
+
+#contact-part {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  &::before {
+    content: '';
+    inset: 0;
+  }
+
+  > * {
+    position: relative;
+  }
+}
+
+.card {
+  border: none;
+}
+
+@media (min-width: 992px) {
+  .mx-md-6 {
+    margin-left: 10rem !important;
+    margin-right: 10rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .mx-md-6 {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+}
+
+#messageSent-page {
+  min-height: 100%;
+  display: flex !important;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#messageSent-page p {
+  color: $primary;
+}
