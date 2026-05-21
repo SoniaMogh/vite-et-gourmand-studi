@@ -1,5 +1,4 @@
 <?php
-session_start();
 require __DIR__ . "/../../config/database.php";
 $compteClient = BASE_URL . "/monCompte";
 $compteEmploye = BASE_URL . "/monCompteEmploye/InfosRestaurant";
@@ -33,7 +32,6 @@ try{
           header("Location: $compteEmploye");
           exit;
         }
-
         header("Location: $compteClient");
         exit;
       }else{
@@ -47,7 +45,7 @@ try{
   }
 }
 catch (PDOException $e){
-    echo "Erreur de connexion à la base de données : ". $e->getMessage();
+    error_log( "Erreur de connexion à la base de données : ". $e->getMessage());
 }
 
 ?>

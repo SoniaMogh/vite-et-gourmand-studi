@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  
   $login = BASE_URL . "/connexion";
   $compteEmploye = BASE_URL . "/monCompteEmploye/InfosRestaurant";
 

@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require __DIR__ . "/../../config/database.php";
 $account = BASE_URL . "/monCompte";
 

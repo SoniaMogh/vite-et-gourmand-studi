@@ -1,12 +1,12 @@
 <?php 
   ob_start();
+  session_start();
   require "config/config.php";
   require "config/router.php"; 
 
   $currentPage = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
   $page = get_page();
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -46,12 +46,24 @@
               <li class="nav-item">
                 <a class="nav-link" href="<?= BASE_URL ?>/contact">Contact</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?= BASE_URL ?>/inscription">S'inscrire</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?= BASE_URL ?>/connexion">Se connecter</a>
-              </li>
+              <?php if (isset($_SESSION['user_id']) && !isset($_SESSION['user_role'])): ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= BASE_URL ?>/monCompte">Mon Compte</a>
+                </li>
+              <?php endif; ?> 
+              <?php if (isset($_SESSION['user_id']) && isset($_SESSION['user_role'])): ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= BASE_URL ?>/monCompteEmploye/InfosRestaurant">Mon compte</a>
+                </li>
+              <?php endif; ?> 
+              <?php if (!isset($_SESSION['user_id'])): ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= BASE_URL ?>/inscription">S'inscrire</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= BASE_URL ?>/connexion">Se connecter</a>
+                </li>
+              <?php endif; ?> 
             </ul>
           </div>
         </div>

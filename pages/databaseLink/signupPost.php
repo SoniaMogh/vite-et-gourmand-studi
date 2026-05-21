@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require __DIR__ . "/../../config/database.php";
 $location = BASE_URL . "/monCompte";
 $inscription = BASE_URL . "/inscription";

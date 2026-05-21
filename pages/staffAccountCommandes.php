@@ -1,6 +1,6 @@
 
 <?php
-  session_start();
+  
   $login = BASE_URL . "/connexion";
   $compteClient = BASE_URL . "/monCompte";
 

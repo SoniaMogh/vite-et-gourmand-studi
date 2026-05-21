@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  require __DIR__ . "/../config/database.php";
   $login = BASE_URL . "/connexion";
   $compteClient = BASE_URL . "/monCompte";
 
@@ -14,8 +14,7 @@
     
   };
 ?>
-
-<div id="contact-part">
+<div id="addMenu-part">
   <div class="container py-5">
     <div class="row card py-5 mx-5 mx-md-6 card-corner">
       <div class="col-12 text-center">
