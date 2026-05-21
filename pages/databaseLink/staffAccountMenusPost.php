@@ -46,5 +46,7 @@ try {
 
 
   } catch (PDOException $e){
-    var_dump("Erreur de connexion à la base de données : ". $e->getMessage());
+    error_log($e->getMessage());
+    echo "Erreur serveur";
+    exit;
 }

@@ -41,24 +41,26 @@ try{
       :user_id,
       :menu_id
     )";
-    $stmt = $pdo->prepare($saveOrder);
-    $stmt->bindParam(':date_prestation', $orderDeliveryDate);
-    $stmt->bindParam(':heure_livraison', $orderDeliveryHour);
-    $stmt->bindParam(':adresse_livraison', $orderDeliveryAddress);
-    $stmt->bindParam(':code_postal_livraison', $orderDeliveryZIP);
-    $stmt->bindParam(':ville_livraison', $orderDeliveryCity);
-    $stmt->bindParam(':prix_menu', $totalPrice);
-    $stmt->bindParam(':nbre_pers', $orderNbrPers);
-    $stmt->bindParam(':pret_materiel', $lendStuff);
-    $stmt->bindParam(':user_id', $userId);
-    $stmt->bindParam(':menu_id', $menuId);
-    $stmt->execute();
-    
-    header("Location: $userAccount");
-    exit;
-}
-catch (PDOException $e){
-  echo "Erreur de connexion à la base de données : ". $e->getMessage();
+  $stmt = $pdo->prepare($saveOrder);
+  $stmt->bindParam(':date_prestation', $orderDeliveryDate);
+  $stmt->bindParam(':heure_livraison', $orderDeliveryHour);
+  $stmt->bindParam(':adresse_livraison', $orderDeliveryAddress);
+  $stmt->bindParam(':code_postal_livraison', $orderDeliveryZIP);
+  $stmt->bindParam(':ville_livraison', $orderDeliveryCity);
+  $stmt->bindParam(':prix_menu', $totalPrice);
+  $stmt->bindParam(':nbre_pers', $orderNbrPers);
+  $stmt->bindParam(':pret_materiel', $lendStuff);
+  $stmt->bindParam(':user_id', $userId);
+  $stmt->bindParam(':menu_id', $menuId);
+  $stmt->execute();
+  
+  header("Location: $userAccount");
+  exit;
+  
+} catch (PDOException $e){
+  error_log($e->getMessage());
+  echo "Erreur serveur";
+  exit;
 }
 
 ?>
