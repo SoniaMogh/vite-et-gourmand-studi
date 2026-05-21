@@ -1,6 +1,6 @@
 <?php
   require __DIR__ . "/../config/database.php";
-    //Récupérer les menus 
+  //Récupérer les menus 
   $query = "
     SELECT
       menus.*,

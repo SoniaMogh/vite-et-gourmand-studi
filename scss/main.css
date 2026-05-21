@@ -12772,6 +12772,19 @@ body {
   margin: 3rem 0;
 }
 
+#page-in-construction {
+  min-height: 100%;
+  display: flex !important;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#page-in-construction p {
+  color: #4f772d;
+}
+
 html,
 body {
   height: 100%;

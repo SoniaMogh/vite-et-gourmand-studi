@@ -120,12 +120,8 @@
 
     // ---------------------------- COMPTE ADMIN ----------------------------------------
 
-    if ($uri === "monCompteAdmin/dashboard") {
-      return "pages/dashboard.php";
-    }
-
-    if ($uri === "monCompteAdmin/dashboardPost") {
-      return "pages/databaseLink/dashboardPost.php";
+        if ($uri === "monCompteAdmin/dashboard") {
+      return "pages/adminAccountDashboard.php";
     }
 
     if ($uri === "monCompteAdmin/employes") {
