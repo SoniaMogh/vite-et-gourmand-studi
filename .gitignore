@@ -1,4 +1,13 @@
-node_modules
+# Style
 *.map
 .prettierrc
-test.html
+
+# Environnement
+.env
+
+# Les dépendances
+node_modules
+vendor
+
+# Tests
+filter.html

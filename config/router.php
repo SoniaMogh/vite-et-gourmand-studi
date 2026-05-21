@@ -6,7 +6,7 @@
 
     // On ne veut recuperer que le nom de la page
     $base = trim(dirname($_SERVER['SCRIPT_NAME']), '/');
-    
+
     if (str_starts_with($uri, $base)) {
       $uri = substr($uri, strlen($base)); 
     }
@@ -120,27 +120,22 @@
 
     // ---------------------------- COMPTE ADMIN ----------------------------------------
 
-    if ($uri === "/monCompteAdmin/dashboard") {
-      return "pages/dashboard.php";
+        if ($uri === "monCompteAdmin/dashboard") {
+      return "pages/adminAccountDashboard.php";
     }
 
-    if ($uri === "/monCompteAdmin/dashboardPost") {
-      return "pages/databaseLink/dashboardPost.php";
-    }
-
-    if ($uri === "/monCompteAdmin/employes") {
+    if ($uri === "monCompteAdmin/employes") {
       return "pages/adminAccountEmployes.php";
     }
 
-    if ($uri === "/monCompteAdmin/employesPost") {
+    if ($uri === "monCompteAdmin/employesPost") {
       return "pages/databaseLink/adminAccountEmployesPost.php";
     }
 
-    if ($uri === "/monCompteAdmin/creationCompteEmploye") {
+    if ($uri === "monCompteAdmin/creationCompteEmploye") {
       return "pages/adminAccountCreationCompteEmploye.php";
     }
 
-    if ($uri === "/logout") {
     if ($uri === "logout") {
       return "pages/logout.php";
     }

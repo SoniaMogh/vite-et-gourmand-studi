@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  
   session_destroy();
   $login = BASE_URL . "/connexion";
 

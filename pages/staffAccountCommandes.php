@@ -1,6 +1,6 @@
 
 <?php
-  session_start();
+  
   $login = BASE_URL . "/connexion";
   $compteClient = BASE_URL . "/monCompte";
 
@@ -81,12 +81,12 @@
                 <h3><?=$commande['titre']?></h3>
                 <div class="infos-wrapper">
                   <div>
-                    <p class="m-0 lh-1 text-center"><?=$commande['adresse_livraison']?> </p>
-                    <p class="m-0 text-center"> <?=$commande['code_postal_livraison']?> <?=$commande['ville_livraison']?></p>
+                    <p class="m-0 lh-1"><?=$commande['adresse_livraison']?> </p>
+                    <p class="m-0"> <?=$commande['code_postal_livraison']?> <?=$commande['ville_livraison']?></p>
                   </div>
                   <div>
-                    <p class="m-0 lh-1 text-center"><?=$commande['telephone']?></p>
-                    <p class="lh-1 m-0 text-center"><?=$commande['email']?></p>
+                    <p class="m-0 lh-1"><?=$commande['telephone']?></p>
+                    <p class="lh-1 m-0"><?=$commande['email']?></p>
                   </div>
                 </div>
                 <div class="d-flex flex-column flex-sm-row flex-wrap gap-2">

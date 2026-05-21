@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  require __DIR__ . "/../config/database.php";
   $login = BASE_URL . "/connexion";
   $compteClient = BASE_URL . "/monCompte";
   $compteEmploye = BASE_URL . "/monCompteEmploye/InfosRestaurant";

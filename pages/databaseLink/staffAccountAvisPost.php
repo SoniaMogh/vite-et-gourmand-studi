@@ -2,7 +2,6 @@
   require __DIR__ . "/../../config/database.php";
   $reviewsPage = BASE_URL . "/monCompteEmploye/staffAccountAvis";
 
-
   try {
 
     $query = "
@@ -43,7 +42,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['hideReview'])) {
       $reviewToUpdate = $_POST['reviewToUpdate'];
-      $hide = false;
+      $hide = 0;
 
       $query = "
         UPDATE

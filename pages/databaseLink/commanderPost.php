@@ -1,5 +1,4 @@
 <?php
-session_start();
 require __DIR__ . "/../../config/database.php";
 $userAccount = BASE_URL . "/monCompte";
 
@@ -10,11 +9,11 @@ try{
   $orderDeliveryAddress = $_POST['orderDeliveryAddress'];
   $orderDeliveryZIP = $_POST['orderDeliveryZIP'];
   $orderDeliveryCity = $_POST['orderDeliveryCity'];
-  $orderNbrPers = isset($_POST['lenorderNbrPersdStuff']);
-  $lendStuff = isset($_POST['lendStuff']);
+  $orderNbrPers = $_POST['orderNbrPers'];
+  $lendStuff = isset($_POST['lendStuff']) ?? 0;
   $totalPrice = $_POST['totalPrice'];
   $menuId = $_POST['orderMenuId'];
-  $userId = $_SESSION['user_id'];
+  $userId = $_POST['orderUserId'];
 
   //ajouter la commande 
   $saveOrder = "
@@ -42,27 +41,24 @@ try{
       :user_id,
       :menu_id
     )";
-  $stmt = $pdo->prepare($saveOrder);
-  $stmt->bindParam(':date_prestation', $orderDeliveryDate);
-  $stmt->bindParam(':heure_livraison', $orderDeliveryHour);
-  $stmt->bindParam(':adresse_livraison', $orderDeliveryAddress);
-  $stmt->bindParam(':code_postal_livraison', $orderDeliveryZIP);
-  $stmt->bindParam(':ville_livraison', $orderDeliveryCity);
-  $stmt->bindParam(':prix_menu', $totalPrice);
-  $stmt->bindParam(':nbre_pers', $orderNbrPers);
-  $stmt->bindParam(':pret_materiel', $lendStuff);
-  $stmt->bindParam(':user_id', $menuId);
-  $stmt->bindParam(':menu_id', $userId);
-  $stmt->execute();
-  
-  header("Location: $userAccount");
-  exit;
-
-
-
+    $stmt = $pdo->prepare($saveOrder);
+    $stmt->bindParam(':date_prestation', $orderDeliveryDate);
+    $stmt->bindParam(':heure_livraison', $orderDeliveryHour);
+    $stmt->bindParam(':adresse_livraison', $orderDeliveryAddress);
+    $stmt->bindParam(':code_postal_livraison', $orderDeliveryZIP);
+    $stmt->bindParam(':ville_livraison', $orderDeliveryCity);
+    $stmt->bindParam(':prix_menu', $totalPrice);
+    $stmt->bindParam(':nbre_pers', $orderNbrPers);
+    $stmt->bindParam(':pret_materiel', $lendStuff);
+    $stmt->bindParam(':user_id', $userId);
+    $stmt->bindParam(':menu_id', $menuId);
+    $stmt->execute();
+    
+    header("Location: $userAccount");
+    exit;
 }
 catch (PDOException $e){
-  var_dump( "Erreur de connexion à la base de données : ". $e->getMessage());
+  echo "Erreur de connexion à la base de données : ". $e->getMessage();
 }
 
 ?>

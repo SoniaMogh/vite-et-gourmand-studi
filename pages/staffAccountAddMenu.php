@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  require __DIR__ . "/../config/database.php";
   $login = BASE_URL . "/connexion";
   $compteClient = BASE_URL . "/monCompte";
 
@@ -14,8 +14,7 @@
     
   };
 ?>
-
-<div id="contact-part">
+<div id="addMenu-part">
   <div class="container py-5">
     <div class="row card py-5 mx-5 mx-md-6 card-corner">
       <div class="col-12 text-center">
@@ -253,8 +252,10 @@
           </div>
         </div>
 
-
-        <input type="submit" value="Créer" class="btn btn-primary medium-button" name="addMenubtn">
+        <div class="d-flex">
+          <input type="submit" value="Créer" class="btn btn-primary medium-button me-4" name="addMenubtn">
+          <a class="btn text-bg-badge-waiting medium-button" href="<?= BASE_URL ?>/monCompteEmploye/menus">Retour</a>
+        </div>
       </form>
     </div>
 

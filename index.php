@@ -1,13 +1,12 @@
 <?php 
-require "config/config.php";
-require "config/router.php"; 
-require "pages/databaseLink/footerPost.php";
+  ob_start();
+  session_start();
+  require "config/config.php";
+  require "config/router.php"; 
 
-$currentPage = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
-$page = get_page();
+  $currentPage = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+  $page = get_page();
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -47,12 +46,24 @@ $page = get_page();
               <li class="nav-item">
                 <a class="nav-link" href="<?= BASE_URL ?>/contact">Contact</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?= BASE_URL ?>/inscription">S'inscrire</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?= BASE_URL ?>/connexion">Se connecter</a>
-              </li>
+              <?php if (isset($_SESSION['user_id']) && !isset($_SESSION['user_role'])): ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= BASE_URL ?>/monCompte">Mon Compte</a>
+                </li>
+              <?php endif; ?> 
+              <?php if (isset($_SESSION['user_id']) && isset($_SESSION['user_role'])): ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= BASE_URL ?>/monCompteEmploye/InfosRestaurant">Mon compte</a>
+                </li>
+              <?php endif; ?> 
+              <?php if (!isset($_SESSION['user_id'])): ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= BASE_URL ?>/inscription">S'inscrire</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= BASE_URL ?>/connexion">Se connecter</a>
+                </li>
+              <?php endif; ?> 
             </ul>
           </div>
         </div>
@@ -61,7 +72,10 @@ $page = get_page();
     <main id=<?= $currentPage === BASE_URL.'/commander' ? "main-page-order" : "main-page"; ?>>
       <?php require $page; ?>
     </main>
+    
+    
     <footer class="bg-dark text-white text-center footer">
+      <?php require "pages/databaseLink/footerPost.php";?>
       <div class="row">
         <div class="col-6 col-md-4">
           <h2>Acces/Contact</h2>
@@ -105,6 +119,6 @@ $page = get_page();
 
   </body>
 </html>
-
+<?php ob_end_flush(); ?>
 
 
