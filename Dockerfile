@@ -10,8 +10,6 @@ RUN echo "<Directory /var/www/html>\n\
     Require all granted\n\
 </Directory>" > /etc/apache2/conf-available/custom.conf
 
-RUN a2enconf custom
-
 WORKDIR /var/www/html
 COPY . /var/www/html
 
