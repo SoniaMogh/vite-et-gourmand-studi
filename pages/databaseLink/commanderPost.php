@@ -9,9 +9,9 @@ try{
   $orderDeliveryAddress = $_POST['orderDeliveryAddress'];
   $orderDeliveryZIP = $_POST['orderDeliveryZIP'];
   $orderDeliveryCity = $_POST['orderDeliveryCity'];
+  $totalPrice = (float) $_POST['totalPrice'];
   $orderNbrPers = $_POST['orderNbrPers'];
-  $lendStuff = isset($_POST['lendStuff']) ?? 0;
-  $totalPrice = $_POST['totalPrice'];
+  $lendStuff = isset($_POST['lendStuff']) ? 1 : 0;
   $menuId = $_POST['orderMenuId'];
   $userId = $_POST['orderUserId'];
 
