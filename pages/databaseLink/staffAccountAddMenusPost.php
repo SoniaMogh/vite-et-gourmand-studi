@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . "/../../config/database.php";
 $creationMenu = BASE_URL . "/monCompteEmploye/staffAccountAddMenu";
-$menus =  BASE_URL . "/monCompteEmploye/menu";
+$menus =  BASE_URL . "/monCompteEmploye/menus";
 
 try {
 
