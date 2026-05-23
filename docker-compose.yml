@@ -9,7 +9,7 @@ services:
     build:
       context: .
     #Nom du container
-    container_name: php_app_prod
+    container_name: php_app
     ports:
       - 9000:80
     #le code du pc est directement visible dans docker
@@ -20,7 +20,7 @@ services:
 
   mysql:
     image: mysql:8.0
-    container_name: mysql_db_prod
+    container_name: mysql_db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -31,6 +31,20 @@ services:
       - '3307:3306' # 3306 déjà  prit
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_db
+    ports:
+      - '8081:80'
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    depends_on:
+      - mysql
+    restart: unless-stopped
 
 volumes:
   mysql_data:

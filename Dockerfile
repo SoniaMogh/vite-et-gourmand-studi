@@ -10,16 +10,8 @@ RUN echo "<Directory /var/www/html>\n\
     Require all granted\n\
 </Directory>" > /etc/apache2/conf-available/custom.conf
 
-RUN a2enconf custom
-
-# installer composer parce qu'on utilise dotenv
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
 WORKDIR /var/www/html
 COPY . /var/www/html
-
-# installer dépendances PHP
-RUN composer install --no-dev --optimize-autoloader
 
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 755 /var/www/html
