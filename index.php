@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>/scss/main.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Vite Et Gourmand</title>
+    <link rel="icon" type="image/x-icon" href="<?= BASE_URL ?>/assets/pictures/logo-primary-logo.png">
   </head>
   <body>
     <header>
