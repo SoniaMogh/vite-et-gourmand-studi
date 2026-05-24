@@ -20,11 +20,20 @@ Avant de commencer assurez vous d'avoir installé
 - Git
 - Docker
 - Docker Desktop
+- Node.js (npm est inclus avec Node.js. Il sera utilisé pour installer les dépendances front-end si vous souhaitez modifier le code sans connexion internet)
 - Composer
+
+### Installer les dépendances Font-end
+
+Lancez, dans un terminal à la racine du projet, la commande :
+
+`npm install`
+
+Cette commande permet d'installer les dépendences front-end, notamment Bootstrap
 
 ### Installer les dépendances PHP
 
-Lancer la commande
+Lancez la commande
 
 `composer install`
 
@@ -40,7 +49,7 @@ puis entrez dans le dossier
 
 ### Configuration des variables d'environnement
 
-Créer un fichier .env à la racine du projet, et y copier ce code :
+Créez un fichier .env à la racine du projet, et y copier ce code :
 
 ```
   DB_HOST=mysql
@@ -81,7 +90,7 @@ Puis allez dans le fichier `database.php` du dossier config, et remplacez le cod
 
 ### Lancer Docker
 
-Démarrer Docker Desktop et lancer, dans un terminal, la commande :
+Démarrez Docker Desktop et lancer, dans un terminal, la commande :
 
 `docker-compose up --build`
 
