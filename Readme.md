@@ -20,16 +20,34 @@ Avant de commencer assurez vous d'avoir installé
 - Git
 - Docker
 - Docker Desktop
-- Node.js (npm est inclus avec Node.js. Il sera utilisé pour installer les dépendances front-end si vous souhaitez modifier le code sans connexion internet)
+- Node.js (npm est inclus avec Node.js). Il sera utilisé pour installer les dépendances front-end si vous souhaitez modifier le SCSS Bootstrap ou travailler hors ligne, sans dépendre d'un CDN.
 - Composer
 
-### Installer les dépendances Font-end
+### Installer les dépendances Front-end (optionnel mais recommandé si modifications du code prévus)
 
 Lancez, dans un terminal à la racine du projet, la commande :
 
 `npm install`
 
 Cette commande permet d'installer les dépendences front-end, notamment Bootstrap
+
+### Modifier les chemins js et icons (optionnel, utile si modification hors ligne)
+
+Dans index.php, changer la ligne
+
+`<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>`
+
+Par
+
+`<script src="<?= BASE_URL ?>/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>`
+
+et retirer la ligne
+
+`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">`
+
+Et dans main.scss, ajouter
+
+`@import url('../node_modules/bootstrap-icons/font/bootstrap-icons.css');`
 
 ### Installer les dépendances PHP
 
@@ -52,40 +70,40 @@ puis entrez dans le dossier
 Créez un fichier .env à la racine du projet, et y copier ce code :
 
 ```
-  DB_HOST=mysql
-  DB_NAME=viteetgourmand
-  DB_USER=root
-  DB_PASSWORD=root
+DB_HOST=mysql
+DB_NAME=viteetgourmand
+DB_USER=root
+DB_PASSWORD=root
 ```
 
 Puis allez dans le fichier `database.php` du dossier config, et remplacez le code par :
 
 ```
-  <?php
+<?php
 
-  require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
-  $dotenv->load();
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
 
-  $host = $_ENV["DB_HOST"];
-  $dbname = $_ENV["DB_NAME"];
-  $user = $_ENV["DB_USER"];
-  $password = $_ENV["DB_PASSWORD"];
+$host = $_ENV["DB_HOST"];
+$dbname = $_ENV["DB_NAME"];
+$user = $_ENV["DB_USER"];
+$password = $_ENV["DB_PASSWORD"];
 
-  try {
-      $pdo = new PDO(
-          "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
-          $user,
-          $password
-      );
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+try {
+    $pdo = new PDO(
+        "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
+        $user,
+        $password
+    );
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  } catch (PDOException $e) {
-      error_log($e->getMessage());
-      echo "DB error";
-      exit;
-  }
+} catch (PDOException $e) {
+    error_log($e->getMessage());
+    echo "DB error";
+    exit;
+}
 ```
 
 ### Lancer Docker
