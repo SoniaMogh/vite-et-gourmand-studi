@@ -1,14 +1,18 @@
-
 <?php
-$host = getenv('DB_HOST');
-$port = getenv('DB_PORT') ?: 3306;
-$dbname = getenv('DB_NAME');
-$user = getenv('DB_USER');
-$password = getenv('DB_PASSWORD');
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+$host = $_ENV["DB_HOST"];
+$dbname = $_ENV["DB_NAME"];
+$user = $_ENV["DB_USER"];
+$password = $_ENV["DB_PASSWORD"];
 
 try {
     $pdo = new PDO(
-        "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4",
+        "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
         $user,
         $password
     );

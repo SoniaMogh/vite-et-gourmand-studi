@@ -30,17 +30,17 @@ try {
 
     $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteMenubtn'])) {
-      $menu_id_to_delete = $_POST['deleteMenuId'];
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $deleteMenuId = $_POST['deleteMenuId'];
 
       $stmt = $pdo->prepare("
         DELETE FROM menus
-        WHERE id = :menu_id_to_delete
+        WHERE id = :deleteMenuId
       ");
       $stmt->execute([
-        'menu_id_to_delete' => $menu_id_to_delete,
+        'deleteMenuId' => $deleteMenuId
       ]);
-      header("Location: $menusPage?success");
+      header("Location: $menusPage");
       exit;
     }
 

@@ -12,7 +12,7 @@ try {
         WHERE id = :employeToDeleteId
       ");
       $stmt->execute([
-        'employeToDeleteId' => $employeToDeleteId,
+        'employeToDeleteId' => $employeToDeleteId
       ]);
       header("Location: $employesPage");
       exit;
