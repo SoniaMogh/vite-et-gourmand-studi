@@ -271,22 +271,23 @@
               class="modal fade"
               id="deleteMenusModal<?= $menu['id'] ?>"
               tabindex="-1"
-              aria-labelledby="exampleModalLabel"
+              aria-labelledby="areYouSureAboutThat"
               aria-hidden="true"
             >
               <div class="row modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-body p-3 p-sm-5">
-                    <h2 class="text-center text-warning">Etes vous certain de vouloir supprimer le menu <?= $menu['titre'] ?> ?</h2>
+                    <h2 class="text-center text-warning" id="areYouSureAboutThat">Etes vous certain de vouloir supprimer le menu <?= $menu['titre'] ?> ?</h2>
                     <div class="d-flex justify-content-center gap-4">
                       <form action="<?= BASE_URL ?>/monCompteEmploye/menusPost" method="post">
                         <input type="hidden" id="deleteMenuId" name="deleteMenuId" value="<?= $menu['id'] ?>">
+                        
                         <button 
                           class="btn btn-danger medium-button mt-4" 
                           type="submit"
                           name="deleteMenubtn"
                         >
-                          Supprimer
+                          Supprimer 
                         </button>
                       </form>
 
