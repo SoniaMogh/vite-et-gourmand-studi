@@ -104,6 +104,14 @@
               <div class="d-flex justify-content-center mb-4">
                 <button
                     type="button"
+                    class="btn btn-info medium-button me-5"
+                    data-bs-toggle="modal"
+                    data-bs-target="#editMenusModal<?= $menu['id'] ?>"
+                  >
+                    Modifier
+                  </button>
+                  <button
+                    type="button"
                     class="btn btn-danger medium-button"
                     data-bs-toggle="modal"
                     data-bs-target="#deleteMenusModal<?= $menu['id'] ?>"
@@ -261,6 +269,352 @@
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MODAL EDIT -->
+            <div
+              class="modal fade"
+              id="editMenusModal<?= $menu['id'] ?>"
+              tabindex="-1"
+              aria-labelledby="letsChange"
+              aria-hidden="true"
+            >
+              <div class="row modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-body p-3 p-sm-5">
+                    <h2 class="text-center text-warning" id="letsChange">Modifier le menu <?= $menu['titre'] ?> ?</h2>
+                    <div class="d-flex justify-content-center gap-4">
+                      <form action="<?= BASE_URL ?>/monCompteEmploye/menusPost" method="post" enctype="multipart/form-data">
+                        <input type="hidden" id="editMenuId" name="editMenuId" value="<?= $menu['id'] ?>">
+                        <div>
+                          <div class="col-10">
+                            <input type="file" name="imageMenu">
+                          </div>
+                          <div>
+                            <label for="editTitreMenu">Titre</label>
+                            <input
+                              class="w-100 form-control"
+                              type="text"
+                              id="editTitreMenu"
+                              name="editTitreMenu"
+                              value = "<?= htmlspecialchars($menu['titre']) ?>"
+                              required
+                            />
+                          </div>
+                          <div>
+                            <label for="editDescriptionMenu">Description</label>
+                            <textarea
+                              class="w-100 form-control"
+                              id="editDescriptionMenu"
+                              name="editDescriptionMenu"
+                              rows="3"
+                              required
+                            ><?= $menu['description'] ?></textarea>
+                          </div>
+                          <div class="mb-2 three-wrapper">
+                            <div>
+                              <label for="editNbrePersMin">Nombre de personne min </label>
+                              <input
+                                class="w-100 form-control"
+                                type="number"
+                                id="editNbrePersMin"
+                                name="editNbrePersMin"
+                                value = <?= $menu['nbre_pers_min'] ?>
+                                required
+                              />
+                            </div>
+                            <div>
+                              <label for="editPrixPers">Prix par personne</label>
+                              <input
+                                class="w-100 form-control"
+                                type="number"
+                                id="editPrixPers"
+                                name="editPrixPers"
+                                value = <?= $menu['prix_par_pers'] ?>
+                                required
+                              />
+                            </div>
+                            <div>
+                              <label for="editQuantiteMenu">Quantité</label>
+                              <input
+                                class="w-100 form-control"
+                                type="number"
+                                id="editQuantiteMenu"
+                                name="editQuantiteMenu"
+                                value = <?= $menu['quantite_restante'] ?>
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="mb-2 three-wrapper">
+
+                            <div>
+                              <?php
+
+                              $stmtEntree = $pdo->prepare("
+                                  SELECT *
+                                  FROM entrees
+                                  WHERE id = :id
+                                ");
+
+                                $stmtEntree->execute([
+                                  ':id' => $menu['entree_id']
+                                ]);
+
+                                $editEntrees = $stmtEntree->fetch(PDO::FETCH_ASSOC);
+
+                                $stmt = $pdo->prepare("
+                                  SELECT *
+                                  FROM entrees
+                                ");
+
+                                $stmt->execute();
+
+                                $entrees = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                              
+                              ?>
+
+
+                              <div class="form-display col">
+                                <label for="editEntreeMenu">Entrée</label>
+                                <select
+                                  name="editEntreeMenu"
+                                  id="editEntreeMenu"
+                                  class="w-100 form-control"
+                                >
+                                  <?php foreach ($entrees as $entree): ?>
+                                    <option value="<?= $entree['id'] ?>" <?= $entree['id'] == $editEntrees['id'] ? 'selected' : '' ?>>
+                                      <?= htmlspecialchars($entree['titre']) ?>
+                                  </option>
+                                  <?php endforeach; ?>
+                                </select>
+                                <button
+                                  type="button"
+                                  class="btn btn-primary large-button"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#ajoutEntree"
+                                >
+                                  Ajouter une entrée
+                                </button>
+                              </div>
+                            </div>
+
+                            <!-- --------------------------- PLAT ------------------------------ -->
+                            <div>
+                              <?php
+                                $stmtPlat = $pdo->prepare("
+                                    SELECT *
+                                    FROM plats
+                                    WHERE id = :id
+                                  ");
+
+                                  $stmtPlat->execute([
+                                    ':id' => $menu['plat_id']
+                                  ]);
+
+                                $editPlat = $stmtPlat->fetch(PDO::FETCH_ASSOC);
+
+
+                                $stmt = $pdo->prepare("
+                                  SELECT *
+                                  FROM plats
+                                ");
+
+                                $stmt->execute();
+
+                                $plats = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                              
+                              ?>
+
+
+                              <div class="form-display col">
+                                <label for="editPlatMenu">Plat principal</label>
+                                <select
+                                  name="editPlatMenu"
+                                  id="editPlatMenu"
+                                  class="w-100 form-control"
+                                >
+                                  <?php foreach ($plats as $plat): ?>
+                                    <option value="<?= $plat['id'] ?>" <?= $plat['id'] == $editPlat['id'] ? 'selected' : '' ?>>
+                                      <?= htmlspecialchars($plat['titre']) ?>
+                                    </option>
+                                  <?php endforeach; ?>
+                                </select>
+                                <button
+                                  type="button"
+                                  class="btn btn-primary large-button"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#ajoutPlat"
+                                >
+                                  Ajouter un plat
+                                </button>
+                              </div>
+                            </div>
+
+                            <!-- --------------------------- DESSERT ------------------------------ -->
+                            <div>
+                              <?php
+                                $stmtDessert = $pdo->prepare("
+                                    SELECT *
+                                    FROM desserts
+                                    WHERE id = :id
+                                  ");
+
+                                  $stmtDessert->execute([
+                                    ':id' => $menu['dessert_id']
+                                  ]);
+
+                                $editDessert = $stmtDessert->fetch(PDO::FETCH_ASSOC);
+
+                                $stmt = $pdo->prepare("
+                                  SELECT *
+                                  FROM desserts
+                                ");
+
+                                $stmt->execute();
+
+                                $desserts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                              
+                              ?>
+
+
+                              <div class="form-display col">
+                                <label for="editDessertMenu">Dessert</label>
+                                <select
+                                  name="editDessertMenu"
+                                  id="editDessertMenu"
+                                  class="w-100 form-control"
+                                >
+                                  <?php foreach ($desserts as $dessert): ?>
+                                    <option value="<?= $dessert['id'] ?>" <?= $dessert['id'] == $editDessert['id'] ? 'selected' : '' ?>>
+                                      <?= htmlspecialchars($dessert['titre']) ?>
+                                    </option>
+                                  <?php endforeach; ?>
+                                </select>
+                                <button
+                                  type="button"
+                                  class="btn btn-primary large-button"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#ajoutDessert"
+                                >
+                                  Ajouter un dessert
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- --------------------------- REGIME ------------------------------ -->
+                          <div>
+
+                            <?php
+
+                                $stmtRegime = $pdo->prepare("
+                                  SELECT *
+                                  FROM regimes
+                                  WHERE id = :id
+                                ");
+
+                                $stmtRegime->execute([
+                                  ':id' => $menu['regime_id']
+                                ]);
+
+                              $editRegime = $stmtRegime->fetch(PDO::FETCH_ASSOC);
+                              $stmt = $pdo->prepare("
+                                SELECT *
+                                FROM regimes
+                              ");
+
+                              $stmt->execute();
+
+                              $regimes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                            
+                            ?>
+
+
+                            <div class="form-display col">
+                              <label for="editRegimeMenu">Régimes</label>
+                              <select
+                                name="editRegimeMenu"
+                                id="editRegimeMenu"
+                                class="w-100 form-control"
+                              >
+                                <?php foreach ($regimes as $regime): ?>
+                                  <option value="<?= $regime['id'] ?>" <?= $regime['id'] == $editRegime['id'] ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($regime['libelle']) ?>
+                                  </option>
+                                <?php endforeach; ?>
+                              </select>
+                            </div>
+                          </div>
+
+                          <!-- --------------------------- THEME ------------------------------ -->
+                          <div>
+                            <?php
+                              $stmtTheme = $pdo->prepare("
+                                SELECT *
+                                FROM themes
+                                WHERE id = :id
+                              ");
+
+                              $stmtTheme->execute([
+                                ':id' => $menu['theme_id']
+                              ]);
+
+                              $editTheme = $stmtTheme->fetch(PDO::FETCH_ASSOC);
+                              $stmt = $pdo->prepare("
+                                SELECT *
+                                FROM themes
+                              ");
+
+                              $stmt->execute();
+
+                              $themes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                            ?>
+
+
+                            <div class="form-display col">
+                              <label for="editThemeMenu">Themes</label>
+                              <select
+                                name="editThemeMenu"
+                                id="editThemeMenu"
+                                class="w-100 form-control"
+                              >
+                                <?php foreach ($themes as $theme): ?>
+                                  <option value="<?= $theme['id'] ?>" <?= $theme['id'] == $editTheme['id'] ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($theme['libelle']) ?>
+                                  </option>
+                                <?php endforeach; ?>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                          
+                          
+                        <div class="d-flex justify-content-center gap-4">
+                          <button 
+                            class="btn btn-danger medium-button mt-4" 
+                            type="submit"
+                            name="editMenubtn"
+                          >
+                            Valider 
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-primary medium-button mt-4"
+                            data-bs-dismiss="modal"
+                          > 
+                            Annuler
+                          </button>
+                        </div>
+                      </form>
+
+
+                    </div>
+
                   </div>
                 </div>
               </div>
