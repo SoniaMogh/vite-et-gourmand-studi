@@ -25,7 +25,7 @@
     }
 
     if ($uri === "carteDesMenus") {
-      return "pages/globalMenuView.php";
+      return "controllers/globalMenuController.php";
     }
 
     if ($uri === "connexion") {
