@@ -13,7 +13,7 @@
 
     // Systeme de routage
     if ($uri === "") {
-      return "pages/home.php";
+      return "controllers/homeController.php";
     }
 
     if ($uri === "contact") {

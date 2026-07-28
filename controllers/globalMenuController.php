@@ -20,4 +20,4 @@ foreach ($menus as &$menu) { //& dit que $menu est relié à $menus
 }
 unset($menu);
 
-require __DIR__ . "/../views/globalMenuView2.php";
+require __DIR__ . "/../views/globalMenuView.php";
