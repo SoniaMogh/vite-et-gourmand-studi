@@ -17,11 +17,11 @@
     }
 
     if ($uri === "contact") {
-      return "pages/contact.php";
+      return "controllers/contactController.php";
     }
 
     if ($uri === "messageEnvoye") {
-      return "pages/databaseLink/contactPost.php";
+      return "controllers/postControllers/contactPostController.php";
     }
 
     if ($uri === "carteDesMenus") {
