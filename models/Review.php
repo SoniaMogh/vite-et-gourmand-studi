@@ -13,13 +13,7 @@ class Review
         $this->pdo = $pdo;
 
         // Connexion à MongoDB Atlas 
-        $client = new Client(
-            getenv('MONGODB_URI'),
-            [
-                'tls' => true,
-                'tlsDisableOCSPEndpointCheck' => true
-            ]
-        );
+        $client = new Client(getenv('MONGODB_URI'));
         
         // Base de données MongoDB 
         $db = $client->selectDatabase('vite_et_gourmand'); 
