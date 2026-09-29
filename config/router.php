@@ -13,19 +13,19 @@
 
     // Systeme de routage
     if ($uri === "") {
-      return "pages/home.php";
+      return "controllers/homeController.php";
     }
 
     if ($uri === "contact") {
-      return "pages/contact.php";
+      return "controllers/contactController.php";
     }
 
     if ($uri === "messageEnvoye") {
-      return "pages/databaseLink/contactPost.php";
+      return "controllers/postControllers/contactPostController.php";
     }
 
     if ($uri === "carteDesMenus") {
-      return "pages/globalMenuView.php";
+      return "controllers/globalMenuController.php";
     }
 
     if ($uri === "connexion") {

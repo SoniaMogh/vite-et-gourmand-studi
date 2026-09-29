@@ -1,31 +1,3 @@
-<?php
-  require __DIR__ . "/../config/database.php";
-  //Récupérer les menus 
-  $query = "
-    SELECT
-      menus.*,
-
-        entrees.titre AS entree_titre,
-        entrees.description AS entree_description,
-
-        plats.titre AS plat_titre,
-        plats.description AS plat_description,
-
-        desserts.titre AS dessert_titre,
-        desserts.description AS dessert_description
-      
-    FROM
-      menus
-    JOIN entrees ON menus.entree_id = entrees.id
-    JOIN plats ON menus.plat_id = plats.id
-    JOIN desserts ON menus.dessert_id = desserts.id
-  ";
-  $stmt = $pdo->prepare($query);
-  $stmt->execute();
-
-  $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
-
 <div id="globalMenuView">
   <div class="bigtitle bigtitle-global-view text-center text-white">
     <div class="bigtitle-content">
@@ -118,108 +90,59 @@
                       <div class="card card-corner p-0 bg-white mb-4">
                         <div class="p-4 py-5">
                           <div class="menu-info-text">
-
-                            <?php
-                              $stmt = $pdo->prepare("
-                                SELECT allergenes.libelle
-                                FROM entree_allergene
-                                JOIN allergenes ON allergenes.id = entree_allergene.allergene_id
-                                WHERE entree_allergene.entree_id = :id
-                              ");
-
-                              $stmt->execute([
-                                'id' => $menu['entree_id']
-                              ]);
-
-                              $entreeAllergenes = $stmt->fetchAll(PDO::FETCH_COLUMN);
-                            
-                            ?>
-
                             <div id="entrée">
                               <h4 class="text-center text-primary fw-bold">
                                 Entrée
                               </h4>
                               <h4 class="text-dark fw-bold mb-2">
-                                <?= $menu['entree_titre']?>
+                                <?= htmlspecialchars($menu['entree_titre'])?>
                               </h4>
                               <p class="lh-1 mb-0 ms-4">
-                                <?= $menu['entree_description']?>
+                                <?= htmlspecialchars($menu['entree_description'])?>
                               </p>
                               <p class="text-primary mb-0 ms-4 lh-1">
                                 <i class="bi bi-info-circle text-primary"></i>
-                                Allergènes: <?= implode(', ', $entreeAllergenes) ?>
+                                Allergènes: <?= implode(', ', $menu['entree_allergenes']) ?>
                               
                               </p>
                             </div>
-
-                            <?php
-                              $stmt = $pdo->prepare("
-                                SELECT allergenes.libelle
-                                FROM plat_allergene
-                                JOIN allergenes ON allergenes.id = plat_allergene.allergene_id
-                                WHERE plat_allergene.plat_id = :id
-                              ");
-
-                              $stmt->execute([
-                                'id' => $menu['plat_id']
-                              ]);
-
-                              $platAllergenes = $stmt->fetchAll(PDO::FETCH_COLUMN);
-                            
-                            ?>
                             
                             <div id="Plat-principal" class="mt-4">
                               <h4 class="text-center text-primary fw-bold">
                                 Plat
                               </h4>
                               <h4 class="text-dark fw-bold mb-2">
-                                <?= $menu['plat_titre']?>
+                                <?= htmlspecialchars($menu['plat_titre'])?>
                               </h4>
                               <p class="lh-1 mb-0 ms-4">
-                                <?= $menu['plat_description']?>
+                                <?= htmlspecialchars($menu['plat_description'])?>
                               </p>
                               <p class="text-primary mb-0 ms-4 lh-1">
                                 <i class="bi bi-info-circle text-primary"></i>
-                                Allergènes: <?= implode(', ', $platAllergenes) ?>
+                                Allergènes: <?= implode(', ', $menu['plat_allergenes']) ?>
                               </p>
                             </div>
-
-                            <?php
-                              $stmt = $pdo->prepare("
-                                SELECT allergenes.libelle
-                                FROM dessert_allergene
-                                JOIN allergenes ON allergenes.id = dessert_allergene.allergene_id
-                                WHERE dessert_allergene.dessert_id = :id
-                              ");
-
-                              $stmt->execute([
-                                'id' => $menu['dessert_id']
-                              ]);
-
-                              $dessertAllergenes = $stmt->fetchAll(PDO::FETCH_COLUMN);
-                            
-                            ?>
 
                             <div id="Dessert" class="mt-4">
                               <h4 class="text-center text-primary fw-bold">
                                 Dessert
                               </h4>
                               <h4 class="text-dark fw-bold mb-2">
-                                <?= $menu['dessert_titre']?>
+                                <?= htmlspecialchars($menu['dessert_titre'])?>
                               </h4>
                               <p class="lh-1 mb-0 ms-4">
-                                <?= $menu['dessert_description']?>
+                                <?= htmlspecialchars($menu['dessert_description'])?>
                               </p>
                               <p class="text-primary mb-0 ms-4 lh-1">
                                 <i class="bi bi-info-circle text-primary"></i>
-                                Allergènes: <?= implode(', ', $dessertAllergenes) ?>
+                                Allergènes: <?= implode(', ', $menu['dessert_allergenes']) ?>
                               </p>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="row justify-content-center">
-                        <?php if (!isset($_SESSION['user_id'])): ?>
+                        <?php if (!$isConnected): ?>
                           <button
                             type="button"
                             class="btn btn-primary large-button"
@@ -229,7 +152,7 @@
                             Commander
                           </button>
                         <?php endif ?>
-                        <?php if (isset($_SESSION['user_id'])): ?>
+                        <?php if ($isConnected): ?>
                           <a 
                             href="<?= BASE_URL ?>/commander?id=<?= $menu['id'] ?>" 
                             class="btn btn-primary large-button"
@@ -275,11 +198,9 @@
           class="form-display"
         >
           <div class="col-10 ">
-             <?php if (isset($_GET['error'])) { 
-              if ($_GET['error'] === 'mailIncorrect') {
+             <?php if ($mailIncorrect) {
                 echo "<p class='m-0 text-warning'>Utilisateur introuvable.</p>";
-              }
-            } ?>
+              } ?>
             
             <input
               class="mb-2 form-control"
@@ -291,11 +212,9 @@
             />
           </div>
           <div class="col-10">
-            <?php if (isset($_GET['error'])) { 
-              if ($_GET['error'] === 'mdpIncorrect') {
+            <?php if ($mdpIncorrect) {
                 echo "<p class='m-0 text-warning'>Mot de passe incorrect</p>";
-              }
-            } ?>
+              }?>
             <input
               class="form-control m-0"
               type="password"
