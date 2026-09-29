@@ -14,6 +14,9 @@ RUN docker-php-ext-install pdo_mysql mysqli
 RUN pecl install mongodb \
     && docker-php-ext-enable mongodb
 
+RUN php --ri mongodb
+RUN openssl version
+
 RUN a2enmod rewrite
 
 # IMPORTANT: autoriser Apache explicitement
