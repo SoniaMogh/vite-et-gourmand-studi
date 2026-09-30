@@ -10,9 +10,7 @@ $reviewsPage = BASE_URL . "/monCompteEmploye/staffAccountAvis";
 try {
 
     // Connexion à MongoDB
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../'); 
-    $dotenv->load();
-    $client = new Client($_ENV['MONGODB_URI']);
+    $client = new Client(getenv('MONGODB_URI'));
 
     $db = $client->selectDatabase('vite_et_gourmand');
     $collection = $db->selectCollection('reviews');
