@@ -11,7 +11,7 @@
           <h1 class="text-primary pb-4">Créez votre compte</h1>
         </div>
         <form
-          action="<?= BASE_URL ?>/signupPost"
+          action="<?= BASE_URL ?>/signupController"
           method="post"
           class="form-display"
         >
