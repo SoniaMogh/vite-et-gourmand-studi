@@ -1,68 +1,73 @@
-<?php 
-  require __DIR__ . "/../../config/database.php";
-  $reviewsPage = BASE_URL . "/monCompteEmploye/staffAccountAvis";
+<?php
 
-  try {
+use MongoDB\Client;
+use MongoDB\BSON\ObjectId;
 
-    $query = "
-      SELECT
-        avis.*,
-        users.nom,
-        users.prenom
-      FROM
-        avis
-      JOIN users ON avis.user_id = users.id
-    ";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute();
+require __DIR__ . "/../../vendor/autoload.php";
 
-    $tousAvis = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$reviewsPage = BASE_URL . "/monCompteEmploye/staffAccountAvis";
+
+try {
+
+    // Connexion à MongoDB
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../'); 
+    $dotenv->load();
+    $client = new Client($_ENV['MONGODB_URI']);
+
+    $db = $client->selectDatabase('vite_et_gourmand');
+    $collection = $db->selectCollection('reviews');
 
 
+    // Si on valide un avis
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accepteReview'])) {
-      $reviewToUpdate = $_POST['reviewToUpdate'];
-      $accepte = true;
 
-      $query = "
-        UPDATE
-          avis
-        SET
-          status = :status
-        WHERE
-          id = :id
-      ";
-      $stmt = $pdo->prepare($query);
-      $stmt->bindParam(':status', $accepte);
-      $stmt->bindParam(':id', $reviewToUpdate);
-      $stmt->execute();
+        $reviewToUpdate = new ObjectId($_POST['reviewToUpdate']);
 
-      header("Location: $reviewsPage");
-      exit;
+        $collection->updateOne(
+            ['_id' => $reviewToUpdate],
+            ['$set' => ['status' => '1']]
+        );
+
+        header("Location: $reviewsPage");
+        exit;
     }
 
+
+    // Si on retire un avis
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['hideReview'])) {
-      $reviewToUpdate = $_POST['reviewToUpdate'];
-      $hide = 0;
 
-      $query = "
-        UPDATE
-          avis
-        SET
-          status = :status
-        WHERE
-          id = :id
-      ";
-      $stmt = $pdo->prepare($query);
-      $stmt->bindParam(':status', $hide);
-      $stmt->bindParam(':id', $reviewToUpdate);
-      $stmt->execute();
-      header("Location: $reviewsPage");
-      exit;
+        $reviewToUpdate = new ObjectId($_POST['reviewToUpdate']);
+
+        $collection->updateOne(
+            ['_id' => $reviewToUpdate],
+            ['$set' => ['status' => '0']]
+        );
+
+        header("Location: $reviewsPage");
+        exit;
     }
 
 
+    // Récupération de tous les avis
+    $reviews = $collection->find();
 
-  } catch (PDOException $e){
+    $tousAvis = [];
+
+    foreach ($reviews as $avis) {
+
+        $tousAvis[] = [
+          'id' => (string) $avis['_id'],
+          'name' => $avis['name'],
+          'date' => $avis['date'],
+          'review' => $avis['review'],
+          'stars' => (int) $avis['stars'],
+          'status' => (int) $avis['status']
+        ];
+    }
+
+
+} catch (Exception $e) {
+
     error_log($e->getMessage());
     echo "Erreur serveur";
     exit;

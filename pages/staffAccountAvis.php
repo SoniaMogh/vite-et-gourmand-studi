@@ -73,11 +73,11 @@
             >
               <div class="m-1 w-100 list-item-mobile-display">
                 <h2 class="fw-bold text-dark">
-                  <?= $avis['prenom'] ?> <?=$avis['nom']?>
+                  <?= $avis['name']?>
                 </h2>
-                <h4 class="text-primary"><?=$avis['created_at']?></h4>
+                <h4 class="text-primary"><?=$avis['date']?></h4>
                 <p class="m-0 lh-1 text-primary comment-mobile-display">
-                  <?=$avis['commentaire']?>           
+                  <?=$avis['review']?>           
                 </p>
                 <p class="mt-2">
                   <?php
