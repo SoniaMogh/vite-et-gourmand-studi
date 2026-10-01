@@ -37,11 +37,11 @@
     }
 
     if ($uri === "inscription") {
-      return "pages/signup.php";
+      return "views/signup.php";
     }
 
-    if ($uri === "signupPost") {
-      return "pages/databaseLink/signupPost.php";
+    if ($uri === "signupController") {
+      return "controllers/userController.php";
     }
 
     if ($uri === "MotDePasseOublie") {
