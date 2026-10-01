@@ -49,6 +49,10 @@
       return "controllers/userController.php";
     }
 
+    if ($uri === "signupPost") {
+      return "controllers/UserController.php";
+    }
+
     if ($uri === "MotDePasseOublie") {
       return "pages/forgotPassword.php";
     }
