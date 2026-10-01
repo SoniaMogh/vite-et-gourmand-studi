@@ -4,6 +4,7 @@
 
 # Environnement
 .env
+config/database.php
 
 # Les dépendances
 node_modules
@@ -11,3 +12,4 @@ vendor
 
 # Tests
 filter.html
+

@@ -24,22 +24,14 @@ body {
 body {
   display: flex;
   flex-direction: column;
+  color: black !important;
 }
 
 // Prend toute la place disponible dans le conteneur
 #main-page {
   position: relative;
   flex: 1;
-  &::before {
-    content: '';
-    inset: 0;
-    background-color: $light-bg-subtle;
-    position: absolute;
-  }
-
-  > * {
-    position: relative;
-  }
+  background-color: $light-bg-subtle;
 }
 
 #main-page-order {
