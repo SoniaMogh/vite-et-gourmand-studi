@@ -4,7 +4,7 @@ require __DIR__ . "/../config/database.php";
 require __DIR__ . "/../models/Review.php";
 
 
-$reviewModel = new Review($pdo);
+$reviewModel = new Review();
 
 
 $reviews = $reviewModel->getAllReviews();
