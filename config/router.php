@@ -46,7 +46,7 @@
     }
 
     if ($uri === "signupController") {
-      return "controllers/userController.php";
+      return "controllers/UserController.php";
     }
 
     if ($uri === "signupPost") {
