@@ -91,7 +91,9 @@ function initReviewCarousel() {
     var carouselInner = document.querySelector(
       '#review-carousel .carousel-inner',
     );
-    var cardWidth = document.querySelector('.carousel-item').offsetWidth; // Trouve la taille d'une carte
+    var cardWidth = document.querySelector(
+      '#review-carousel .carousel-item',
+    ).offsetWidth; // Trouve la taille d'une carte
     var scrollPosition = 0; // Première carte
 
     // Trouve le bouton suivant et scroll à droite tant qu'il y a des cartes
