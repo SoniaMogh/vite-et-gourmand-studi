@@ -4,13 +4,11 @@ use MongoDB\Client;
 
 class Review
 {
-    private $pdo; //On le garde pour futur modification (création de table dans la BDD)
     private $collection;
 
 
-    public function __construct($pdo)
+    public function __construct()
     {
-        $this->pdo = $pdo;
 
         // Connexion à MongoDB Atlas 
         $client = new Client(getenv('MONGODB_URI'));

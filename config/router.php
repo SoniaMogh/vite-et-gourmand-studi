@@ -16,6 +16,11 @@
       return "controllers/homeController.php";
     }
 
+    if ($uri === "api/reviews") {
+      return "controllers/api/reviewsApi.php";
+      
+    }
+
     if ($uri === "contact") {
       return "controllers/contactController.php";
     }
@@ -42,6 +47,10 @@
 
     if ($uri === "signupController") {
       return "controllers/userController.php";
+    }
+
+    if ($uri === "signupPost") {
+      return "controllers/UserController.php";
     }
 
     if ($uri === "MotDePasseOublie") {

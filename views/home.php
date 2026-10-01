@@ -134,42 +134,12 @@
         </div>
 
         <div id="review-carousel" class="carousel align-items-center">
-          <div class="carousel-inner">
-            <?php foreach ($reviews as $index => $review): ?>
-              <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
-                  <div class="card rounded">
-                      <div class="card-body">
-
-                        <div class="row align-items-center">
-                          <img src="<?= $review['img'] ?>"
-                              class="rounded-circle mb-3 w-25 h-25 col-6"
-                              alt="Client Avatar">
-                          <div class="col-6">
-                            <h5 class="card-title m-0"><?= $review['name'] ?></h5>
-                            <p class="card-text text-muted m-0"><?= $review['date'] ?></p>
-                          </div>
-                        </div>
-
-                        <div class="text-warning mb-2">
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                        </div>
-
-                        <p class="card-text clamp-text" id="review-<?= $index ?>">
-                          <?= htmlspecialchars($review['review']) ?>
-                        </p>
-
-                        <button class="card-text text-muted btn p-0 m-0 toggle-review-card-btn" onclick="toggleText(<?= $index ?>)">
-                          Voir plus
-                        </button>
-
-                      </div>
-                  </div>
+          <div class="carousel-inner" id="reviews-container">
+            <div id="reviews-loader" class="text-center py-5">
+              <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Chargement...</span>
               </div>
-            <?php endforeach; ?>
+            </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#review-carousel" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
