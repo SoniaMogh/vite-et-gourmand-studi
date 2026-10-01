@@ -3,9 +3,14 @@
   session_start();
   require "config/config.php";
   require "config/router.php"; 
+  if ($_SERVER['REQUEST_URI'] === '/api/reviews') {
+    require "controllers/api/reviewsApi.php";
+    exit;
+  }
 
   $currentPage = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
   $page = get_page();
+  
 ?>
 <!doctype html>
 <html lang="en">

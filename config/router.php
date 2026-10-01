@@ -16,6 +16,11 @@
       return "controllers/homeController.php";
     }
 
+    if ($uri === "api/reviews") {
+      return "controllers/api/reviewsApi.php";
+      
+    }
+
     if ($uri === "contact") {
       return "controllers/contactController.php";
     }
